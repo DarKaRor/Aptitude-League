@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3278559393a593a4b95080abd6bd2401
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - container: {instanceID: 0}
+  - bubble: {instanceID: 0}
+  - bubbleText: {instanceID: 0}
+  - mainMenu: {instanceID: 0}
+  - voice: {fileID: 8300000, guid: 2bdde987979001644afe350c1a4901ec, type: 3}
+  - anyKey: {instanceID: 0}
+  - viviUI: {instanceID: 0}
+  executionOrder: 200
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
