@@ -9,7 +9,11 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
-/[Aa]ssets/Resources
+/[Aa]ssets/Resources/**/*.png
+/[Aa]ssets/Resources/**/*.wav
+/[Aa]ssets/Resources/**/*.mp3
+/[Aa]ssets/Resources/**/*.ogg
+/[Aa]ssets/Resources/**/*.jpg
 /[Aa]ssets/TextMesh Pro
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
