@@ -185,7 +185,7 @@ public class Variables
 
     public static Song[] songs = new Song[]
     {
-        new Song("toreador","FNAF/",12, 1.5f)
+        new Song("toreador","FNAF/", 1.5f)
     };
 
     public static string SSPath = "ExtremeSS/";

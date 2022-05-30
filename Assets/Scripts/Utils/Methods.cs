@@ -78,9 +78,13 @@ public static class Methods
     public static AudioClip[] GetClipsFromSong(Song song)
     {
         List<AudioClip> audioClips = new List<AudioClip>();
-        for(int i = 2; i<=song.amount; i++)
-        {
-            audioClips.Add(loadAudio($"{song.path}{song.name}-{i.ToString("00")}"));
+        bool wasEmpty = false;
+        int i = 1;
+        while (!wasEmpty) { 
+            AudioClip current = loadAudio($"{song.path}{song.name}-{i.ToString("00")}");
+            i++;
+            wasEmpty = current == null;
+            if (!wasEmpty) audioClips.Add(current);
         }
         return audioClips.ToArray();
     }
