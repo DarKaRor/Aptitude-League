@@ -174,6 +174,7 @@ public class Variables
         new Note(new NoteSound(Methods.loadAudio(flutePath+"FluteFMed"),null),"FFm"),
     };
 
+
     public static Dictionary<KeyCode, Sprite> keySprites = new()
     {
         { KeyCode.Space, Methods.loadSprite(keySpritesPath + "SpaceBar") },

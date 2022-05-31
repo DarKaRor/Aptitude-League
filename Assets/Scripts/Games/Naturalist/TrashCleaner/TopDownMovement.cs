@@ -7,7 +7,7 @@ using UnityEngine;
 public class TopDownMovement : MonoBehaviour
 {
 
-    float speed = 5f;
+    [HideInInspector] public float speed = 5f;
     Vector2 dir;
     Rigidbody2D rb;
     SpriteRenderer renderer;

@@ -94,5 +94,11 @@ public static class Methods
     public static bool FlipCoin() => Random.Range(0, 2) == 0;
 
     public static bool Roll(int number) => Random.Range(1, 101) <= number;
-    
+
+    public static TV GetValue<TK, TV>(this IDictionary<TK, TV> dict, TK key, TV defaultValue = default(TV))
+    {
+        TV value;
+        return dict.TryGetValue(key, out value) ? value : defaultValue;
+    }
+
 }

@@ -2,28 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TrashTile : MonoBehaviour
 {
     public Collectables type = Collectables.None;
-    public bool isPowerUp = false;
     void Start()
     {
-        if (Methods.FlipCoin())
+        if (true)
         {
             type = Collectables.Trash;
             if (Methods.Roll(10)) GetPowerUp();
+
+            GameObject collectableObj = Instantiate(TrashCleaner.instance.collectablePrefab, transform);
+            collectableObj.transform.localPosition = Vector3.zero;
+            Collectable collectable = collectableObj.GetComponent<Collectable>();
+            collectable.type = type;
         }
-    }
-
-    void Update()
-    {
-
     }
 
     void GetPowerUp()
     {
-
-        isPowerUp = true;
         if (Methods.Roll(10))
         {
             type = Collectables.Collision;

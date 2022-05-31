@@ -15,26 +15,91 @@ public class TrashCleaner : MonoBehaviour
 {
     public static TrashCleaner instance;
 
-    public Collectables[] powerUps = new Collectables[]
-    {
-        Collectables.Speed,
-        Collectables.Magnet,
-        Collectables.Collision
-    };
+    int gameId = 11;
+    [SerializeField] Sprite trash;
+    [SerializeField] Sprite magnet;
+    [SerializeField] Sprite collision;
+    [SerializeField] Sprite speed;
+    [SerializeField] public GameObject collectablePrefab;
+    [SerializeField] AudioClip powerUpAudio;
+    [SerializeField] AudioClip trashAudio;
+    [SerializeField] Clock clock;
+    public List<Collectable> collectables;
+    public int collected = 0;
+    bool isWinning = false;
+    bool canCount = false;
 
-    Sprite[] collectableSprites;
 
+    public Dictionary<Collectables, Sprite> collectableSprites;
 
     private void Awake() => instance = instance ? instance : this;
     
     void Start()
     {
-       
+        GameManager.sharedInstance.currentGame = gameId;
+       collectableSprites = new()
+       {
+           { Collectables.Trash, trash },
+           { Collectables.Magnet, magnet },
+           { Collectables.Collision, collision },
+           { Collectables.Speed, speed},
+       };
+
+        StartCoroutine(WaitABitForCounting());
+        clock.Start();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(canCount) if(collectables.Count <= 0 && !isWinning) StartCoroutine(Win());
+        UpdateTimer();
+    }
+
+    void UpdateTimer()
+    {
+        if(clock.Update() == 1)
+        {
+            clock.Stop();
+            StartCoroutine(Lose());
+        }
+    }
+
+    public Sprite GetCollectableSprite(Collectables type) => Methods.GetValue(collectableSprites, type);
+
+    IEnumerator Lose()
+    {
+        GameManager.sharedInstance.PlayAudioLose();
+        foreach (Collectable collectable in FindObjectsOfType<Collectable>()) collectable.gameObject.SetActive(false);
+        FindObjectOfType<TCPlayer>().StopAllCoroutines();
+        GameManager.sharedInstance.LowerVolume();
+        yield return new WaitForSeconds(3);
+        GameManager.sharedInstance.GameOver();
+
+    }
+    IEnumerator Win()
+    {
+        isWinning = true;
+        GameManager.sharedInstance.PlayAudioWin(1);
+        clock.Stop();
+        GameManager.sharedInstance.LowerVolume();
+        yield return new WaitForSeconds(3);
+        GameManager.sharedInstance.LoadCurrentOrRandom();
+    }
+
+    IEnumerator WaitABitForCounting()
+    {
+        yield return new WaitForSeconds(1);
+        canCount = true;
+    }
+    public void GetTrash()
+    {
+        GameManager.sharedInstance.PlayEffect(trashAudio);
+        collected++;
+        if(collected % 20 == 0) clock.AddTime(5);
+    }
+
+    public void GetPowerUp()
+    {
+        GameManager.sharedInstance.PlayEffect(powerUpAudio);
     }
 }

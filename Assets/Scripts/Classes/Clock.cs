@@ -22,6 +22,7 @@ public class Clock
         tickAudio = target.AddComponent<AudioSource>();
         tickAudio.clip = sound;
         originalChanger = timer.changer;
+        outputText.color = color;
     }
 
     public int Update()
@@ -67,4 +68,16 @@ public class Clock
 
     public bool CheckTrigger() => timer.current >= timer.max - triggerSecond;
     public void Resume() => stop = false;
+
+    public void AddTime(float time)
+    {
+        if (timer.current - time < 0)
+        {
+            timer.max += time - timer.current;
+            timer.current = 0;
+            return;
+        }
+        timer.current = timer.current - time;
+        if (!CheckTrigger()) StopTrigger();
+    }
 }

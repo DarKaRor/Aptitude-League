@@ -92,7 +92,7 @@ public class ExtremeSimonSays : MonoBehaviour
         if (copy == pattern && !items.Raise())
         {
             GameManager.sharedInstance.PlayAudioWin();
-            AddTime(3);
+            clock.AddTime(3);
             copy = "";
             AddRandomKeyPattern();
             StartCoroutine(Play(2));
@@ -104,7 +104,7 @@ public class ExtremeSimonSays : MonoBehaviour
             speed -= speed * 0.1f;
             ResetDisplay();
             GameManager.sharedInstance.PlayAudioWin(1);
-            AddTime(8);
+            clock.AddTime(8);
             clock.Stop();
             if (rounds.Raise())  GameManager.sharedInstance.LoadRandomGame();
             if (rounds.current >= 2)
@@ -119,18 +119,6 @@ public class ExtremeSimonSays : MonoBehaviour
         return true;
     }
 
-    void AddTime(float time)
-    {
-
-        if(clock.timer.current - time < 0)
-        {
-            clock.timer.max += time - clock.timer.current;
-            clock.timer.current = 0;
-            return;
-        }
-        clock.timer.current = clock.timer.current - time;
-        if (!clock.CheckTrigger()) clock.StopTrigger();
-    }
 
     void SetEnableButtons(bool enable = true)
     {

@@ -242,6 +242,36 @@ public class GameDataLog
         },
         "Reacciona"
         );
+        new GameData(
+        GameType.Lives,
+        "Limpia el laberinto",
+        "Tienes que limpiar toda la basura que se encuentra en el laberinto antes de que se acabe el tiempo, en el camino puede que te encuentres objetos que te ayuden en tu tarea",
+        "TrashCleaner",
+        new Dialogue[]
+        {
+                    new Dialogue(
+                        new Paragraph[]
+                        {
+                            new Paragraph("Tienes que recoger todas las bolsas de basura antes de que acabe el tiempo",null),
+                            new Paragraph("Si logras recoger algunas bolsas de basura, el tiempo aumtentará permitiendote recoger más.",ViviSprites.GetSprite(ViviSprite.Happy)),
+                        }
+                    ),
+                    new Dialogue(
+                        new Paragraph[]
+                        {
+                           new Paragraph("La ventaja que hayas obtenido por algún objeto terminará aproximadamente en 10 segundos", ViviSprites.GetSprite(ViviSprite.Explain1))
+                        }
+                    ),
+                    new Dialogue(
+                        new Paragraph[]
+                        {
+                           new Paragraph("Si ya tienes un objeto, procura no utilizar otro del mismo tipo hasta que se te acabe el actual, de esa manera no lo desperdiciarás.", ViviSprites.GetSprite(ViviSprite.Explain1))
+                        }
+                    ),
+        },
+        "Limpia",
+        "11. Limpia El Laberinto"
+        );
 
     }
 }
