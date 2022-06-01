@@ -22,6 +22,9 @@ public class MusicalMemory : MonoBehaviour
     Counter songs = new Counter(2);
     Counter chances = new Counter(3);
 
+    int lastCount = 0;
+    string lastNote = "";
+
     private void Awake() => instance = instance ? instance : this;
     void Start()
     {
@@ -154,7 +157,28 @@ public class MusicalMemory : MonoBehaviour
     void AddRandomKeyPattern() => AddRandomKey(ref pattern);
     void AddKeyCopy(string key) => AddKey(key, ref copy);
     void AddKey(string key, ref string to) => to += key + "/";
-    void AddRandomKey(ref string to) => AddKey(GetRandomKey(), ref to);
+    void AddRandomKey(ref string to)
+    {
+        // Revisando que la tecla no se haya repetido más de 2 veces.
+        string newKey = GetRandomKey();
+        bool equal = newKey == lastNote;
+        if (!equal)
+        {
+            lastNote = newKey;
+            lastCount = 0;
+        }
+        else lastCount++;
+        if (lastCount > 1)
+        {
+            int index = 0;
+            index = codes.ToList().FindIndex(0, i => i == newKey)+1;
+            if (index == -1 || index >= codes.Length) index = 0;
+            newKey = codes[index];
+            lastNote = newKey;
+            lastCount = 0;
+        }
+        AddKey(newKey, ref to);
+    }
     string GetRandomKey() => Methods.GetRandomElement(codes);
 
 }

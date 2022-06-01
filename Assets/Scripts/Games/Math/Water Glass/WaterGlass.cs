@@ -61,7 +61,8 @@ public class WaterGlass : MonoBehaviour
         switch (typewritter.Update())
         {
 
-            case TypeWritterAction.Sent:    
+            case TypeWritterAction.Sent:
+                if (number.text == "?" && typewritter.lastChar == '0') break;
                 typewritter.Type();
                 break;
             case TypeWritterAction.Return:

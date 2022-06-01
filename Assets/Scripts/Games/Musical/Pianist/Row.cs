@@ -22,6 +22,12 @@ public class Row : MonoBehaviour
     void GetBlackTile()
     {
         int column = Random.Range(0, 4);
+        if (!Pianist.instance.CheckColumn(column))
+        {
+            column++;
+            if (column > 3) column = 0;
+            Pianist.instance.CheckColumn(column);
+        }
         Tile tile = tiles[column];
         tile.type = TileType.Black;
     }

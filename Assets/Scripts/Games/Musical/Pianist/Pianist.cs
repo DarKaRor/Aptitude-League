@@ -28,6 +28,8 @@ public class Pianist : MonoBehaviour
     int maxRows = 20;
     int maxPoints = 50;
     public bool lost = false;
+    int lastColumn = -1;
+    int lastCount = 0;
 
 
     private void Awake() => instance = instance ? instance : this;
@@ -136,6 +138,18 @@ public class Pianist : MonoBehaviour
         lost = true;
         yield return new WaitForSeconds(2);
         GameManager.sharedInstance.GameOver();
+    }
+
+    public bool CheckColumn(int column)
+    {
+        bool equal = column == lastColumn;
+        if (!equal)
+        {
+            lastColumn = column;
+            lastCount = 0;
+        }
+        else lastCount++;
+        return lastCount < 2 || !equal;
     }
 
 
