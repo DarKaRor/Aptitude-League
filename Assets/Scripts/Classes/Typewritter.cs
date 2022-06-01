@@ -36,6 +36,7 @@ public class Typewritter
     public void Start()
     {
         audio = GameManager.sharedInstance.gameObject.GetComponent<AudioSource>();
+        Debug.Log(audio);
         if(types) output.text = defaultString;
     }
     
@@ -60,7 +61,6 @@ public class Typewritter
                 // Si forma parte de los carácters aceptados
                 bool shouldSend = false;
                 string key = ReplaceAll(vKey.ToString(), replacements);
-                Debug.Log(key);
 
                 key = checkLower ? key.ToLower() : key;
 

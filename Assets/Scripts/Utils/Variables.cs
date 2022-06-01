@@ -214,5 +214,27 @@ public class Variables
         new SimonItem("Diamante",Methods.loadAudio($"{SSPath}Diamante"),Methods.loadSprite($"{SSPath}diamond")),
     };
 
+    public static Identify[] animalItems = new Identify[]
+    {
+        new Identify(
+            new string[]
+            {
+                "perro",
+                "cachorro",
+                "canino",
+                "can"
+            },
+            null,null,"Woof, woof!"
+        ),
+        new Identify(
+            new string[]
+            {
+                "gato",
+                "felino"
+            },
+            null,null,"Miau"
+        )
+    };
+
 
 }
