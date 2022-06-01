@@ -17,13 +17,14 @@ public class TrashCleaner : MonoBehaviour
 
     int gameId = 11;
     [SerializeField] Sprite trash;
-    [SerializeField] Sprite magnet;
-    [SerializeField] Sprite collision;
-    [SerializeField] Sprite speed;
+    [SerializeField] public Sprite magnet;
+    [SerializeField] public Sprite collision;
+    [SerializeField] public Sprite speed;
     [SerializeField] public GameObject collectablePrefab;
     [SerializeField] AudioClip powerUpAudio;
     [SerializeField] AudioClip trashAudio;
     [SerializeField] Clock clock;
+    [SerializeField] public CircleTimer[] timers;
     public List<Collectable> collectables;
     public int collected = 0;
     bool isWinning = false;
@@ -101,5 +102,28 @@ public class TrashCleaner : MonoBehaviour
     public void GetPowerUp()
     {
         GameManager.sharedInstance.PlayEffect(powerUpAudio);
+    }
+
+    public int ActivateTimer(Sprite sprite, float time)
+    {
+        Debug.Log("Tried to activate timer");
+        int index = -1;
+        for(int i = 0; i < timers.Length; i++)
+        {
+            if (!timers[i].gameObject.activeSelf)
+            {
+                index = i;
+                break;
+            }
+        }
+        if (index == -1) return index;
+
+        CircleTimer timer = timers[index];
+        timer.gameObject.SetActive(true);
+        timer.itemImage.sprite = sprite;
+        timer.time.max = time;
+        timer.ResetTimer();
+        
+        return index;
     }
 }

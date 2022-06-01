@@ -11,8 +11,11 @@ public class TopDownMovement : MonoBehaviour
     Vector2 dir;
     Rigidbody2D rb;
     SpriteRenderer renderer;
-    [SerializeField] Sprite[] walkSprites;
-    [SerializeField] Sprite standing;
+    [SerializeField] WalkAnim downAnim;
+    [SerializeField] WalkAnim leftAnim;
+    [SerializeField] WalkAnim upAnim;
+    WalkAnim current = null;
+    WalkAnim lastCurrent = null;
     float x;
     float y;
     Coroutine anim;
@@ -22,7 +25,8 @@ public class TopDownMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         renderer = transform.Find("GFX").GetComponent<SpriteRenderer>();
-        StartCoroutine(PlayAnimation());
+        renderer.sprite = downAnim.idle;
+        lastCurrent = current;
     }
 
     void Update()
@@ -31,15 +35,29 @@ public class TopDownMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
+        float generalMovement = Mathf.Abs(dir.x) + Mathf.Abs(dir.y);
 
 
-        if(dir.x != 0) renderer.flipX = dir.x < 0;
+        if (generalMovement != 0)
+        {
+            if (dir.x != 0) renderer.flipX = dir.x < 0;
+            if (dir.y == 0 && dir.x != 0) current = leftAnim;
+            else
+            {
+                renderer.flipX = false;
+                current = dir.y > 0 ? upAnim : downAnim;
+            }
+        }
+
+
 
         dir = new Vector2(x, y).normalized;
 
-        if ((dir.x != 0 || dir.y !=0) && anim == null)
+        if ((generalMovement != 0 && anim == null) || current != lastCurrent)
         {
+            if (anim != null) StopCoroutine(anim);
             anim = StartCoroutine(PlayAnimation());
+            lastCurrent = current;
         }
     }
 
@@ -51,14 +69,14 @@ public class TopDownMovement : MonoBehaviour
     IEnumerator PlayAnimation()
     {
         int i = 0;
-        while(dir.x != 0 || dir.y != 0)
+        while (dir.x != 0 || dir.y != 0)
         {
-            renderer.sprite = walkSprites[i];
+            if (i == current.walk.Length) i = 0;
+            renderer.sprite = current.walk[i];
             i++;
-            if (i == walkSprites.Length) i = 0;
             yield return new WaitForSeconds(0.2f);
         }
-        renderer.sprite = standing;
+        renderer.sprite = current.idle;
         anim = null;
     }
 }

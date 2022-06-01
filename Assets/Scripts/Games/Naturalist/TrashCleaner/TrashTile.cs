@@ -11,7 +11,7 @@ public class TrashTile : MonoBehaviour
         if (true)
         {
             type = Collectables.Trash;
-            if (Methods.Roll(10)) GetPowerUp();
+            if (Methods.Roll(5)) GetPowerUp();
 
             GameObject collectableObj = Instantiate(TrashCleaner.instance.collectablePrefab, transform);
             collectableObj.transform.localPosition = Vector3.zero;

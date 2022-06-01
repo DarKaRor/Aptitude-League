@@ -17,7 +17,10 @@ public class TCPlayer : MonoBehaviour
     TopDownMovement movement;
     bool isMagnet = false;
     float maxDistance = 2f;
-    
+
+    int magnetIndex = -1;
+    int collisionIndex = -1;
+    int speedIndex = -1;
    
     void Start()
     {
@@ -75,24 +78,36 @@ public class TCPlayer : MonoBehaviour
     IEnumerator Magnet()
     {
         isMagnet = true;
-        yield return new WaitForSeconds(10f);
+        float time = 13f;
+        if (magnetIndex != -1) TrashCleaner.instance.timers[magnetIndex].ResetTimer();
+        else magnetIndex = TrashCleaner.instance.ActivateTimer(TrashCleaner.instance.magnet, time);
+        yield return new WaitForSeconds(time);
         isMagnet = false;
         magnetCoroutine = null;
+        magnetIndex = -1;
     }
 
     IEnumerator Speed()
     {
         movement.speed = speedVal.max;
-        yield return new WaitForSeconds(10f);
+        float time = 16f;
+        if (speedIndex != -1) TrashCleaner.instance.timers[speedIndex].ResetTimer();
+        else speedIndex = TrashCleaner.instance.ActivateTimer(TrashCleaner.instance.speed, time);
+        yield return new WaitForSeconds(time);
         movement.speed = speedVal.min;
         speedCoroutine = null;
+        speedIndex = -1;
     }
 
     IEnumerator Collision()
     {
         collider2d.gameObject.layer = noCollide;
-        yield return new WaitForSeconds(10f);
+        float time = 10f;
+        if (collisionIndex != -1) TrashCleaner.instance.timers[collisionIndex].ResetTimer();
+        else collisionIndex = TrashCleaner.instance.ActivateTimer(TrashCleaner.instance.collision, time);
+        yield return new WaitForSeconds(time);
         collider2d.gameObject.layer = defMask;
         collisionCoroutine = null;
+        collisionIndex = -1;
     }
 }

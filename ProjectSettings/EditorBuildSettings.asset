@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/FreeplayMenu.unity
     guid: 20a0210c7c0d21c45817063d4048a89e
   - enabled: 1
+    path: Assets/Scenes/Games/Naturalist/TrashCleaner/TrashCleaner.unity
+    guid: b9699493d7fe7b548b451b0f225373fd
+  - enabled: 1
     path: Assets/Scenes/Games/Bodily-Kinesthetic/ExtremeSS.unity
     guid: d841141b7e8eb40499b52bbf998ff44a
   - enabled: 1

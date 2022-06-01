@@ -34,6 +34,7 @@ public class ExtremeSimonSays : MonoBehaviour
     void Start()
     {
         GameManager.sharedInstance.currentGame = gameId;
+        Invoke("ForceLowVolume", 1f);
         clock.Start();
 
         foreach(string name in new string[] { "Rojo", "Azul", "Verde", "Amarillo"})
@@ -62,6 +63,11 @@ public class ExtremeSimonSays : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(Lost());
         }
+    }
+
+    void ForceLowVolume()
+    {
+        GameManager.sharedInstance.music.volume = 0.2f;
     }
 
     public void PressButton(SimonItem item)
@@ -177,6 +183,7 @@ public class ExtremeSimonSays : MonoBehaviour
         lost = true;
         SetEnableButtons(false);
         TVtext.text = "Perdiste.";
+        GameManager.sharedInstance.LowerVolume();
         GameManager.sharedInstance.PlayAudioLose();
         yield return new WaitForSeconds(waitTime);
         GameManager.sharedInstance.GameOver();
