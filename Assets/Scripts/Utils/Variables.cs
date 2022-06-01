@@ -224,15 +224,55 @@ public class Variables
                 "canino",
                 "can"
             },
-            null,null,"Woof, woof!"
+            "dog","Woof, woof!"
         ),
         new Identify(
             new string[]
             {
                 "gato",
-                "felino"
+                "felino",
+                "minino",
+                "micho"
             },
-            null,null,"Miau"
+            "cat","Miau"
+        ),
+        new Identify(
+            new string[]
+            {
+                "loro",
+                "cacatua",
+                "papagayo",
+                "cotorro",
+                "cotorra",
+                "perico"
+            },
+            "loro",null
+        ),
+    };
+
+
+    public static Identify[] emotionItems = new Identify[]
+    {
+        new Identify(
+            new string[]
+            {
+                "felicidad",
+                "feliz",
+                "alegria",
+                "alegre"
+            },
+            "feliz"
+        ),
+        new Identify(
+            new string[]
+            {
+                "tristeza",
+                "triste",
+                "pena",
+                "melancolia",
+                "pesadumbre"
+            },
+            "triste"
         )
     };
 

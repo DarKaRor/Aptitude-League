@@ -272,6 +272,46 @@ public class GameDataLog
         "Limpia",
         "11. Limpia El Laberinto"
         );
-
+        new GameData(
+        GameType.Lives,
+        "Identifica El Animal",
+        "Debes de escuchar atentamente al sonido que se te presente y escribir el nombre del animal correspondiente",
+        "AnimalIdentify",
+        new Dialogue[]
+        {
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Puedes presionar el botón verde para volver a escuchar el audio",null),
+                    new Paragraph("También puede que tenga otro sonido que no hayas escuchado",null)
+                }
+            ),
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Nuestro idioma es muy grande, por lo que hay varias maneras de nombrar un animal.", ViviSprites.GetSprite(ViviSprite.Explain1)),
+                    new Paragraph("Trata de nombrarlo de la manera más común, puede que no todas funcionen",null)
+                }
+            ),
+        },
+        "Identifica"
+        );
+        new GameData(
+        GameType.Lives,
+        "Identifica La Emoción",
+        "Debes escribir el nombre de la emoción que se presenta en la imagen.",
+        "EmotionIdentify",
+        new Dialogue[]
+        {
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Al momento de describir la imagen, no describas la acción que se observa.",null),
+                    new Paragraph("Debes describir la emoción, o el sentimiento.",null),
+                }
+            ),
+        },
+        "Identifica"
+        );
     }
 }

@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/FreeplayMenu.unity
     guid: 20a0210c7c0d21c45817063d4048a89e
   - enabled: 1
+    path: Assets/Scenes/Games/Interpersonal/EmotionIdentify.unity
+    guid: c9dbeafb795991a4aa60ee05ad1012a9
+  - enabled: 1
+    path: Assets/Scenes/Games/Naturalist/AnimalIdentify/AnimalIdentify.unity
+    guid: b63f813b6af29844dafba8bfc16c68e5
+  - enabled: 1
     path: Assets/Scenes/Games/Naturalist/TrashCleaner/TrashCleaner.unity
     guid: b9699493d7fe7b548b451b0f225373fd
   - enabled: 1

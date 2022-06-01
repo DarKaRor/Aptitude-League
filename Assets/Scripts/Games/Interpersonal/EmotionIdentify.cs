@@ -7,15 +7,12 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System;
 
-public class AnimalIdentify : MonoBehaviour
+public class EmotionIdentify : MonoBehaviour
 {
-    int gameId = 12;
+    int gameId = 13;
     [SerializeField] Clock clock;
     [SerializeField] Typewritter typewritter;
     [SerializeField] TextMeshProUGUI answer;
-    [SerializeField] TextMeshProUGUI question;
-    [SerializeField] Button playButton;
-    [SerializeField] GameObject questionGroup;
     [SerializeField] Image image;
 
     Counter chances = new Counter(3);
@@ -30,9 +27,8 @@ public class AnimalIdentify : MonoBehaviour
         typewritter.Start();
         typewritter.writtable.AddRange(Variables.letters);
 
-        GetRandomAnimal();
-
-        playButton.onClick.AddListener(PlayCurrentAudio);
+        GetRandomEmotion();
+        image.sprite = current.image;
     }
 
 
@@ -65,11 +61,10 @@ public class AnimalIdentify : MonoBehaviour
         }
     }
 
-    void GetRandomAnimal()
+    void GetRandomEmotion()
     {
-      
-        current = Methods.GetRandomElement(Variables.animalItems.Where(i => i!=current).ToArray());
-        question.text = current.soundStr;
+
+        current = Methods.GetRandomElement(Variables.emotionItems.Where(i => i != current).ToArray());
         PlayCurrentAudio();
     }
 
@@ -83,10 +78,12 @@ public class AnimalIdentify : MonoBehaviour
     IEnumerator WaitUntilLoad()
     {
         isWaiting = true;
-        ToggleQuestion();
+        image.DOFade(0, 1).OnComplete(() => {
+            GetRandomEmotion();
+            image.sprite = current.image;
+            image.DOFade(1, 1);
+        });
         yield return new WaitForSeconds(2);
-        ToggleQuestion();
-        GetRandomAnimal();
         answer.text = "?";
         isWaiting = false;
     }
@@ -125,18 +122,6 @@ public class AnimalIdentify : MonoBehaviour
             return;
         }
         Restart();
-    }
-
-    void ToggleQuestion()
-    {
-        if (current.image == null) return;
-        image.sprite = current.image;
-        questionGroup.SetActive(!questionGroup.activeSelf);
-        image.DOFade(0, 0);
-        image.enabled = !image.enabled;
-        if (image.enabled) image.DOFade(1, 2);
-
-        
     }
 
     void Restart()

@@ -20,7 +20,7 @@ public static class Methods
 
     public static string RemoveLast(string s) => s.Length > 1 ? s.Remove(s.Length - 1) : "?";
 
-    public static T GetRandomElement<T>(T[] array) => array[Random.Range(0, array.Length)];
+    public static T GetRandomElement<T>(T[] array) => array.Length > 0 ? array[Random.Range(0, array.Length)] : default(T);
 
 
     // This function will check if the number is prime by using all the previous
@@ -100,5 +100,23 @@ public static class Methods
         TV value;
         return dict.TryGetValue(key, out value) ? value : defaultValue;
     }
+
+    public static AudioClip[] LoadMultipleByName(string path, string name)
+    {
+        List<AudioClip> audioClips = new List<AudioClip>();
+        bool wasEmpty = false;
+        int i = 1;
+        while (!wasEmpty)
+        {
+            AudioClip current = loadAudio($"{path}{name} ({i})");
+            Debug.Log(current);
+            i++;
+            wasEmpty = current == null;
+            if (!wasEmpty) audioClips.Add(current);
+        }
+        return audioClips.ToArray();
+    }
+
+    public static string Capitalize(string str) => char.ToUpper(str[0]) + str.Substring(1);
 
 }
