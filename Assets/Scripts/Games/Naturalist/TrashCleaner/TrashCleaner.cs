@@ -37,7 +37,7 @@ public class TrashCleaner : MonoBehaviour
     
     void Start()
     {
-       // I hate programming
+       // I love programming
        GameManager.sharedInstance.currentGame = gameId;
        collectableSprites = new()
        {
