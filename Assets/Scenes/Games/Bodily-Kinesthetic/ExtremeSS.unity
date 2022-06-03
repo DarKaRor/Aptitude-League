@@ -1119,6 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2013110845dcc8543a2dc221edabf64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMessage: {fileID: 0}
   effects: {fileID: 0}
   music: {fileID: 0}
   currentGame: 0
@@ -1128,6 +1129,7 @@ MonoBehaviour:
   viviSprites: []
   inTransition: 0
   maxVolume: 0.8
+  isFreePlay: 0
   gameDatas: []
 --- !u!82 &1719307762
 AudioSource:

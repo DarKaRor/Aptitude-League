@@ -18,9 +18,9 @@ public class ExtremeSimonSays : MonoBehaviour
     [SerializeField] TextMeshProUGUI TVtext;
     string copy = "";
     string pattern = "";
-    float speed = .8f;
+    float speed = .75f;
     Counter items = new Counter(4);
-    Counter rounds = new Counter(5);
+    Counter rounds = new Counter(6);
     List<SimonItem> currentItems = new List<SimonItem>();
     List<string> currentNames = new List<string>();
     public bool isPlaying = false;
@@ -107,7 +107,7 @@ public class ExtremeSimonSays : MonoBehaviour
 
         if (items.reached)
         {
-            speed -= speed * 0.1f;
+            speed -= speed * 0.13f;
             ResetDisplay();
             GameManager.sharedInstance.PlayAudioWin(1);
             clock.AddTime(8);
@@ -133,16 +133,16 @@ public class ExtremeSimonSays : MonoBehaviour
         {
             button.GetComponentInChildren<Button>().interactable = enable;
         }
-        
     }
 
     IEnumerator Play(float wait = 0)
     {
         if (lost) yield break;
         isPlaying = true;
+        clock.Stop();
         SetEnableButtons(false);
         yield return new WaitForSeconds(wait);
-        clock.Resume();
+        
         string[] patternEach = pattern.Split('/');
 
         if (patternEach.Length - 1 == items.max)
@@ -174,6 +174,7 @@ public class ExtremeSimonSays : MonoBehaviour
 ;       }
         isPlaying = false;
         SetEnableButtons(true);
+        clock.Resume();
     }
 
     IEnumerator Lost(float waitTime = 2)

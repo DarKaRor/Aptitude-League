@@ -186,7 +186,8 @@ public class Variables
 
     public static Song[] songs = new Song[]
     {
-        new Song("toreador","FNAF/", 1.5f)
+        new Song("Piano I","Piano I/", 1.6f),
+        new Song("Piano V","Piano V/", 1.2f)
     };
 
     public static string SSPath = "ExtremeSS/";
@@ -200,7 +201,7 @@ public class Variables
         new SimonItem("Violeta",Methods.loadAudio($"{SSPath}Violeta"),null,new Color32(143,0,255,255)),
         new SimonItem("Naranja",Methods.loadAudio($"{SSPath}Naranja"),null, new Color32(255, 140, 0,255)),
         new SimonItem("Marrón",Methods.loadAudio($"{SSPath}Marrón"),null, new Color32(128, 64, 0,255)),
-        new SimonItem("Celeste",Methods.loadAudio($"{SSPath}Celeste"),null, new Color32(173, 216, 230,255)),
+        new SimonItem("Celeste",Methods.loadAudio($"{SSPath}Celeste"),null, new Color32(0, 255, 255, 255)),
         new SimonItem("Rosado",Methods.loadAudio($"{SSPath}Rosado"),null, new Color32(255, 0, 128,255)),
         new SimonItem("Blanco",Methods.loadAudio($"{SSPath}Blanco"),null),
         new SimonItem("Dólar",Methods.loadAudio($"{SSPath}Dólar"),Methods.loadSprite($"{SSPath}dollar")),
@@ -274,6 +275,220 @@ public class Variables
             },
             "triste"
         )
+    };
+
+    static string personaPath = "Avatares/Persona ";
+
+    public static List<Persona> personas = new List<Persona>()
+    {
+        new Persona(Methods.loadSprite($"{personaPath}(1)"),
+                new string[]
+                {
+                    "Héroe/Heroína",
+                    "Traje negro",
+                    "Piel morena",
+                    "Masculino",
+                    "Adulto/a",
+                    "Máscara"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(2)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Cabello rojo",
+                    "Cara pintada",
+                    "Cabello largo",
+                    "Traje blanco",
+                    "Masculino",
+                    "Adulto/a",
+                    "Máscara"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(3)"),
+                new string[]
+                {
+                    "Traje rojo",
+                    "Espadachín/Espadachina",
+                    "Masculino",
+                    "Adulto/a",
+                    "Arrugas",
+                    "Héroe/Heroína",
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(4)"),
+                new string[]
+                {
+                    "Anciano/a",
+                    "Piel blanca",
+                    "Calvo/a",
+                    "Arrugas",
+                    "Masculino",
+                    "Cabello blanco"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(5)"),
+                new string[]
+                {
+                    "Anciano/a",
+                    "Piel blanca",
+                    "Cabello negro",
+                    "Arrugas",
+                    "Lentes",
+                    "Pelo recogido",
+                    "Femenino"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(6)"),
+                new string[]
+                {
+                    "Barba",
+                    "Piel morena",
+                    "Bigote",
+                    "Cabello blanco",
+                    "Masculino",
+                    "Adulto/a",
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(7)"),
+                new string[]
+                {
+                    "Lentes",
+                    "Piel blanca",
+                    "Cabello castaño",
+                    "Jóven",
+                    "Masculino"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(8)"),
+                new string[]
+                {
+                    "Jóven",
+                    "Piel morena",
+                    "Cabello negro",
+                    "Femenino",
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(9)"),
+                new string[]
+                {
+                    "Femenino",
+                    "Cabello blanco",
+                    "Adulto/a",
+                    "Traje negro",
+                    "Pelo corto",
+                    "Maquillaje",
+                    "Piel blanca"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(10)"),
+                new string[]
+                {
+                    "Masculino",
+                    "Espadachín/Espadachina",
+                    "Máscara",
+                    "Traje negro",
+                    "Piel blanca"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(11)"),
+                new string[]
+                {
+                    "Masculino",
+                    "Piel morena",
+                    "Traje azul",
+                    "Gorro",
+                    "Joyería",
+                    "Cabello castaño",
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(12)"),
+                new string[]
+                {
+                    "Masculino",
+                    "Lentes",
+                    "Máscara",
+                    "Traje negro",
+                    "Piel blanca"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(13)"),
+                new string[]
+                {
+                    "Masculino",
+                    "Barba",
+                    "Joyería",
+                    "Traje negro",
+                    "Piel morena",
+                    "Pelo corto"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(14)"),
+                new string[]
+                {
+                    "Masculino",
+                    "Héroe/Heroína",
+                    "Traje rojo",
+                    "Piel blanca",
+                    "Cabello castaño"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(15)"),
+                new string[]
+                {
+                    "Masculino",
+                    "Anciano/a",
+                    "Bigote",
+                    "Pelo largo",
+                    "Arrugas",
+                    "Traje azul",
+                    "Piel blanca",
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(16)"),
+                new string[]
+                {
+                    "Masculino",
+                    "Adulto/a",
+                    "Máscara",
+                    "Piel blanca",
+                    "Traje negro",
+                    "Gorro"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(17)"),
+                new string[]
+                {
+                    "Masculino",
+                    "Adulto/a",
+                    "Traje verde",
+                    "Piel blanca",
+                    "Cabello castaño",
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(19)"),
+                new string[]
+                {
+                    "Masculino",
+                    "Adulto/a",
+                    "Traje azul",
+                    "Piel blanca",
+                    "Calvo/a",
+                    "Lentes"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(20)"),
+                new string[]
+                {
+                    "Masculino",
+                    "Adulto/a",
+                    "Traje verde",
+                    "Piel blanca",
+                    "Bigote",
+                    "Cabello negro",
+                    "Gorro"
+                }
+        ),
     };
 
 

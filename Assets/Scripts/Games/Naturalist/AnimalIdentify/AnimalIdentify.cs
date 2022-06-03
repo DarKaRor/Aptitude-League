@@ -131,12 +131,11 @@ public class AnimalIdentify : MonoBehaviour
     {
         if (current.image == null) return;
         image.sprite = current.image;
+        if (Methods.isAny("gato", current.names) && Methods.Roll(5)) image.sprite = Methods.loadSprite("Identify/cat2");
         questionGroup.SetActive(!questionGroup.activeSelf);
         image.DOFade(0, 0);
         image.enabled = !image.enabled;
         if (image.enabled) image.DOFade(1, 2);
-
-        
     }
 
     void Restart()

@@ -574,6 +574,74 @@ MonoBehaviour:
     sprite: {fileID: -1299903991, guid: 88f219f50a45fe34da4edcf47326a273, type: 3}
     animation: 2
     type: 2
+  - name: Muy bien!
+    sprite: {fileID: -1700200450, guid: e498f259725bdd444adec48a58a94df4, type: 3}
+    animation: 2
+    type: 2
+  - name: Hombros
+    sprite: {fileID: 578813622, guid: e498f259725bdd444adec48a58a94df4, type: 3}
+    animation: 2
+    type: 0
+  - name: Atrapa
+    sprite: {fileID: -97473421, guid: e498f259725bdd444adec48a58a94df4, type: 3}
+    animation: 4
+    type: 0
+  - name: Caderas
+    sprite: {fileID: 448559774, guid: e498f259725bdd444adec48a58a94df4, type: 3}
+    animation: 2
+    type: 0
+  - name: Estirate
+    sprite: {fileID: -2094111362, guid: e498f259725bdd444adec48a58a94df4, type: 3}
+    animation: 0
+    type: 0
+  - name: Derecha
+    sprite: {fileID: 760298165, guid: e498f259725bdd444adec48a58a94df4, type: 3}
+    animation: 2
+    type: 0
+  - name: Brazos
+    sprite: {fileID: -1002395026, guid: e498f259725bdd444adec48a58a94df4, type: 3}
+    animation: 2
+    type: 0
+  - name: De lado
+    sprite: {fileID: 145952535, guid: e498f259725bdd444adec48a58a94df4, type: 3}
+    animation: 2
+    type: 0
+  - name: ...
+    sprite: {fileID: -1946169865, guid: df275655f676cc342bbacc2b2727dbcb, type: 3}
+    animation: 2
+    type: 1
+  - name: Esconde
+    sprite: {fileID: -471675875, guid: df275655f676cc342bbacc2b2727dbcb, type: 3}
+    animation: 2
+    type: 0
+  - name: Espalda
+    sprite: {fileID: 495151591, guid: df275655f676cc342bbacc2b2727dbcb, type: 3}
+    animation: 2
+    type: 0
+  - name: Confuso
+    sprite: {fileID: -1497458217, guid: df275655f676cc342bbacc2b2727dbcb, type: 3}
+    animation: 2
+    type: 0
+  - name: Relajado
+    sprite: {fileID: -98512052, guid: df275655f676cc342bbacc2b2727dbcb, type: 3}
+    animation: 2
+    type: 0
+  - name: Caderas
+    sprite: {fileID: 1146418583, guid: df275655f676cc342bbacc2b2727dbcb, type: 3}
+    animation: 2
+    type: 0
+  - name: Recostado
+    sprite: {fileID: -223428670, guid: df275655f676cc342bbacc2b2727dbcb, type: 3}
+    animation: 2
+    type: 0
+  - name: Amenazante
+    sprite: {fileID: 1749924390, guid: df275655f676cc342bbacc2b2727dbcb, type: 3}
+    animation: 0
+    type: 0
+  - name: Comediante
+    sprite: {fileID: 1621697966, guid: df275655f676cc342bbacc2b2727dbcb, type: 3}
+    animation: 2
+    type: 0
   actions:
   - {fileID: 1296223878}
   - {fileID: 1847158773}
@@ -1119,6 +1187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2013110845dcc8543a2dc221edabf64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMessage: {fileID: 0}
   effects: {fileID: 0}
   music: {fileID: 0}
   currentGame: 0
@@ -1128,6 +1197,7 @@ MonoBehaviour:
   viviSprites: []
   inTransition: 0
   maxVolume: 0.8
+  isFreePlay: 0
   gameDatas: []
 --- !u!82 &1719307762
 AudioSource:

@@ -48,6 +48,15 @@ public static class Methods
         return true;
     }
 
+    public static bool ContainsAny(string str, string[] arr){
+        foreach(string s in arr){
+            Debug.Log($"Comparing {str} with {s}");
+            Debug.Log($"Result: {str.Contains(s)}");
+            if(str.Contains(s)) return true;
+        }
+        return false;
+    }
+
     public static Vector2 Clamp(Vector2 input, float min, float max)
     {
         float x = Mathf.Clamp(input.x, min, max);
@@ -57,7 +66,7 @@ public static class Methods
 
     public static string SinTildes(string s)
     {
-        return string.Concat(Regex.Replace(s, @"(?i)[\p{L}-[ña-z]]+", m =>
+        return string.Concat(Regex.Replace(s, @"(?i)[\p{L}-[ï¿½a-z]]+", m =>
         m.Value.Normalize(NormalizationForm.FormD))
             .Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark));
     }
@@ -109,7 +118,6 @@ public static class Methods
         while (!wasEmpty)
         {
             AudioClip current = loadAudio($"{path}{name} ({i})");
-            Debug.Log(current);
             i++;
             wasEmpty = current == null;
             if (!wasEmpty) audioClips.Add(current);

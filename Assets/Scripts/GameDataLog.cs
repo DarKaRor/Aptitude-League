@@ -5,7 +5,7 @@ public class GameDataLog
         new GameData(
         GameType.Lives,
         "Cuenta en Romanos",
-        "Tienes que transformar n˙meros de romans a ar·bigos y viceversa",
+        "Tienes que transformar n√∫meros de romans a ar√°bigos y viceversa",
         "Roman",
         new Dialogue[]
         {
@@ -21,32 +21,32 @@ public class GameDataLog
      );
         new GameData(
             GameType.Lives,
-            "Rey de las matem·ticas",
-            "Resuelve todas las operaciones en un lÌmite de tiempo!",
+            "Rey de las matem√°ticas",
+            "Resuelve todas las operaciones en un l√≠mite de tiempo!",
             "Math King",
             new Dialogue[]
             {
                 new Dialogue(
                     new Paragraph[]
                     {
-                        new Paragraph("Recuerda que todas las divisiones resultan en n˙meros enteros!",null)
+                        new Paragraph("Recuerda que todas las divisiones resultan en n√∫meros enteros!",null)
                     }
                 )
             },
             "Resuelve",
-            "4. El Rey de las Matem·ticas"
+            "4. El Rey de las MatemÔøΩticas"
          );
         new GameData(
         GameType.Lives,
         "Escoge el vaso",
-        "Identifica cual vaso se llenar· de agua primero!",
+        "Identifica cual vaso se llenar√° de agua primero!",
         "Water Glass",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Mantente atento con las tuberÌas que estÈn bloqueadas!",null)
+                    new Paragraph("Mantente atento con las tuber√≠as que est√°n bloqueadas!",null)
                 }
             )
         },
@@ -63,7 +63,7 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Descubrir la palabra se te har· m·s f·cil si identificas las vocales",null)
+                    new Paragraph("Descubrir la palabra se te har√° m√°s f√°cil si identificas las vocales",null)
                 }
             )
         },
@@ -72,8 +72,8 @@ public class GameDataLog
         );
         new GameData(
         GameType.Lives,
-        "CorrecciÛn de Errores",
-        "Identifica todos los errores que estÈn en la frase y corrigelos",
+        "Correcci√≥n de Errores",
+        "Identifica todos los errores que estÔøΩn en la frase y corrigelos",
         "Grammar Game",
         new Dialogue[]
         {
@@ -87,41 +87,41 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("°Ten en cuenta la diferencia de hay, ay y ahÌ!",null),
+                    new Paragraph("Ten en cuenta la diferencia de hay, ay y ah√≠!",null),
                     new Paragraph("Muchas veces nos podemos equivocar con estas opciones",null)
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Procura abrir y cerrar los signos de exclamaciÛn y los signos de interrogaciÛn!", null),
-                    new Paragraph("øLo notaste?",null),
+                    new Paragraph("Procura abrir y cerrar los signos de exclamaci√≥n y los signos de interrogaci√≥n!", null),
+                    new Paragraph("Lo notaste?",null),
                     new Paragraph("Que pena...",null)
                 }
             )
         },
         "Corrige",
-        "7. CorrecciÛn de errores"
+        "7. Correcci√≥n de errores"
         );
         new GameData(
         GameType.Lives,
         "Encestalo",
-        "Logra obtener la puntuaciÛn deseada antes de que te quedes sin balones!",
+        "Logra obtener la puntuaci√≥n deseada antes de que te quedes sin balones!",
         "Dunk It",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Si deslizas hacia abajo la pelota rebotar·",null),
-                    new Paragraph("Si lo repites, rebotar· cada vez m·s alto y puede que logres encestar con un pequeÒo empujÛn",null)
+                    new Paragraph("Si deslizas hacia abajo la pelota rebotar√°",null),
+                    new Paragraph("Si lo repites, rebotar√° cada vez m√°s alto y puede que logres encestar con un peque√±o empuj√≥n",null)
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Recuerda que mientras m·s lejos estÈ el aro, m·s puntos te puede dar",null),
-                    new Paragraph("Aunque claro, eso puede llegar a ser m·s arriesgado",null),
+                    new Paragraph("Recuerda que mientras m√°s lejos est√© el aro, m√°s puntos te puede dar",null),
+                    new Paragraph("Aunque claro, eso puede llegar a ser m√°s arriesgado",null),
                 }
             ),
             new Dialogue(
@@ -133,12 +133,12 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Puedes mover el balÛn hacia los lados si lo rebotas en esa direcciÛn.",null),
+                    new Paragraph("Puedes mover el bal√≥n hacia los lados si lo rebotas en esa direcci√≥n.",null),
                 }
             ),
         },
         "Encesta",
-        "8. EncÈstalo"
+        "8. Enc√©stalo"
         );
         new GameData(
         GameType.Lives,
@@ -150,13 +150,13 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Mientras m·s lejos estÈ el blanco, su puntaje podr· llegar a doblarse en incluso triplicarse",null)
+                    new Paragraph("Mientras m√°s lejos est√© el blanco, su puntaje podr√° llegar a doblarse e incluso triplicarse",null)
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Si no te quieres arriesgar mucho, lanza el dardo a los blancos m·s cercanos",null),
+                    new Paragraph("Si no te quieres arriesgar mucho, lanza el dardo a los blancos m√°s cercanos",null),
                 }
             ),
         },
@@ -166,7 +166,7 @@ public class GameDataLog
         new GameData(
         GameType.Lives,
         "Memoria Musical",
-        "Trata de repetir el patrÛn musical sin equivocarte",
+        "Trata de repetir el patr√≥n musical sin equivocarte",
         "MusicalMemory",
         new Dialogue[]
         {
@@ -179,7 +179,7 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Presta m·s atenciÛn a la ˙ltima nota del patrÛn, ya que las dem·s no cambian a menos que sea un nuevo patrÛn.",null),
+                    new Paragraph("Presta m√°s atenci√≥n a la √∫ltima nota del patr√≥n, ya que las dem√°s no cambian a menos que sea un nuevo patr√≥n.",null),
                 }
             ),
         },
@@ -195,8 +195,8 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Trata de no mantenerte en la parte m·s baja del tablero",null),
-                    new Paragraph("Si lo haces, tendr·s menos tiempo para reaccionar",null)
+                    new Paragraph("Trata de no mantenerte en la parte m√°s baja del tablero",null),
+                    new Paragraph("Si lo haces, tendr√°s menos tiempo para reaccionar",null)
                 }
             ),
         },
@@ -205,15 +205,15 @@ public class GameDataLog
         new GameData(
         GameType.Lives,
         "Simon Dice Extremo",
-        "Consigue seguir el patrÛn antes de que el tiempo acabe!",
+        "Consigue seguir el patr√≥n antes de que el tiempo acabe!",
         "ExtremeSS",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Recuerda que no tienes que seguir ning˙n ritmo",null),
-                    new Paragraph("Puedes presionar los botones lo m·s r·pido que puedas",ViviSprites.GetSprite(ViviSprite.Happy))
+                    new Paragraph("Recuerda que no tienes que seguir ning√∫n ritmo",null),
+                    new Paragraph("Puedes presionar los botones lo m√°s r√°pido que puedas",ViviSprites.GetSprite(ViviSprite.Happy))
                 }
             ),
         },
@@ -230,13 +230,13 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("No debes de confiarte de los patrones de la m˙sica",null),
+                    new Paragraph("No debes de confiarte de los patrones de la mÔøΩsica",null),
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Algunas veces el hombre pose puede realizar una pose sinque la m˙sica suene, ten cuidado",ViviSprites.GetSprite(ViviSprite.Dizzy)),
+                    new Paragraph("Algunas veces el hombre pose puede realizar una pose sinque la m√∫sica suene, ten cuidado",ViviSprites.GetSprite(ViviSprite.Dizzy)),
                 }
             ),
         },
@@ -253,19 +253,19 @@ public class GameDataLog
                         new Paragraph[]
                         {
                             new Paragraph("Tienes que recoger todas las bolsas de basura antes de que acabe el tiempo",null),
-                            new Paragraph("Si logras recoger algunas bolsas de basura, el tiempo aumtentar· permitiendote recoger m·s.",ViviSprites.GetSprite(ViviSprite.Happy)),
+                            new Paragraph("Si logras recoger algunas bolsas de basura, el tiempo aumtentar√° permitiendote recoger m√°s.",ViviSprites.GetSprite(ViviSprite.Happy)),
                         }
                     ),
                     new Dialogue(
                         new Paragraph[]
                         {
-                           new Paragraph("La ventaja que hayas obtenido por alg˙n objeto terminar· aproximadamente en 10 segundos", ViviSprites.GetSprite(ViviSprite.Explain1))
+                           new Paragraph("La ventaja que hayas obtenido por alg√∫n objeto terminar√° aproximadamente en 10 segundos", ViviSprites.GetSprite(ViviSprite.Explain1))
                         }
                     ),
                     new Dialogue(
                         new Paragraph[]
                         {
-                           new Paragraph("Si ya tienes un objeto, procura no utilizar otro del mismo tipo hasta que se te acabe el actual, de esa manera no lo desperdiciar·s.", ViviSprites.GetSprite(ViviSprite.Explain1))
+                           new Paragraph("Si ya tienes un objeto, procura no utilizar otro del mismo tipo hasta que se te acabe el actual, de esa manera no lo desperdiciar√°s.", ViviSprites.GetSprite(ViviSprite.Explain1))
                         }
                     ),
         },
@@ -282,15 +282,15 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Puedes presionar el botÛn verde para volver a escuchar el audio",null),
-                    new Paragraph("TambiÈn puede que tenga otro sonido que no hayas escuchado",null)
+                    new Paragraph("Puedes presionar el bot√≥n verde para volver a escuchar el audio",null),
+                    new Paragraph("Tambi√©n puede que tenga otro sonido que no hayas escuchado",null)
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
                     new Paragraph("Nuestro idioma es muy grande, por lo que hay varias maneras de nombrar un animal.", ViviSprites.GetSprite(ViviSprite.Explain1)),
-                    new Paragraph("Trata de nombrarlo de la manera m·s com˙n, puede que no todas funcionen",null)
+                    new Paragraph("Trata de nombrarlo de la manera m√°s com√∫n, puede que no todas funcionen",null)
                 }
             ),
         },
@@ -298,20 +298,44 @@ public class GameDataLog
         );
         new GameData(
         GameType.Lives,
-        "Identifica La EmociÛn",
-        "Debes escribir el nombre de la emociÛn que se presenta en la imagen.",
+        "Identifica La Emoci√≥n",
+        "Debes escribir el nombre de la emoci√≥n que se presenta en la imagen.",
         "EmotionIdentify",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Al momento de describir la imagen, no describas la acciÛn que se observa.",null),
-                    new Paragraph("Debes describir la emociÛn, o el sentimiento.",null),
+                    new Paragraph("Al momento de describir la imagen, no describas la acci√≥n que se observa.",null),
+                    new Paragraph("Debes describir la emoci√≥n, o el sentimiento.",null),
                 }
             ),
         },
         "Identifica"
+        );
+        new GameData(
+        GameType.Lives,
+        "Todos Somos Iguales",
+        "En este juego debes de comparar dos personas e identificar en qu√© se parecen. Esto es para que el jugador entienda que a pesar de nuestras diferencias, todos somos iguales.",
+        "EveryoneIsTheSame",
+        new Dialogue[]
+        {
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Para algunos personajes puede que necesites conocer un poco de transfondo para saber cosas que no se muestran",null),
+                    new Paragraph("Esto es generalmente para los h√©roes",null)
+                }
+            ),
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Mantente atento con detalles m√≠nusculos. Una persona puede tener el cabello oculto, pero no sus cejas",null),
+                    new Paragraph("Entonces se sabr√≠a el color de pelo",null)
+                }
+            ),
+        },
+        "Compara"
         );
     }
 }
