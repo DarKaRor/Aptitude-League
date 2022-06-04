@@ -110,6 +110,18 @@ public static class Methods
         return dict.TryGetValue(key, out value) ? value : defaultValue;
     }
 
+    public static T[] Shuffle<T>(T[] array)
+    {
+        for (int i = array.Length; i > 1; i--)
+        {
+            int j = Random.Range(0, i);
+            T tmp = array[j];
+            array[j] = array[i - 1];
+            array[i - 1] = tmp;
+        }
+        return array;
+    }
+
     public static AudioClip[] LoadMultipleByName(string path, string name)
     {
         List<AudioClip> audioClips = new List<AudioClip>();

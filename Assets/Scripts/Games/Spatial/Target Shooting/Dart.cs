@@ -27,6 +27,8 @@ public class Dart : MonoBehaviour
     Vector3 initialPosParent;
     public GameObject point;
 
+    bool FollowMouse = true;
+
     [HideInInspector] public Coroutine decrease;
     [HideInInspector] public Coroutine respawn = null;
 
@@ -58,6 +60,15 @@ public class Dart : MonoBehaviour
         // Set floor to be in the axis of the shadow
         floor.transform.position = newShadowPos;
 
+        if (FollowMouse)
+        {
+            // Follow mouse on x axis
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 newPos = new Vector3(mousePos.x, transform.position.y, 0);
+            newPos.x = Mathf.Clamp(newPos.x, -8.7f, 8.7f);
+            transform.position = newPos;
+        }
+
         MouseMovement();
         AnimateShadow();
         UseZValue();
@@ -80,6 +91,7 @@ public class Dart : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
+            FollowMouse = false;
             startPos = mousePosition;
         }
 
@@ -92,13 +104,16 @@ public class Dart : MonoBehaviour
                 dartRb.bodyType = RigidbodyType2D.Dynamic;
                 dartRb.AddForce(new Vector2(-dir.x * throwForceX, -dir.y * throwForceY), ForceMode2D.Impulse);
                 Throw();
+                return;
             }
+            FollowMouse = true;
         }
     }
 
     void Throw()
     {
         thrown = true;
+        FollowMouse = false;
         decrease = StartCoroutine(DecreaseSpeed());
     }
 
@@ -112,8 +127,11 @@ public class Dart : MonoBehaviour
 
     void UseZValue()
     {
-        transform.DOScale(1 - zAxis, 0);
-        transform.DOMoveY(-4.86f + zAxis / .14f , 0);
+        //transform.DOScale(1 - zAxis, 0);
+        transform.localScale = new Vector3(1 - zAxis, 1 - zAxis, 1 - zAxis);
+        float y = -4.86f + zAxis / .14f;
+        transform.position = new Vector2(transform.position.x, y);
+        //transform.DOMoveY(-4.86f + zAxis / .14f , 0);
         dartRenderer.sortingOrder = (int)(-zAxis / .01);
         shadowRenderer.sortingOrder = dartRenderer.sortingOrder - 1;
     }
@@ -148,8 +166,8 @@ public class Dart : MonoBehaviour
         scored = false;
         dart.transform.localPosition = initialPos;
         transform.position = initialPosParent;
-
-
+        transform.localScale = Vector3.one;
+        FollowMouse = true;
     }
 
     public void CallRespawn(float time)

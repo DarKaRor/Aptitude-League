@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     Vector3 offset = new Vector3(0, 0, -10);
     [SerializeField] Transform target;
-    float smoothSpeed = 0.05f;
+    //float smoothSpeed = 0.05f;
 
     private void LateUpdate()
     {

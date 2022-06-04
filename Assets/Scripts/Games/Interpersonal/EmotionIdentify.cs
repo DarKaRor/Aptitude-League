@@ -56,6 +56,7 @@ public class EmotionIdentify : MonoBehaviour
                 typewritter.Type();
                 break;
             case TypeWritterAction.Return:
+                if(answer.text == typewritter.defaultString) return;
                 CheckValues();
                 break;
         }

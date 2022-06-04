@@ -29,15 +29,16 @@ public class ExtremeSimonSays : MonoBehaviour
     public string toForce = "";
 
 
-    private void Awake() => instance = instance ? instance : this;    
-    
+    private void Awake() => instance = instance ? instance : this;
+
     void Start()
     {
         GameManager.sharedInstance.currentGame = gameId;
         Invoke("ForceLowVolume", 1f);
         clock.Start();
+        clock.outputText.text = clock.timer.max.ToString();
 
-        foreach(string name in new string[] { "Rojo", "Azul", "Verde", "Amarillo"})
+        foreach (string name in new string[] { "Rojo", "Azul", "Verde", "Amarillo" })
         {
             SimonItem newItem = Variables.simonItems.First(i => i.name == name);
             currentItems.Add(newItem);
@@ -74,7 +75,7 @@ public class ExtremeSimonSays : MonoBehaviour
     {
         if (isPlaying) return;
         AddKeyCopy(item.name);
-        if(CheckValues()) DisplayItem(item,false);
+        if (CheckValues()) DisplayItem(item, false);
     }
 
     bool CheckValues()
@@ -86,7 +87,6 @@ public class ExtremeSimonSays : MonoBehaviour
         {
             if (copyEach[i] != patternEach[i])
             {
-
                 GameManager.sharedInstance.PlayAudioLose();
                 Reset();
                 ResetDisplay();
@@ -98,7 +98,8 @@ public class ExtremeSimonSays : MonoBehaviour
         if (copy == pattern && !items.Raise())
         {
             GameManager.sharedInstance.PlayAudioWin();
-            clock.AddTime(3);
+            clock.timer.current -= 2;
+            if (clock.timer.current < 0) clock.timer.current = 0;
             copy = "";
             AddRandomKeyPattern();
             StartCoroutine(Play(2));
@@ -110,12 +111,12 @@ public class ExtremeSimonSays : MonoBehaviour
             speed -= speed * 0.13f;
             ResetDisplay();
             GameManager.sharedInstance.PlayAudioWin(1);
-            clock.AddTime(8);
             clock.Stop();
-            if (rounds.Raise())  GameManager.sharedInstance.LoadRandomGame();
+            clock.timer.current = 0;
+            if (rounds.Raise()) GameManager.sharedInstance.LoadRandomGame();
             if (rounds.current >= 2)
             {
-                for(int i = 0; i < Random.Range(1,3);i++) AddRandomItem();
+                for (int i = 0; i < Random.Range(1, 3); i++) AddRandomItem();
             }
             Reset();
             StartCoroutine(Play(4));
@@ -141,8 +142,9 @@ public class ExtremeSimonSays : MonoBehaviour
         isPlaying = true;
         clock.Stop();
         SetEnableButtons(false);
+
         yield return new WaitForSeconds(wait);
-        
+
         string[] patternEach = pattern.Split('/');
 
         if (patternEach.Length - 1 == items.max)
@@ -156,22 +158,30 @@ public class ExtremeSimonSays : MonoBehaviour
         }
 
         int i = 0;
-        foreach(string itemName in patternEach)
+        SimonItem previousItem = null;
+        foreach (string itemName in patternEach)
         {
-           
+
             if (itemName == "") continue;
-            
+
             SimonItem item = GetItemByName(itemName);
             if (item == null)
             {
                 item = Variables.simonItems.FirstOrDefault(i => i.name == itemName);
                 AddItem(item);
             }
-            DisplayItem(item);
-            i++;
 
-            if(i < patternEach.Length - 1) yield return new WaitForSeconds(speed);
-;       }
+            if (previousItem == item)
+            {
+                TVtext.text = "";
+                yield return new WaitForSeconds(speed / 4);
+            }
+            DisplayItem(item);
+            previousItem = item;
+            i++;
+            if (i < patternEach.Length - 1) yield return new WaitForSeconds(speed);
+            
+        }
         isPlaying = false;
         SetEnableButtons(true);
         clock.Resume();

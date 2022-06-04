@@ -12,7 +12,7 @@ public class DunkIt : MonoBehaviour
     [SerializeField] TextMeshProUGUI balls;
     Counter score = new Counter(10);
     public Counter difficulty = new Counter(5,1,1);
-    public Counter chances = new Counter(7);
+    Counter chances = new Counter(7);
     Ball ball;
     private void Awake() => instance = instance ? instance : this;
     

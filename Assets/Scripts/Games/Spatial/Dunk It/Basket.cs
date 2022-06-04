@@ -23,7 +23,7 @@ public class Basket : MonoBehaviour
     SpriteRenderer shadowRenderer;
     Range xRange = new Range(8, -8);
     Range yRange = new Range(-0.43f, 2.14f);
-    Range zRange = new Range(.6f, .1f);
+    Range zRange = new Range(.6f, .2f);
     void Start()
     {
         spriteRenderer = basket.GetComponent<SpriteRenderer>();

@@ -10,7 +10,7 @@ public class TopDownMovement : MonoBehaviour
     [HideInInspector] public float speed = 5f;
     Vector2 dir;
     Rigidbody2D rb;
-    SpriteRenderer renderer;
+    SpriteRenderer spriteRenderer;
     [SerializeField] WalkAnim downAnim;
     [SerializeField] WalkAnim leftAnim;
     [SerializeField] WalkAnim upAnim;
@@ -24,8 +24,8 @@ public class TopDownMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-        renderer = transform.Find("GFX").GetComponent<SpriteRenderer>();
-        renderer.sprite = downAnim.idle;
+        spriteRenderer = transform.Find("GFX").GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = downAnim.idle;
         lastCurrent = current;
     }
 
@@ -40,11 +40,11 @@ public class TopDownMovement : MonoBehaviour
 
         if (generalMovement != 0)
         {
-            if (dir.x != 0) renderer.flipX = dir.x < 0;
+            if (dir.x != 0) spriteRenderer.flipX = dir.x < 0;
             if (dir.y == 0 && dir.x != 0) current = leftAnim;
             else
             {
-                renderer.flipX = false;
+                spriteRenderer.flipX = false;
                 current = dir.y > 0 ? upAnim : downAnim;
             }
         }
@@ -72,11 +72,11 @@ public class TopDownMovement : MonoBehaviour
         while (dir.x != 0 || dir.y != 0)
         {
             if (i == current.walk.Length) i = 0;
-            renderer.sprite = current.walk[i];
+            spriteRenderer.sprite = current.walk[i];
             i++;
             yield return new WaitForSeconds(0.2f);
         }
-        renderer.sprite = current.idle;
+        spriteRenderer.sprite = current.idle;
         anim = null;
     }
 }

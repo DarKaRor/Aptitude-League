@@ -294,7 +294,8 @@ public class GameDataLog
                 }
             ),
         },
-        "Identifica"
+        "Identifica",
+        "12. Identifica El Animal"
         );
         new GameData(
         GameType.Lives,
@@ -311,7 +312,8 @@ public class GameDataLog
                 }
             ),
         },
-        "Identifica"
+        "Identifica",
+        "13. Identifica La Emoción"
         );
         new GameData(
         GameType.Lives,

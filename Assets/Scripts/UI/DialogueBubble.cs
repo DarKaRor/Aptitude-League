@@ -25,15 +25,13 @@ public class DialogueBubble : MonoBehaviour
 
     Vector2 bubbleStartPos;
     Vector2 viviStartPos;
-
-    bool pressingKey = false;
     bool skipped = false;
     bool isSpeaking = false;
     
     char[] waitChars = new char[] { '.', ',', ';', ':' };
-    char[] muteChars = new char[] { ' ', '!', '?', '¡', '(', ')', '=', '¿' };
+    char[] muteChars = new char[] { ' ', '!', '?', 'ï¿½', '(', ')', '=', 'ï¿½' };
 
-    AudioSource audio;
+    AudioSource audioSource;
 
     private void Start()
     {
@@ -41,7 +39,7 @@ public class DialogueBubble : MonoBehaviour
         canvasGroup = bubble.GetComponent<CanvasGroup>();
         rectTransform = container.GetComponent<RectTransform>();
         viviTransform = viviUI.GetComponent<RectTransform>();
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         viviImage = viviUI.GetComponent<Image>();
 
         bubbleStartPos = rectTransform.anchoredPosition;
@@ -94,12 +92,12 @@ public class DialogueBubble : MonoBehaviour
 
             if (!Methods.isAny(currentChar, muteChars))
             {
-                audio.pitch = UnityEngine.Random.Range(.9f, 1.1f);
-                audio.PlayOneShot(voice);
+                audioSource.pitch = UnityEngine.Random.Range(.9f, 1.1f);
+                audioSource.PlayOneShot(voice);
             }
             yield return new WaitForSeconds(Methods.isAny(currentChar, waitChars) ? .5f : speechSpeed);
         }
-        audio.pitch = 1;
+        audioSource.pitch = 1;
         anyKey.DOFade(1, 2).SetLoops(-1, LoopType.Yoyo);
         skipped = false;
         isSpeaking = false;

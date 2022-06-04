@@ -71,11 +71,16 @@ public class GameManager : MonoBehaviour
 
     public void MathGameFail(TextMeshProUGUI answer, Counter chances, string correctAnswer)
     {
-        answer.DOKill();
         PlayAudioLose();
         if (CheckChances(chances)) return;
+        FadeAnswer(answer, correctAnswer);
+    }
+
+    public void FadeAnswer(TextMeshProUGUI answer, string correct)
+    {
+        answer.DOKill();
         answer.DOFade(1, 0);
-        answer.text = $"La respuesta correcta era: {correctAnswer}";
+        answer.text = $"La respuesta correcta era: {correct}";
         StartCoroutine(FadeTextAfterSeconds(2, answer));
     }
 

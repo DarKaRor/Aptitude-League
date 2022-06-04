@@ -15,9 +15,9 @@ public class Ball : MonoBehaviour
     SpriteRenderer ballRenderer;
     public Rigidbody2D ballRb;
     [SerializeField] public float zAxis = 0;
-    float zSpeed = .32f;
-    float acceleration = .05f;
-    public float throwForceY = 2.65f;
+    float zSpeed = .4f;
+    float acceleration = .08f;
+    public float throwForceY = 2.8f;
     float throwForceX = 1.5f;
     bool thrown = false;
     public bool scored = false;
@@ -27,7 +27,8 @@ public class Ball : MonoBehaviour
     [HideInInspector] public Coroutine decrease;
     [HideInInspector] public Coroutine respawn = null;
 
-
+    bool FollowMouse = true;
+    bool dribbled = false;
 
     Vector3 startPos, endPos;
     void Start()
@@ -38,6 +39,7 @@ public class Ball : MonoBehaviour
         functionality = basketBall.GetComponent<BallFunctionality>();
         ballRenderer = GFX.transform.GetComponentInChildren<SpriteRenderer>();
         initialPos = basketBall.transform.position;
+
     }
 
     // Update is called once per frame
@@ -48,6 +50,16 @@ public class Ball : MonoBehaviour
         shadow.transform.position = newShadowPos;
         // Set floor to be in the axis of the shadow
         floor.transform.position = newShadowPos;
+
+        if (FollowMouse)
+        {
+            // Follow mouse on x axis
+            //functionality.
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 newPos = new Vector3(mousePos.x, basketBall.transform.position.y, 0);
+            newPos.x = Mathf.Clamp(newPos.x, -8f, 8f);
+            basketBall.transform.position = newPos;
+        }
 
         MouseMovement();
         AnimateShadow();
@@ -71,15 +83,20 @@ public class Ball : MonoBehaviour
         if (Input.GetMouseButtonDown(0) )
         {
             startPos = mousePosition;
+            FollowMouse = false;
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             endPos = mousePosition;
             Vector3 dir = startPos - endPos;
-            if (Vector2.Distance(startPos, endPos) < 1f) return;
+            if (Vector2.Distance(startPos, endPos) < 1f){
+                if(!dribbled) FollowMouse = true;
+                return;
+            }
             ballRb.AddForce(new Vector2(- dir.x * throwForceX, -dir.y * throwForceY), ForceMode2D.Impulse);
             if(dir.y < 0) Throw();
+            else dribbled = true;
         }
 
         
@@ -87,6 +104,8 @@ public class Ball : MonoBehaviour
 
     void Throw()
     {
+        FollowMouse = false;
+        dribbled = false;
         thrown = true;
         functionality.isGrounded = false;
         decrease = StartCoroutine(DecreaseSpeed());
@@ -144,7 +163,7 @@ public class Ball : MonoBehaviour
         thrown = false;
         scored = false;
         basketBall.transform.position = initialPos;
-        
+        FollowMouse = true;   
     }
 
     public void CallRespawn(float time)

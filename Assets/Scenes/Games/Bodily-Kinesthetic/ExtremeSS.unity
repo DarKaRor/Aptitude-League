@@ -253,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clock:
     timer:
-      max: 20
+      max: 18
       current: 0
       min: 0
       changer: 0

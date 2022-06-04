@@ -124,42 +124,51 @@ public class Variables
 
     public static GrammarQuestion[] grammarQuestions = new GrammarQuestion[]
     {
-        new GrammarQuestion("No ahi comida?", new string[]{
-            "¿No hay comida?"
+        new GrammarQuestion("No __ comida?", new string[]{
+            "Hay",
+            "Ahí",
+            "Ay",
         }),
-        new GrammarQuestion("¿Dónde está una tienda?", new string[]{
-            "¿Dónde hay una tienda?",
-            "¿Dónde está la tienda?"
+        new GrammarQuestion("¿Dónde está __ tienda?", new string[]{
+            "La",
+            "Una",
+            "El",
+            "Las"
         }),
-        new GrammarQuestion("Cuando sabes a qué hora irás, avísame", new string[]{
-            "Cuando sepas a qué hora irás, avísame"
+        new GrammarQuestion("Cuando __ a qué hora irás, avísame", new string[]{
+            "Sepas",
+            "Sabes",
+            "Saber"
         }),
-        new GrammarQuestion("Aquella es la fortaleza mucha vieja de la ciudad", new string[]{
-            "Aquella es la fortaleza más vieja de la ciudad",
-            "Aquella es la fortaleza vieja de la ciudad"
+        new GrammarQuestion("Aquella es la fortaleza __ vieja de la ciudad", new string[]{
+            "Más",
+            "Mucha",
+            "Que"
         }),
-        new GrammarQuestion("El teatro es cerca de la oficina", new string[]{
-            "El teatro está cerca de la oficina",
-            "El teatro estuvo cerca de la oficina",
-            "El teatro se encuentra cerca de la oficina"
+        new GrammarQuestion("El teatro __ cerca de la oficina", new string[]{
+            "Está",
+            "Es",
+            "En"
         }),
-        new GrammarQuestion("Le gustaba tanto que lo llevaba siempre con sí", new string[]{
-            "Le gustaba tanto que lo llevaba siempre consigo"
+        new GrammarQuestion("Le gustaba tanto que lo llevaba siempre __", new string[]{
+            "Consigo",
+            "Con si",
+            "Si"
         }),
-        new GrammarQuestion("Deberíamos ir a el cine", new string[]{
-            "Deberíamos ir al cine"
+        new GrammarQuestion("Deberíamos ir __ cine", new string[]{
+            "Al",
+            "A el",
+            "A"
         }),
-        new GrammarQuestion("El doctor me dijo que tendría una alergia", new string[]{
-            "El doctor me dijo que tengo una alergia",
-            "El doctor me dijo que tendré una alergia",
-            "El doctor me dijo que tendrá una alergia"
+        new GrammarQuestion("El doctor me dijo que __ una alergia", new string[]{
+            "Tendré",
+            "Tener",
+            "Tuveré"
         }),
-        new GrammarQuestion("Cuando sabes a qué hora irás, avísame", new string[]{
-            "Cuando sepas a qué hora irás, avísame"
-        }),
-        new GrammarQuestion("Ayer no venía porque estaba enfermo", new string[]{
-            "Ayer no vine porque estaba enfermo",
-            "Ayer no venía, porque estaba enfermo"
+        new GrammarQuestion("Ayer no __ porque estaba enfermo", new string[]{
+            "Vine",
+            "Venía",
+            "Vendré"
         }),
     };
 
@@ -300,7 +309,7 @@ public class Variables
                     "Cara pintada",
                     "Cabello largo",
                     "Traje blanco",
-                    "Masculino",
+                    //"Masculino",
                     "Adulto/a",
                     "Máscara"
                 }
@@ -310,7 +319,7 @@ public class Variables
                 {
                     "Traje rojo",
                     "Espadachín/Espadachina",
-                    "Masculino",
+                    //"Masculino",
                     "Adulto/a",
                     "Arrugas",
                     "Héroe/Heroína",
@@ -323,7 +332,7 @@ public class Variables
                     "Piel blanca",
                     "Calvo/a",
                     "Arrugas",
-                    "Masculino",
+                    //"Masculino",
                     "Cabello blanco"
                 }
         ),
@@ -336,7 +345,7 @@ public class Variables
                     "Arrugas",
                     "Lentes",
                     "Pelo recogido",
-                    "Femenino"
+                    //"Femenino"
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(6)"),
@@ -346,7 +355,7 @@ public class Variables
                     "Piel morena",
                     "Bigote",
                     "Cabello blanco",
-                    "Masculino",
+                    //"Masculino",
                     "Adulto/a",
                 }
         ),
@@ -357,7 +366,7 @@ public class Variables
                     "Piel blanca",
                     "Cabello castaño",
                     "Jóven",
-                    "Masculino"
+                    //"Masculino"
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(8)"),
@@ -366,7 +375,7 @@ public class Variables
                     "Jóven",
                     "Piel morena",
                     "Cabello negro",
-                    "Femenino",
+                    //"Femenino",
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(9)"),
@@ -384,7 +393,7 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(10)"),
                 new string[]
                 {
-                    "Masculino",
+                    //"Masculino",
                     "Espadachín/Espadachina",
                     "Máscara",
                     "Traje negro",
@@ -394,7 +403,7 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(11)"),
                 new string[]
                 {
-                    "Masculino",
+                    //"Masculino",
                     "Piel morena",
                     "Traje azul",
                     "Gorro",
@@ -405,7 +414,7 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(12)"),
                 new string[]
                 {
-                    "Masculino",
+                    //"Masculino",
                     "Lentes",
                     "Máscara",
                     "Traje negro",
@@ -415,7 +424,7 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(13)"),
                 new string[]
                 {
-                    "Masculino",
+                    //"Masculino",
                     "Barba",
                     "Joyería",
                     "Traje negro",
@@ -426,7 +435,7 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(14)"),
                 new string[]
                 {
-                    "Masculino",
+                    //"Masculino",
                     "Héroe/Heroína",
                     "Traje rojo",
                     "Piel blanca",
@@ -436,7 +445,7 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(15)"),
                 new string[]
                 {
-                    "Masculino",
+                    //"Masculino",
                     "Anciano/a",
                     "Bigote",
                     "Pelo largo",
@@ -448,7 +457,7 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(16)"),
                 new string[]
                 {
-                    "Masculino",
+                    //"Masculino",
                     "Adulto/a",
                     "Máscara",
                     "Piel blanca",
@@ -459,7 +468,7 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(17)"),
                 new string[]
                 {
-                    "Masculino",
+                    //"Masculino",
                     "Adulto/a",
                     "Traje verde",
                     "Piel blanca",
@@ -469,7 +478,7 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(19)"),
                 new string[]
                 {
-                    "Masculino",
+                    //"Masculino",
                     "Adulto/a",
                     "Traje azul",
                     "Piel blanca",
@@ -480,7 +489,7 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(20)"),
                 new string[]
                 {
-                    "Masculino",
+                    //"Masculino",
                     "Adulto/a",
                     "Traje verde",
                     "Piel blanca",
