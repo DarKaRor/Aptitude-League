@@ -30,13 +30,12 @@ public class Typewritter
         { "Period", "." },
         { "Comma", "," },
         { "Minus", "-" },
-        { "BackQuote", "ñ" }
+        { "BackQuote", "ï¿½" }
     };
 
     public void Start()
     {
         audio = GameManager.sharedInstance.gameObject.GetComponent<AudioSource>();
-        Debug.Log(audio);
         if(types) output.text = defaultString;
     }
     
@@ -54,11 +53,11 @@ public class Typewritter
         // Pasar por todas las teclas posibles
         foreach (KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
         {
-            // Verificar si esa tecla si tocó en el frame indicado.
+            // Verificar si esa tecla si tocï¿½ en el frame indicado.
             if (Input.GetKeyDown(vKey))
             {
               
-                // Si forma parte de los carácters aceptados
+                // Si forma parte de los carï¿½cters aceptados
                 bool shouldSend = false;
                 string key = ReplaceAll(vKey.ToString(), replacements);
 

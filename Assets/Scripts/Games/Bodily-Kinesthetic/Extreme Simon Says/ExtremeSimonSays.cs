@@ -110,10 +110,14 @@ public class ExtremeSimonSays : MonoBehaviour
         {
             speed -= speed * 0.13f;
             ResetDisplay();
-            GameManager.sharedInstance.PlayAudioWin(1);
             clock.Stop();
             clock.timer.current = 0;
-            if (rounds.Raise()) GameManager.sharedInstance.LoadRandomGame();
+            if (rounds.Raise()){
+                SetEnableButtons(false);
+                GameManager.sharedInstance.Win();
+                return false;
+            }
+            GameManager.sharedInstance.PlayAudioWin(1);
             if (rounds.current >= 2)
             {
                 for (int i = 0; i < Random.Range(1, 3); i++) AddRandomItem();

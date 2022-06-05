@@ -153,6 +153,7 @@ public class Ball : MonoBehaviour
 
     public IEnumerator Respawn(float time)
     {
+        if(DunkIt.instance.isWaiting) yield break;
         yield return new WaitForSeconds(time);
         respawn = null;
         if (!scored) DunkIt.instance.LoseBall();

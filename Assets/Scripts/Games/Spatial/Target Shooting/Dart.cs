@@ -154,6 +154,7 @@ public class Dart : MonoBehaviour
 
     public IEnumerator Respawn(float time)
     {
+        if(TargetShoot.instance.isWaiting) yield break;
         yield return new WaitForSeconds(time);
         respawn = null;
         if (!scored ) TargetShoot.instance.LoseLive();

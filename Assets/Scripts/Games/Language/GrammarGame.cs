@@ -87,8 +87,7 @@ public class GrammarGame : MonoBehaviour
     void Win(){
         if(maxPoints.Raise()){
             clock.Stop();
-            GameManager.sharedInstance.PlayAudioWin(1);
-            StartCoroutine(ActionAfterTime(2, () => GameManager.sharedInstance.LoadCurrentOrRandom()));
+            GameManager.sharedInstance.Win();
             return;
         }
         GameManager.sharedInstance.PlayAudioWin();

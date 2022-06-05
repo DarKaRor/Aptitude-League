@@ -16,6 +16,7 @@ public class TargetShoot : MonoBehaviour
     public Counter chances = new Counter(999);
     public int round = 0;
     Dart dart;
+    public bool isWaiting = false;
 
     private void Awake() => instance = instance ? instance : this;
 
@@ -50,7 +51,8 @@ public class TargetShoot : MonoBehaviour
 
         if (score.Raise())
         {
-            GameManager.sharedInstance.LoadRandomGame();
+            isWaiting = true;
+            GameManager.sharedInstance.Win();
         }
         round++;
     }

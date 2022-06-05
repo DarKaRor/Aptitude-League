@@ -17,6 +17,7 @@ public class Roman : MonoBehaviour
     Counter chances = new Counter(3);
     Counter maxPoints = new Counter(15);
     Counter difficulty = new Counter(1, .2f, .2f);
+    public bool isWaiting = false;
 
     [SerializeField] Clock clockObject;
     [SerializeField] Typewritter typewritter;
@@ -41,6 +42,7 @@ public class Roman : MonoBehaviour
 
     void Update()
     {
+        if(isWaiting) return;
         UpdateTimer();
         GetInput();
     }
@@ -82,15 +84,17 @@ public class Roman : MonoBehaviour
 
     public void CheckValues(bool forceLose = false)
     {
+        isWaiting = true;
         if (num2.text == "?" && !forceLose) return;
         if (!AreEqual() || forceLose) GameManager.sharedInstance.MathGameFail(answer, chances, GetAnswer());
-        else GameManager.sharedInstance.MathGameWin(ref maxPoints, ref difficulty, SetDifficulty);
+        else if(GameManager.sharedInstance.MathGameWin(ref maxPoints, ref difficulty, SetDifficulty)) return;
 
         NextRound();
     }
 
     public void NextRound()
     {
+        isWaiting = false;
         Restart();
         GetRandomNumber();
         clockObject.Reset();
@@ -107,7 +111,7 @@ public class Roman : MonoBehaviour
     public void GetRandomNumber()
     {
         leftRoman = Random.Range(0, 2) >= 0.5; // True o False random.
-        string randomNum = Random.Range(1, range + 1).ToString(); // Número aleatorio entre 1 y el rango
+        string randomNum = Random.Range(1, range + 1).ToString(); // Nï¿½mero aleatorio entre 1 y el rango
         string value = GetNeededType(randomNum); // Se obtiene romano de ser necesario
         num1.text = value; // Se aplica
     }

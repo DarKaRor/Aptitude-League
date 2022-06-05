@@ -96,12 +96,12 @@ public class MusicalMemory : MonoBehaviour
 
         if (rounds.reached)
         {
-            GameManager.sharedInstance.PlayAudioWin(1);
             if (songs.Raise())
             {
-                GameManager.sharedInstance.LoadRandomGame();
+                GameManager.sharedInstance.Win();
                 return;
             }
+            GameManager.sharedInstance.PlayAudioWin(1);
             Reset();
             StartCoroutine(Sing(2));
         }
@@ -159,7 +159,7 @@ public class MusicalMemory : MonoBehaviour
     void AddKey(string key, ref string to) => to += key + "/";
     void AddRandomKey(ref string to)
     {
-        // Revisando que la tecla no se haya repetido más de 2 veces.
+        // Revisando que la tecla no se haya repetido mï¿½s de 2 veces.
         string newKey = GetRandomKey();
         bool equal = newKey == lastNote;
         if (!equal)

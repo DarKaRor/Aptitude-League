@@ -59,7 +59,7 @@ public class Pianist : MonoBehaviour
     public void CheckWin()
     {
         if (currentRow < maxPoints) return;
-        StartCoroutine(Win());
+        Win();
     }
 
     public void GetRandomSong()
@@ -124,13 +124,11 @@ public class Pianist : MonoBehaviour
         }
     }
 
-    IEnumerator Win()
+    void Win()
     {
         lost = true;
-        GameManager.sharedInstance.PlayAudioWin();
         foreach (Row row in rows) row.stop = true;
-        yield return new WaitForSeconds(2);
-        GameManager.sharedInstance.LoadRandomGame();
+        GameManager.sharedInstance.Win();
     }
 
     IEnumerator Lose()

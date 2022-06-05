@@ -100,7 +100,6 @@ public class AnimalIdentify : MonoBehaviour
     }
 
     void Lose() => StartCoroutine(WaitToAction(() => GameManager.sharedInstance.GameOver()));
-    void Win() => StartCoroutine(WaitToAction(() => GameManager.sharedInstance.LoadCurrentOrRandom()));
 
     void CheckValues()
     {
@@ -108,8 +107,7 @@ public class AnimalIdentify : MonoBehaviour
         {
             if (rounds.Raise())
             {
-                GameManager.sharedInstance.PlayAudioWin(1);
-                Win();
+                GameManager.sharedInstance.Win();
                 return;
             }
 

@@ -22,6 +22,8 @@ public class MathKing : MonoBehaviour
     Counter difficulty = new Counter(1, .1f, .1f);
     Operation currentOperation;
 
+    public bool isWaiting = false;
+
     void Start()
     {
         button.onClick.AddListener(() => CheckValues());
@@ -41,20 +43,23 @@ public class MathKing : MonoBehaviour
 
     void Update()
     {
+        if (isWaiting) return;
         GetInput();
         UpdateTimer();
     }
 
     void CheckValues(bool forceLose = false)
     {
+        isWaiting = true;
         if (number.text == typewritter.defaultString && !forceLose) return;
-        if (!AreEqual() || forceLose)  GameManager.sharedInstance.MathGameFail(answer, chances, currentOperation.Solve());
-        else GameManager.sharedInstance.MathGameWin(ref maxPoints, ref difficulty, SetDifficulty);
+        if (!AreEqual() || forceLose) GameManager.sharedInstance.MathGameFail(answer, chances, currentOperation.Solve());
+        else if(GameManager.sharedInstance.MathGameWin(ref maxPoints, ref difficulty, SetDifficulty)) return;
 
         NextRound();
     }
     void NextRound()
     {
+        isWaiting = false;
         Restart();
         GetRandomOperation();
         clockObject.Reset();

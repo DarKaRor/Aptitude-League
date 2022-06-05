@@ -31,7 +31,6 @@ public class HangingMan : MonoBehaviour
     string separated = "";
     string lower = "";
     bool isFilling = false;
-
     void Start()
     {
         GameManager.sharedInstance.currentGame = gameId;
@@ -42,10 +41,8 @@ public class HangingMan : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        GetInput();
-    }
+    void Update() => GetInput();
+    
 
     void GetInput()
     {
@@ -94,7 +91,10 @@ public class HangingMan : MonoBehaviour
             if (output.text != separated) return;
 
             GameManager.sharedInstance.PlayAudioWin();
-            GameManager.sharedInstance.CheckMaxPoints(maxPoints);
+            if(GameManager.sharedInstance.CheckMaxPoints(maxPoints)){
+                isFilling = true;
+                return;
+            }
             Restart();
 
             return;

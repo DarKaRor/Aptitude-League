@@ -127,8 +127,7 @@ public class EveryoneIsTheSame : MonoBehaviour
         {
             if (rounds.Raise())
             {
-                GameManager.sharedInstance.PlayAudioWin(1);
-                GameManager.sharedInstance.LoadCurrentOrRandom();
+                GameManager.sharedInstance.Win();
                 return;
             }
 

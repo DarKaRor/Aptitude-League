@@ -97,7 +97,6 @@ public class EmotionIdentify : MonoBehaviour
     }
 
     void Lose() => StartCoroutine(WaitToAction(() => GameManager.sharedInstance.GameOver()));
-    void Win() => StartCoroutine(WaitToAction(() => GameManager.sharedInstance.LoadCurrentOrRandom()));
 
     void CheckValues()
     {
@@ -105,8 +104,7 @@ public class EmotionIdentify : MonoBehaviour
         {
             if (rounds.Raise())
             {
-                GameManager.sharedInstance.PlayAudioWin(1);
-                Win();
+                GameManager.sharedInstance.Win();
                 return;
             }
 

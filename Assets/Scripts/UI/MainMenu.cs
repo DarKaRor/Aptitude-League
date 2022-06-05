@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject dialogueBubble;
+    [SerializeField] GameObject logo;
+    [SerializeField] RectTransform[] buttons;
     DialogueBubble DialogueBubble;
     bool hasPlayed;
 
@@ -14,7 +16,15 @@ public class MainMenu : MonoBehaviour
         GameManager.sharedInstance.isFreePlay = false;
         DialogueBubble = dialogueBubble.GetComponent<DialogueBubble>();
         CheckFirstTime();
+        GameManager.sharedInstance.RestoreScore();
+        GameManager.sharedInstance.effects.Stop(); 
     }
+
+    public void HoverRaise(int index){
+        RectTransform transform = buttons[index];
+        transform.DOLocalMoveY(transform.localPosition.y + 10, 0.2f);
+    }
+
     public void CheckFirstTime()
     {
        
@@ -38,6 +48,8 @@ public class MainMenu : MonoBehaviour
         GameManager.sharedInstance.PlayOST(Methods.LoadOST("1. Main Menu"));
         GameManager.sharedInstance.ToggleGameObject(mainMenu);
         dialogueBubble.SetActive(false);
+
+        if(mainMenu.activeSelf) TweenUtils.InfiniteScale(logo.GetComponentInChildren<RectTransform>(), 1.1f, 0.4f);
     }
 
     public void Arcade() => GameManager.sharedInstance.LoadRandomGame();

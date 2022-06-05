@@ -1,8 +1,5 @@
 using UnityEngine;
-using System.Linq;
 using TMPro;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
@@ -10,7 +7,10 @@ public class GameOver : MonoBehaviour
     [SerializeField] TextMeshProUGUI score;
     [SerializeField] GameObject gameOver;
 
-    private void Start() => GameManager.sharedInstance.LowerVolume();
+    private void Start(){
+        GameManager.sharedInstance.LowerVolume();
+        SetScore();
+    }
     public void Help()
     {
         GameData gameData = GameManager.sharedInstance.gameDatas.Find(i => i.Id == GameManager.sharedInstance.currentGame);
@@ -25,5 +25,9 @@ public class GameOver : MonoBehaviour
     void Toggle() => GameManager.sharedInstance.ToggleGameObject(gameOver);
 
     public void BackToMenu() => GameManager.sharedInstance.BackToMenu();
+
+    public void SetScore(){
+        score.text = $"PUNTAJE: <color=blue>{GameManager.sharedInstance.score}</color>";
+    }
 
 }

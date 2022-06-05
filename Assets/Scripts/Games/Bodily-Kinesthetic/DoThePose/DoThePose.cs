@@ -125,7 +125,7 @@ public class DoThePose : MonoBehaviour
         if (rounds.Raise())
         {
 
-            StartCoroutine(Win(2));
+            Win();
             return;
         }
 
@@ -135,12 +135,8 @@ public class DoThePose : MonoBehaviour
         StartCoroutine(PlayWait(waitTime));
     }
 
-    IEnumerator Win(float waitTime = 2)
-    {
-        GameManager.sharedInstance.PlayAudioWin(1);
-        yield return new WaitForSeconds(waitTime);
-        GameManager.sharedInstance.LoadCurrentOrRandom();
-    }
+    void Win(float waitTime = 2) => GameManager.sharedInstance.Win(waitTime);
+    
 
     IEnumerator Lost(float waitTime = 2)
     {

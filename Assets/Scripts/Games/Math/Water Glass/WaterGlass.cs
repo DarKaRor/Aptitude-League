@@ -27,6 +27,8 @@ public class WaterGlass : MonoBehaviour
     Glass initialGlass;
     int maxGlasses = 2;
 
+    public bool isWaiting = true;
+
 
     private void Awake() => instance = instance ? instance : this;
 
@@ -42,6 +44,7 @@ public class WaterGlass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isWaiting) return;
         UpdateTimer();
         GetInput();
     }
@@ -74,7 +77,9 @@ public class WaterGlass : MonoBehaviour
 
     void CreateFirstGlass()
     {
+        isWaiting = false;
         branching = UnityEngine.Random.Range(2, maxGlasses > 5 ? 5 : maxGlasses);
+        ResizeReposition();
         StopAllCoroutines();
         foreach (Transform child in glassParent) Destroy(child.gameObject);
         glasses.Clear();
@@ -84,15 +89,14 @@ public class WaterGlass : MonoBehaviour
 
     public void CheckValues()
     {
+        isWaiting = true;
         bool equality = number.text == lastToFill.ToString();
         if (!equality) GameManager.sharedInstance.MathGameFail(answer, chances, lastToFill.ToString());
-        //else GameManager.sharedInstance.MathGameWin(ref maxPoints, ref difficulty, () => { });
-
         else
         {
             if (maxPoints.Raise())
             {
-                GameManager.sharedInstance.LoadRandomGame();
+                GameManager.sharedInstance.Win();
                 return;
             }
             maxGlasses++;
@@ -150,6 +154,5 @@ public class WaterGlass : MonoBehaviour
     {
         NumberGlasses();
         lastToFill = GetLastFilled();
-        ResizeReposition();
     }
 }

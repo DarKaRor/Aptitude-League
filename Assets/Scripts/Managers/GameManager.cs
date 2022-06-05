@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     public AudioSource music;
     public int currentGame = -1;
     public int currentScore;
-
     public bool hasPlayed = false; // Borrar
     public bool inGame = false;
 
@@ -33,6 +32,9 @@ public class GameManager : MonoBehaviour
     public bool inTransition = false;
     public float maxVolume = 0.8f;
     public bool isFreePlay = false;
+
+    public int score = 0;
+    public bool isGameOver = false;
 
     public List<GameData> gameDatas = new List<GameData>();
     private void Awake()
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         inGame = false;
+        isGameOver = true;
         SceneManager.LoadScene("GameOver");
     }
 
@@ -86,6 +89,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadCurrentOrRandom()
     {
+        if(isGameOver) RestoreScore();
         if (isFreePlay) LoadGame(currentGame);
         else LoadRandomGame();
     }
@@ -97,27 +101,39 @@ public class GameManager : MonoBehaviour
         return lost;
     }
 
-    public void MathGameWin(ref Counter maxPoints, ref Counter difficulty, Action SetDifficulty)
+    public bool MathGameWin(ref Counter maxPoints, ref Counter difficulty, Action SetDifficulty)
     {
-        GameWin(ref maxPoints);
+        if(GameWin(ref maxPoints)) return true;
         if (maxPoints.current % 5 == 0)
         {
             difficulty.Raise();
             SetDifficulty();
         }
+        return false;
     }
 
-    public void GameWin(ref Counter maxPoints)
+    public bool GameWin(ref Counter maxPoints)
     {
+        if(CheckMaxPoints(maxPoints)) return true;
         PlayAudioWin();
-        CheckMaxPoints(maxPoints);
+        return false;
+    }
+
+    IEnumerator WinCoroutine(float waitTime = 2){
+        PlayAudioWin(1);
+        score++;
+        Debug.Log("Score: " + score);
+        yield return new WaitForSeconds(waitTime);
+        LoadCurrentOrRandom();
+    }
+
+    public void Win(float waitTime = 2){
+        LowerVolume();
+        StartCoroutine(WinCoroutine(waitTime));
     }
 
     public bool CheckMaxPoints(Counter maxPoints) {
-        if (maxPoints.Raise())
-        {
-            LoadRandomGame();
-        }
+        if (maxPoints.Raise()) Win();
         return maxPoints.reached;
     }
 
@@ -126,6 +142,11 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         text.DOFade(0, 1);
+    }
+
+    public void RestoreScore(){
+        score = 0;
+        isGameOver = false;
     }
 
     public void ToggleGameObject(GameObject gameObject) => gameObject.SetActive(!gameObject.activeSelf);

@@ -14,6 +14,8 @@ public class DunkIt : MonoBehaviour
     public Counter difficulty = new Counter(5,1,1);
     Counter chances = new Counter(7);
     Ball ball;
+    public bool isWaiting = false;
+
     private void Awake() => instance = instance ? instance : this;
     
     // Start is called before the first frame update
@@ -44,7 +46,8 @@ public class DunkIt : MonoBehaviour
 
         if (score.Raise())
         {
-            GameManager.sharedInstance.LoadRandomGame();
+            isWaiting = true;
+            GameManager.sharedInstance.Win();
         }
 
         if(score.current > 5 * difficulty.current)

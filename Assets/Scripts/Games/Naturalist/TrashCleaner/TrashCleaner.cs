@@ -53,7 +53,7 @@ public class TrashCleaner : MonoBehaviour
 
     void Update()
     {
-        if(canCount) if(collectables.Count <= 0 && !isWinning) StartCoroutine(Win());
+        if(canCount) if(collectables.Count <= 0 && !isWinning) Win();
         UpdateTimer();
     }
 
@@ -78,14 +78,12 @@ public class TrashCleaner : MonoBehaviour
         GameManager.sharedInstance.GameOver();
 
     }
-    IEnumerator Win()
+    void Win()
     {
         isWinning = true;
-        GameManager.sharedInstance.PlayAudioWin(1);
         clock.Stop();
         GameManager.sharedInstance.LowerVolume();
-        yield return new WaitForSeconds(3);
-        GameManager.sharedInstance.LoadCurrentOrRandom();
+        GameManager.sharedInstance.Win(3);
     }
 
     IEnumerator WaitABitForCounting()
