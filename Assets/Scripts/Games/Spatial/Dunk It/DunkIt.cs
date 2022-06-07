@@ -25,6 +25,8 @@ public class DunkIt : MonoBehaviour
         GameManager.sharedInstance.currentGame = gameId;
         SpawnBaskets();
 
+        GameManager.sharedInstance.ResizeCamera();
+
     }
 
     // Update is called once per frame

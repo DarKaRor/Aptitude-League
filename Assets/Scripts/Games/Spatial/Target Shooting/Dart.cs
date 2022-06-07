@@ -12,6 +12,7 @@ public class Dart : MonoBehaviour
     [SerializeField] GameObject floor;
     [SerializeField] public AudioClip throwClip;
     [SerializeField] public float zAxis = 0;
+    [SerializeField] GameObject arrow;
 
     DartFunctionality dartFunctionality;
     SpriteRenderer shadowRenderer;
@@ -28,6 +29,8 @@ public class Dart : MonoBehaviour
     public GameObject point;
 
     bool FollowMouse = true;
+
+    AimDir aimDir;
 
     [HideInInspector] public Coroutine decrease;
     [HideInInspector] public Coroutine respawn = null;
@@ -48,6 +51,8 @@ public class Dart : MonoBehaviour
         point = dart.transform.Find("Point").gameObject;
 
         initialPosParent = transform.position;
+
+        aimDir = arrow.GetComponent<AimDir>();
 
     }
 
@@ -86,17 +91,20 @@ public class Dart : MonoBehaviour
     {
         Vector3 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        aimDir.target = mousePosition;
         if (thrown) return;
-        Debug.DrawLine(mousePosition, startPos);
         
         if (Input.GetMouseButtonDown(0))
         {
+            aimDir.position = mousePosition;
             FollowMouse = false;
             startPos = mousePosition;
+            arrow.SetActive(true);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
+            arrow.SetActive(false);
             endPos = mousePosition;
             Vector3 dir = startPos - endPos;
             if (dir.y < 0)

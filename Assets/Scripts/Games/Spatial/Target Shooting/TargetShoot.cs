@@ -23,6 +23,7 @@ public class TargetShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.sharedInstance.ResizeCamera();
         GameManager.sharedInstance.currentGame = gameID;
         dart = FindObjectOfType<Dart>();
         SpawnTargets();

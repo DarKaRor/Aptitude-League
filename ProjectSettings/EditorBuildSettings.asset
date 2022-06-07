@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/FreeplayMenu.unity
     guid: 20a0210c7c0d21c45817063d4048a89e
   - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: b1304f5b6bb9877498368f8dd9767ed2
+  - enabled: 1
     path: Assets/Scenes/Games/Interpersonal/EveryoneIsTheSame.unity
     guid: 293933fd5900d604a8cee2199884326d
   - enabled: 1

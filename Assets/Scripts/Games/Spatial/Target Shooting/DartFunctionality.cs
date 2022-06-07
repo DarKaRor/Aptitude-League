@@ -53,6 +53,7 @@ public class DartFunctionality : MonoBehaviour
         if (dart.scored) return;
         TargetShoot.instance.pointText.gameObject.SetActive(false);
         dart.scored = true;
+        GameManager.sharedInstance.effects.PlayOneShot(GameManager.sharedInstance.sounds[Sound.Score]);
         float distance = Vector2.Distance(dart.point.transform.position, target.center.transform.position);
 
         PointSettings point = null;
@@ -68,11 +69,5 @@ public class DartFunctionality : MonoBehaviour
         if (point == null) point = points[points.Length - 1];
 
         TargetShoot.instance.SpawnText(target.transform.position, point.number, point.color, target.zAxis);
-
-        //if (distance <= 0.37 * (1 - target.zAxis)) Debug.Log("Hit Yellow");
-        //else if (distance <= 0.70 * (1 - target.zAxis)) Debug.Log("Hit Red");
-        //else if (distance <= 1.08 * (1 - target.zAxis)) Debug.Log("Hit Blue");
-        //else if (distance <= 1.42 * (1 - target.zAxis)) Debug.Log("hIT DARK BLUE");
-        //else Debug.Log("Hit White");
     }
 }

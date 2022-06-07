@@ -34,6 +34,7 @@ public class WaterGlass : MonoBehaviour
 
     void Start()
     {
+        Camera.main.aspect = 16f / 9f;
         GameManager.sharedInstance.currentGame = gameId;
         clock.Start();
         typewritter.Start();

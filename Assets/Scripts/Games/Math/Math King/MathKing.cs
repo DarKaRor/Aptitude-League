@@ -35,7 +35,7 @@ public class MathKing : MonoBehaviour
         typewritter.Start();
 
         typewritter.writtable.AddRange(Variables.numbers);
-        typewritter.writtable.AddRange(new string[] { ".", ",", "-"});
+        typewritter.writtable.AddRange(new string[] { ".", ",", "-" });
 
         GameManager.sharedInstance.currentGame = gameId;
     }
@@ -52,8 +52,12 @@ public class MathKing : MonoBehaviour
     {
         isWaiting = true;
         if (number.text == typewritter.defaultString && !forceLose) return;
-        if (!AreEqual() || forceLose) GameManager.sharedInstance.MathGameFail(answer, chances, currentOperation.Solve());
-        else if(GameManager.sharedInstance.MathGameWin(ref maxPoints, ref difficulty, SetDifficulty)) return;
+        if (!AreEqual() || forceLose)
+        {
+            Lose();
+            return;
+        }
+        else if (GameManager.sharedInstance.MathGameWin(ref maxPoints, ref difficulty, SetDifficulty)) return;
 
         NextRound();
     }
@@ -72,7 +76,7 @@ public class MathKing : MonoBehaviour
     }
 
     bool AreEqual() => number.text == currentOperation.Solve();
-    
+
 
     void GetInput()
     {
@@ -88,6 +92,23 @@ public class MathKing : MonoBehaviour
         }
     }
 
+    IEnumerator ActionAfterTime(float time, System.Action action)
+    {
+        yield return new WaitForSeconds(time);
+        action();
+    }
+
+    void Lose()
+    {
+        isWaiting = true;
+        GameManager.sharedInstance.MathGameFail(answer, chances, currentOperation.Solve());
+        StartCoroutine(ActionAfterTime(2, () =>
+        {
+            isWaiting = false;
+            NextRound();
+        }));
+    }
+
     void UpdateTimer()
     {
         if (clockObject.Update() == 1)
@@ -96,8 +117,8 @@ public class MathKing : MonoBehaviour
             CheckValues(true);
         };
     }
-    public void SetDifficulty() =>  range = Mathf.RoundToInt(maxRange * difficulty.current);
-    
+    public void SetDifficulty() => range = Mathf.RoundToInt(maxRange * difficulty.current);
+
 
     public void GetRandomOperation()
     {
@@ -105,14 +126,14 @@ public class MathKing : MonoBehaviour
         int num1 = GetRandomNumber();
         int num2 = GetRandomNumber();
 
-        if(op == '*') num1 = Random.Range(0, 9);
+        if (op == '*') num1 = Random.Range(0, 9);
 
         if (op == '/')
         {
             while (Methods.isPrime(num1)) num1 = GetRandomNumber();
             while (num1 % num2 != 0 && num2 != 1) num2 = Random.Range(2, num1);
         }
-        
+
         currentOperation = new Operation(num1, num2, op);
 
         operation.text = currentOperation.ToStringStylized();

@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using static RomanUtils;
 
 public class Roman : MonoBehaviour
@@ -34,15 +35,15 @@ public class Roman : MonoBehaviour
 
         typewritter.Start();
         typewritter.writtable.AddRange(Variables.numbers);
-        
-        foreach(char key in romanNumbersDictionary.Keys) typewritter.writtable.Add(key.ToString());
+
+        foreach (char key in romanNumbersDictionary.Keys) typewritter.writtable.Add(key.ToString());
 
         GameManager.sharedInstance.currentGame = gameId;
     }
 
     void Update()
     {
-        if(isWaiting) return;
+        if (isWaiting) return;
         UpdateTimer();
         GetInput();
     }
@@ -68,6 +69,14 @@ public class Roman : MonoBehaviour
         }
     }
 
+
+
+    IEnumerator ActionAfterTime(float time, System.Action action)
+    {
+        yield return new WaitForSeconds(time);
+        action();
+    }
+
     void UpdateTimer()
     {
         if (clockObject.Update() == 1)
@@ -86,10 +95,25 @@ public class Roman : MonoBehaviour
     {
         isWaiting = true;
         if (num2.text == "?" && !forceLose) return;
-        if (!AreEqual() || forceLose) GameManager.sharedInstance.MathGameFail(answer, chances, GetAnswer());
-        else if(GameManager.sharedInstance.MathGameWin(ref maxPoints, ref difficulty, SetDifficulty)) return;
+        if (!AreEqual() || forceLose)
+        {
+            Lose();
+            return;
+        }
+        else if (GameManager.sharedInstance.MathGameWin(ref maxPoints, ref difficulty, SetDifficulty)) return;
 
         NextRound();
+    }
+
+    void Lose()
+    {
+        isWaiting = true;
+        GameManager.sharedInstance.MathGameFail(answer, chances, GetAnswer());
+        StartCoroutine(ActionAfterTime(2, () =>
+        {
+            isWaiting = false;
+            NextRound();
+        }));
     }
 
     public void NextRound()

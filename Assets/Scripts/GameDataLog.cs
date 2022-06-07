@@ -34,7 +34,7 @@ public class GameDataLog
                 )
             },
             "Resuelve",
-            "4. El Rey de las Matem�ticas"
+            "4. El Rey de las Matemáticas"
          );
         new GameData(
         GameType.Lives,

@@ -12,7 +12,8 @@ public enum Sound
     Win,
     Lose,
     Hit,
-    Win2
+    Win2,
+    Score
 }
 
 public class GameManager : MonoBehaviour
@@ -57,7 +58,28 @@ public class GameManager : MonoBehaviour
         sounds.Add(Sound.Lose, Resources.Load<AudioClip>("Sound/lose"));
         sounds.Add(Sound.Hit, Resources.Load<AudioClip>("Sound/hit"));
         sounds.Add(Sound.Win2, Resources.Load<AudioClip>("Sound/win2"));
+        sounds.Add(Sound.Score, Resources.Load<AudioClip>("Sound/point"));
         GameDataLog.CreateGameDatas();
+
+        Camera.main.aspect = 16f / 9f;
+    }
+
+    public void ResizeCamera()
+    {
+        // Check the current resolution
+        float currentAspectRatio = (float)Screen.width / (float)Screen.height;
+
+        Debug.Log("Current aspect ratio: " + currentAspectRatio);
+        float targetAspectRatio = 16f / 9f;
+        Debug.Log("Target aspect ratio: " + targetAspectRatio);
+
+        // If the aspect ratio is approximately correct, the ortographic size is 5. Else, resize the ortographic size accordingly
+        if (Mathf.Abs(currentAspectRatio - targetAspectRatio) < 0.01f) Camera.main.orthographicSize = 5f;
+        else
+        {
+            float differenceInSize = targetAspectRatio / currentAspectRatio;
+            Camera.main.orthographicSize = Camera.main.orthographicSize * differenceInSize;
+        }
     }
 
     public void GameOver()
@@ -162,11 +184,13 @@ public class GameManager : MonoBehaviour
     public void BackToMenu()
     {
         inGame = false;
-        gameMessage.ResetMessage();
+        if(gameMessage!=null) gameMessage.ResetMessage();
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     public void FreePlay() => SceneManager.LoadScene("FreeplayMenu", LoadSceneMode.Single);
+
+    public void LoadCredits() => SceneManager.LoadScene("Credits", LoadSceneMode.Single);
 
     public void LoadGame(int id)
     {

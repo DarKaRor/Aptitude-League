@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     [SerializeField] GameObject GFX;
     [SerializeField] GameObject shadow;
     [SerializeField] GameObject floor;
+    [SerializeField] GameObject arrow;
     BallFunctionality functionality;
     [SerializeField] public AudioClip dribble;
     SpriteRenderer shadowRenderer;
@@ -31,6 +32,8 @@ public class Ball : MonoBehaviour
     bool dribbled = false;
 
     Vector3 startPos, endPos;
+
+    AimDir aimDir;
     void Start()
     {
         //RotateConstant(GFX);
@@ -40,6 +43,7 @@ public class Ball : MonoBehaviour
         ballRenderer = GFX.transform.GetComponentInChildren<SpriteRenderer>();
         initialPos = basketBall.transform.position;
 
+        aimDir = arrow.GetComponent<AimDir>();
     }
 
     // Update is called once per frame
@@ -54,7 +58,6 @@ public class Ball : MonoBehaviour
         if (FollowMouse)
         {
             // Follow mouse on x axis
-            //functionality.
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 newPos = new Vector3(mousePos.x, basketBall.transform.position.y, 0);
             newPos.x = Mathf.Clamp(newPos.x, -8f, 8f);
@@ -79,9 +82,12 @@ public class Ball : MonoBehaviour
         if (thrown) return;
         Vector3 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        Debug.DrawLine(mousePosition, startPos);
+        aimDir.target = mousePosition;
+
         if (Input.GetMouseButtonDown(0) )
         {
+            aimDir.position = mousePosition;
+            arrow.SetActive(true);
             startPos = mousePosition;
             FollowMouse = false;
         }
@@ -90,6 +96,7 @@ public class Ball : MonoBehaviour
         {
             endPos = mousePosition;
             Vector3 dir = startPos - endPos;
+            arrow.SetActive(false);
             if (Vector2.Distance(startPos, endPos) < 1f){
                 if(!dribbled) FollowMouse = true;
                 return;

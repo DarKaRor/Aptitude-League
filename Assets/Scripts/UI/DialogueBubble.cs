@@ -32,6 +32,7 @@ public class DialogueBubble : MonoBehaviour
     char[] muteChars = new char[] { ' ', '!', '?', '�', '(', ')', '=', '�' };
 
     AudioSource audioSource;
+    public Vector2 standPosition;
 
     private void Start()
     {
@@ -39,11 +40,13 @@ public class DialogueBubble : MonoBehaviour
         canvasGroup = bubble.GetComponent<CanvasGroup>();
         rectTransform = container.GetComponent<RectTransform>();
         viviTransform = viviUI.GetComponent<RectTransform>();
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GameManager.sharedInstance.effects;
         viviImage = viviUI.GetComponent<Image>();
 
         bubbleStartPos = rectTransform.anchoredPosition;
         viviStartPos = viviTransform.anchoredPosition;
+
+        standPosition = new Vector2(viviTransform.anchoredPosition.x, -397);
     }
 
 
@@ -116,7 +119,7 @@ public class DialogueBubble : MonoBehaviour
             if (line.sprite)
             {
                 viviTransform.DOKill();
-                viviTransform.anchoredPosition = new Vector2(viviTransform.anchoredPosition.x, -397);
+                viviTransform.anchoredPosition = standPosition;
                 viviImage.sprite = line.sprite;
                 viviTransform.DOAnchorPosY(viviTransform.anchoredPosition.y + 30, .25f).SetLoops(2, LoopType.Yoyo); // Bounce effect when changing sprite
             }
@@ -127,6 +130,11 @@ public class DialogueBubble : MonoBehaviour
         yield return new WaitUntil(() => Input.anyKey); // Wait until user presses a key
         onEnd();
         ResetBubble();
+    }
+
+
+    public void StartSpeak(Action onEnd = null){
+        StartCoroutine(Speak(dialogue, onEnd));
     }
 
 }

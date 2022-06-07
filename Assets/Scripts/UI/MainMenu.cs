@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject dialogueBubble;
     [SerializeField] GameObject logo;
     [SerializeField] RectTransform[] buttons;
+    [SerializeField] GameObject settings;
     DialogueBubble DialogueBubble;
     bool hasPlayed;
 
@@ -52,15 +53,23 @@ public class MainMenu : MonoBehaviour
         if(mainMenu.activeSelf) TweenUtils.InfiniteScale(logo.GetComponentInChildren<RectTransform>(), 1.1f, 0.4f);
     }
 
+    public void ToggleSettings(){
+        GameManager.sharedInstance.ToggleGameObject(settings);
+        GameManager.sharedInstance.ToggleGameObject(mainMenu);
+
+    }
+
     public void Arcade() => GameManager.sharedInstance.LoadRandomGame();
 
     public void FreePlay() => GameManager.sharedInstance.FreePlay();
 
+    public void Credits() => GameManager.sharedInstance.LoadCredits();
+
     public void ExitGame()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
         #endif
-        Application.Quit();
+            Application.Quit();
     }
 }
