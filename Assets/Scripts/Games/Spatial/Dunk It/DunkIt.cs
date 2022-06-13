@@ -36,9 +36,9 @@ public class DunkIt : MonoBehaviour
         UpdateChances();
     }
 
-    public void UpdateScore() => scoreDisplay.text = score.current.ToString();
+    public void UpdateScore() => scoreDisplay.text = score.current.ToString() + "pts";
 
-    public void UpdateChances() => balls.text = chances.GetReverseValue().ToString();
+    public void UpdateChances() => balls.text = "x" + chances.GetReverseValue().ToString();
 
     public void AddScore(float distance)
     {

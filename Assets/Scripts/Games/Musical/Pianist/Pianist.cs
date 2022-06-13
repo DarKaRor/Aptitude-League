@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Pianist : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Pianist : MonoBehaviour
     [SerializeField] Sprite black;
     [SerializeField] Sprite gray;
     [SerializeField] GameObject rowPrefab;
+    [SerializeField] Sprite[] backgrounds;
+    [SerializeField] Image left;
+    [SerializeField] Image right;
 
     [HideInInspector] public float scrollSpeed = 2f;
     [HideInInspector] public float yGap = 1.5f;
@@ -21,7 +25,6 @@ public class Pianist : MonoBehaviour
     public int currentRow = 0;
     int currentNote = 0;
     float initialScroll = 2f;
-    [HideInInspector] public AudioClip[] clips;
     string songName;
     List<Row> rows = new List<Row>();
     float spawnTime = .3f;
@@ -34,10 +37,43 @@ public class Pianist : MonoBehaviour
 
     private void Awake() => instance = instance ? instance : this;
 
+    // Testing purposes
+    //string song = "Db+|Db+|Bb|Ab|Gb|Db+|Db+|Db+|Bb|Ab|Gb|B|Bb|Db+|Db+|Bb|Ab|Gb|Db+|Db+|Db+|Bb|Ab|Gb|Ab|Gb|Eb";
+    string song = "";
+    List<string[]> notes = new List<string[]>();
+    int pianoKey = 4;
+
+    List<string[]> GetSongByKey(int key, string song){
+        string[] noteGroups = song.Split('|');
+        List<string[]> newNoteGroups = new List<string[]>();
+
+
+        foreach(string noteGroup in noteGroups){
+            List<string> newNotes = new List<string>();
+            string[] notes = noteGroup.Split('/');
+
+            foreach(string note in notes){
+                int numPlus = note.Count(c => c == '+');
+                int numMinus = note.Count(c => c == '-');
+                string noteName = note.Replace("+", "").Replace("-", "");
+
+                newNotes.Add(noteName + (key + numPlus - numMinus));
+            }
+
+            newNoteGroups.Add(newNotes.ToArray());
+        }
+
+        return newNoteGroups;
+    }
+
     void Start()
     {
         GameManager.sharedInstance.currentGame = gameId;
+        Piano.SetClips();
         GetRandomSong();
+        GetRandomBackground();
+        if(!GameManager.sharedInstance.isFreePlay) GetRandomNote();
+        else maxPoints = notes.Count;
         StartCoroutine(SpawnRows());
 
         sprites = new Dictionary<TileType, Sprite>
@@ -46,6 +82,20 @@ public class Pianist : MonoBehaviour
             {TileType.Black, black },
             { TileType.Gray, gray }
         };
+
+        // Testing purposes
+        //maxPoints = 1000;
+    }
+
+    void GetRandomBackground(){
+        Sprite randomSprite = Methods.GetRandomElement(backgrounds);
+        left.sprite = randomSprite;
+        right.sprite = randomSprite;
+    }
+
+    void GetRandomNote()
+    {
+        currentNote = Random.Range(0, notes.Count);
     }
 
     void Update()
@@ -64,15 +114,21 @@ public class Pianist : MonoBehaviour
 
     public void GetRandomSong()
     {
-        Song song = Methods.GetRandomElement(Variables.songs);
-        clips = Methods.GetClipsFromSong(song);
-        scrollSpeed = initialScroll * song.speed;
+        Song songObj = Methods.GetRandomElement(Variables.songs);
+        //songObj = Variables.songs[2];
+        song = songObj.sheet;
+        pianoKey = songObj.key;
+        notes = GetSongByKey(pianoKey, song);
+        scrollSpeed = initialScroll * songObj.speed;
+        spawnTime = .3f / songObj.speed;
     }
 
-    public void PlayCurrent()
-    {
-        if (currentNote >= clips.Length) currentNote = 0;
-        GameManager.sharedInstance.PlayEffect(clips[currentNote]);
+    public void PlayCurrent(){
+        if(currentNote >= notes.Count) currentNote = 0;
+        foreach(string note in notes[currentNote]){
+            GameManager.sharedInstance.PlayEffect(Piano.clips[note]);
+            //Debug.Log(note);
+        }
         currentNote++;
     }
 

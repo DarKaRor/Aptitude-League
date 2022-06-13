@@ -13,7 +13,9 @@ public class MathKing : MonoBehaviour
     [SerializeField] TextMeshProUGUI number;
     [SerializeField] TextMeshProUGUI operation;
     [SerializeField] TextMeshProUGUI answer;
-    [SerializeField] Button button;
+    [SerializeField] Sprite[] drawings;
+    [SerializeField] Image[] drawingsImage;
+    //[SerializeField] Button button;
     int maxRange = 100;
     int range;
     int maxTimer = 20;
@@ -26,7 +28,7 @@ public class MathKing : MonoBehaviour
 
     void Start()
     {
-        button.onClick.AddListener(() => CheckValues());
+        //button.onClick.AddListener(() => CheckValues());
         clockObject.timer.max = maxTimer + maxTimer * difficulty.current * 0.3f;
         SetDifficulty();
         GetRandomOperation();
@@ -48,6 +50,40 @@ public class MathKing : MonoBehaviour
         UpdateTimer();
     }
 
+    void SetDrawings()
+    {
+        int quantity = Random.Range(5, drawingsImage.Length);
+        for (int i = 0; i < drawingsImage.Length; i++)
+        {
+            Image img = drawingsImage[i];
+            if (i >= quantity)
+            {
+                img.gameObject.SetActive(false);
+                continue;
+            }
+            RectTransform rect = img.GetComponent<RectTransform>();
+            img.gameObject.SetActive(true);
+            img.sprite = drawings[Random.Range(0, drawings.Length)];
+
+            SetInRandomPosition(rect);
+            SetRandomRotation(rect);
+        }
+    }
+
+    void SetInRandomPosition(RectTransform t)
+    {
+        RectTransform canvasRect = GameObject.Find("Canvas").GetComponent<RectTransform>();
+        Vector2 randomPosition = new Vector2(Random.Range(0, canvasRect.sizeDelta.x), Random.Range(0, canvasRect.sizeDelta.y));
+
+        randomPosition = new Vector2(randomPosition.x - t.sizeDelta.x / 2, randomPosition.y - t.sizeDelta.y / 2);
+        t.anchoredPosition = randomPosition;
+    }
+
+    void SetRandomRotation(RectTransform t)
+    {
+        t.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+    }
+
     void CheckValues(bool forceLose = false)
     {
         isWaiting = true;
@@ -59,7 +95,7 @@ public class MathKing : MonoBehaviour
         }
         else if (GameManager.sharedInstance.MathGameWin(ref maxPoints, ref difficulty, SetDifficulty)) return;
 
-        NextRound();
+        StartCoroutine(ActionAfterTime(1, () => NextRound()));
     }
     void NextRound()
     {
@@ -73,6 +109,7 @@ public class MathKing : MonoBehaviour
     {
         number.text = typewritter.defaultString;
         operation.text = typewritter.defaultString;
+        
     }
 
     bool AreEqual() => number.text == currentOperation.Solve();
@@ -137,6 +174,8 @@ public class MathKing : MonoBehaviour
         currentOperation = new Operation(num1, num2, op);
 
         operation.text = currentOperation.ToStringStylized();
+        
+        SetDrawings();
     }
 
     public int GetRandomNumber() => Random.Range(1, range + 1);

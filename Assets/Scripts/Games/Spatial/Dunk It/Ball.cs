@@ -10,16 +10,17 @@ public class Ball : MonoBehaviour
     [SerializeField] GameObject shadow;
     [SerializeField] GameObject floor;
     [SerializeField] GameObject arrow;
+    [SerializeField] GameObject sideArrows;
     BallFunctionality functionality;
     [SerializeField] public AudioClip dribble;
     SpriteRenderer shadowRenderer;
     SpriteRenderer ballRenderer;
     public Rigidbody2D ballRb;
     [SerializeField] public float zAxis = 0;
-    float zSpeed = .4f;
-    float acceleration = .08f;
-    public float throwForceY = 2.8f;
-    float throwForceX = 1.5f;
+    float zSpeed = .6f;
+    float acceleration = .05f;
+    float throwForceY = 2.7f;
+    float throwForceX = 1.1f;
     bool thrown = false;
     public bool scored = false;
     [SerializeField] public List<Basket> baskets;
@@ -70,7 +71,7 @@ public class Ball : MonoBehaviour
 
         foreach(Basket basket in baskets)
         {
-            if (Mathf.Abs(zAxis - basket.zAxis) <= 0.15f) basket.SetColliders(true);
+            if (Mathf.Abs(zAxis - basket.zAxis) <= 0.1f) basket.SetColliders(true);
             else basket.SetColliders(false);
         }
        
@@ -86,10 +87,12 @@ public class Ball : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) )
         {
+            
             aimDir.position = mousePosition;
             arrow.SetActive(true);
             startPos = mousePosition;
             FollowMouse = false;
+            sideArrows.SetActive(false);
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -98,10 +101,16 @@ public class Ball : MonoBehaviour
             Vector3 dir = startPos - endPos;
             arrow.SetActive(false);
             if (Vector2.Distance(startPos, endPos) < 1f){
-                if(!dribbled) FollowMouse = true;
+                if(!dribbled){
+                    FollowMouse = true;
+                    sideArrows.SetActive(true);
+                }
                 return;
             }
-            ballRb.AddForce(new Vector2(- dir.x * throwForceX, -dir.y * throwForceY), ForceMode2D.Impulse);
+            
+            float forceY = throwForceY * - dir.y;
+            forceY = Mathf.Clamp(forceY, -25, 25);
+            ballRb.AddForce(new Vector2(- dir.x * throwForceX, forceY), ForceMode2D.Impulse);
             if(dir.y < 0) Throw();
             else dribbled = true;
         }
@@ -111,6 +120,7 @@ public class Ball : MonoBehaviour
 
     void Throw()
     {
+        
         FollowMouse = false;
         dribbled = false;
         thrown = true;
@@ -121,7 +131,7 @@ public class Ball : MonoBehaviour
     void UseZValue()
     {
         transform.DOScale(1 - zAxis, 0);
-        ballRenderer.sortingOrder = (int)(-zAxis / .05);
+        ballRenderer.sortingOrder = (int)(-zAxis / .005);
         shadowRenderer.sortingOrder = ballRenderer.sortingOrder - 1;
     }
 
@@ -130,7 +140,7 @@ public class Ball : MonoBehaviour
     {
         float distanceFromFloor = Vector2.Distance(basketBall.transform.position, shadow.transform.position);
         shadowRenderer.DOFade(distanceFromFloor > 20 ? 0.2f : 1 - distanceFromFloor / 20, 0);
-        shadow.transform.DOScaleX(1 + distanceFromFloor * .2f, 0);
+        shadow.transform.DOScaleX(0.3f + distanceFromFloor * .2f, 0);
     }
 
     public void RotateConstant(GameObject gameObject, float rotSpeed = 5f)
@@ -172,6 +182,7 @@ public class Ball : MonoBehaviour
         scored = false;
         basketBall.transform.position = initialPos;
         FollowMouse = true;   
+        sideArrows.SetActive(true);
     }
 
     public void CallRespawn(float time)

@@ -37,9 +37,9 @@ public class TargetShoot : MonoBehaviour
     }
 
 
-    public void UpdateScore() => scoreDisplay.text = score.current.ToString();
+    public void UpdateScore() => scoreDisplay.text = score.current.ToString() + " pts";
 
-    public void UpdateChances() => lives.text = chances.GetReverseValue().ToString();
+    public void UpdateChances() => lives.text = "x" + chances.GetReverseValue().ToString();
 
 
     public void AddScore(float distance, int number)

@@ -10,6 +10,7 @@ public class Dart : MonoBehaviour
     [SerializeField] GameObject GFX;
     [SerializeField] GameObject shadow;
     [SerializeField] GameObject floor;
+    [SerializeField] GameObject sideArrows;
     [SerializeField] public AudioClip throwClip;
     [SerializeField] public float zAxis = 0;
     [SerializeField] GameObject arrow;
@@ -96,6 +97,7 @@ public class Dart : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
+            sideArrows.SetActive(false);
             aimDir.position = mousePosition;
             FollowMouse = false;
             startPos = mousePosition;
@@ -114,6 +116,7 @@ public class Dart : MonoBehaviour
                 Throw();
                 return;
             }
+            sideArrows.SetActive(true);
             FollowMouse = true;
         }
     }
@@ -130,7 +133,7 @@ public class Dart : MonoBehaviour
     {
         float distanceFromFloor = Vector2.Distance(dart.transform.position, shadow.transform.position);
         shadowRenderer.DOFade(distanceFromFloor > 20 ? 0.2f : 1 - distanceFromFloor / 20, 0);
-        shadow.transform.DOScaleX(1 + distanceFromFloor * .2f, 0);
+        shadow.transform.DOScaleX(0.2f + distanceFromFloor * .2f, 0);
     }
 
     void UseZValue()
@@ -177,6 +180,7 @@ public class Dart : MonoBehaviour
         transform.position = initialPosParent;
         transform.localScale = Vector3.one;
         FollowMouse = true;
+        sideArrows.SetActive(true);
     }
 
     public void CallRespawn(float time)

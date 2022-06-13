@@ -6,9 +6,12 @@ public class GameOver : MonoBehaviour
     [SerializeField] DialogueBubble dialogueBubble;
     [SerializeField] TextMeshProUGUI score;
     [SerializeField] GameObject gameOver;
+    [SerializeField] TextMeshProUGUI record;
 
     private void Start(){
         GameManager.sharedInstance.LowerVolume();
+        record.gameObject.SetActive(!GameManager.sharedInstance.isFreePlay);
+        GameManager.sharedInstance.SaveScore();
         SetScore();
     }
     public void Help()
@@ -28,6 +31,7 @@ public class GameOver : MonoBehaviour
 
     public void SetScore(){
         score.text = $"PUNTAJE: <color=blue>{GameManager.sharedInstance.score}</color>";
+        record.text = $"RECORD: <color=blue>{PlayerPrefs.GetInt("Score")}</color>";
     }
 
 }

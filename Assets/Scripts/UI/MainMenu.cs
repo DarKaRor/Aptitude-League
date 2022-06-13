@@ -53,10 +53,16 @@ public class MainMenu : MonoBehaviour
         if(mainMenu.activeSelf) TweenUtils.InfiniteScale(logo.GetComponentInChildren<RectTransform>(), 1.1f, 0.4f);
     }
 
-    public void ToggleSettings(){
-        GameManager.sharedInstance.ToggleGameObject(settings);
-        GameManager.sharedInstance.ToggleGameObject(mainMenu);
+    public void GoToSettings(){
+        settings.SetActive(true);
+        mainMenu.SetActive(false);
 
+        Debug.Log($"Settings: {settings.activeSelf} MainMenu: {mainMenu.activeSelf}");
+    }
+
+    public void GoBack(){
+        settings.SetActive(false);
+        mainMenu.SetActive(true);
     }
 
     public void Arcade() => GameManager.sharedInstance.LoadRandomGame();

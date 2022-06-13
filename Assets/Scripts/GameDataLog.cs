@@ -4,6 +4,7 @@ public class GameDataLog
     {
         new GameData(
         GameType.Lives,
+        Intelligence.Math,
         "Cuenta en Romanos",
         "Tienes que transformar números de romans a arábigos y viceversa",
         "Roman",
@@ -21,6 +22,7 @@ public class GameDataLog
      );
         new GameData(
             GameType.Lives,
+            Intelligence.Math,
             "Rey de las matemáticas",
             "Resuelve todas las operaciones en un límite de tiempo!",
             "Math King",
@@ -38,6 +40,7 @@ public class GameDataLog
          );
         new GameData(
         GameType.Lives,
+        Intelligence.Math,
         "Escoge el vaso",
         "Identifica cual vaso se llenará de agua primero!",
         "Water Glass",
@@ -51,10 +54,12 @@ public class GameDataLog
             )
         },
         "Escoge",
-        "5. Escoge el vaso"
+        "5. Escoge el vaso",
+        true
         );
         new GameData(
         GameType.Lives,
+        Intelligence.Language,
         "El ahorcado",
         "Trata de adivinar la palabra antes de que el dibujo se complete!",
         "HangingMan",
@@ -72,6 +77,7 @@ public class GameDataLog
         );
         new GameData(
         GameType.Lives,
+        Intelligence.Language,
         "Corrección de Errores",
         "Identifica todos los errores que est�n en la frase y corrigelos",
         "Grammar Game",
@@ -101,10 +107,12 @@ public class GameDataLog
             )
         },
         "Corrige",
-        "7. Corrección de errores"
+        "7. Corrección de errores",
+        true
         );
         new GameData(
         GameType.Lives,
+        Intelligence.Spatial,
         "Encestalo",
         "Logra obtener la puntuación deseada antes de que te quedes sin balones!",
         "Dunk It",
@@ -142,6 +150,7 @@ public class GameDataLog
         );
         new GameData(
         GameType.Lives,
+        Intelligence.Spatial,
         "Tiro Al Blanco",
         "Logra obtener la cantidad de puntos deseada antes de que te quedes sin dardos",
         "Target Shoot",
@@ -165,6 +174,7 @@ public class GameDataLog
         );
         new GameData(
         GameType.Lives,
+        Intelligence.Musical,
         "Memoria Musical",
         "Trata de repetir el patrón musical sin equivocarte",
         "MusicalMemory",
@@ -187,6 +197,7 @@ public class GameDataLog
         );
         new GameData(
         GameType.Lives,
+        Intelligence.Musical,
         "Pianista Profesional",
         "Toca cada una de las teclas negras hasta completar la ronda",
         "Pianist",
@@ -200,10 +211,13 @@ public class GameDataLog
                 }
             ),
         },
-        "Toca"
+        "Toca",
+        null,
+        true
         );
         new GameData(
         GameType.Lives,
+        Intelligence.CorporalKinesthetic,
         "Simon Dice Extremo",
         "Consigue seguir el patrón antes de que el tiempo acabe!",
         "ExtremeSS",
@@ -218,10 +232,12 @@ public class GameDataLog
             ),
         },
         "Repite",
-        "10. Simon Dice Extremo"
+        "10. Simon Dice Extremo",
+         true
         );
         new GameData(
         GameType.Lives,
+        Intelligence.CorporalKinesthetic,
         "Sigue las Ordenes",
         "Debes de hacer la reaccionar a tiempo y copiar la pose del Hombre Pose",
         "DoThePose",
@@ -240,10 +256,13 @@ public class GameDataLog
                 }
             ),
         },
-        "Reacciona"
+        "Reacciona",
+        null,
+        true
         );
         new GameData(
         GameType.Lives,
+        Intelligence.Naturalist,
         "Limpia el laberinto",
         "Tienes que limpiar toda la basura que se encuentra en el laberinto antes de que se acabe el tiempo, en el camino puede que te encuentres objetos que te ayuden en tu tarea",
         "TrashCleaner",
@@ -274,6 +293,7 @@ public class GameDataLog
         );
         new GameData(
         GameType.Lives,
+        Intelligence.Naturalist,
         "Identifica El Animal",
         "Debes de escuchar atentamente al sonido que se te presente y escribir el nombre del animal correspondiente",
         "AnimalIdentify",
@@ -299,6 +319,7 @@ public class GameDataLog
         );
         new GameData(
         GameType.Lives,
+        Intelligence.Interpersonal,
         "Identifica La Emoción",
         "Debes escribir el nombre de la emoción que se presenta en la imagen.",
         "EmotionIdentify",
@@ -317,6 +338,7 @@ public class GameDataLog
         );
         new GameData(
         GameType.Lives,
+        Intelligence.Interpersonal,
         "Todos Somos Iguales",
         "En este juego debes de comparar dos personas e identificar en qué se parecen. Esto es para que el jugador entienda que a pesar de nuestras diferencias, todos somos iguales.",
         "EveryoneIsTheSame",
@@ -337,7 +359,9 @@ public class GameDataLog
                 }
             ),
         },
-        "Compara"
+        "Compara",
+        null,
+        true
         );
     }
 }

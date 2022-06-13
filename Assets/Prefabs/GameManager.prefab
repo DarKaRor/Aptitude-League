@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMessage: {fileID: 0}
+  cursor: {fileID: 0}
+  canvas: {fileID: 0}
   effects: {fileID: 0}
   music: {fileID: 0}
   currentGame: 0
@@ -70,4 +72,6 @@ MonoBehaviour:
   inTransition: 0
   maxVolume: 0.8
   isFreePlay: 0
+  score: 0
+  isGameOver: 0
   gameDatas: []

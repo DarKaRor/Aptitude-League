@@ -10,6 +10,7 @@ TagManager:
   - Target
   - Remover
   - Collectable
+  - GloveCanvas
   layers:
   - Default
   - TransparentFX

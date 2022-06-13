@@ -84,20 +84,6 @@ public static class Methods
         return notes;
     }
 
-    public static AudioClip[] GetClipsFromSong(Song song)
-    {
-        List<AudioClip> audioClips = new List<AudioClip>();
-        bool wasEmpty = false;
-        int i = 1;
-        while (!wasEmpty) { 
-            AudioClip current = loadAudio($"{song.path}{song.name}-{i.ToString("00")}");
-            i++;
-            wasEmpty = current == null;
-            if (!wasEmpty) audioClips.Add(current);
-        }
-        return audioClips.ToArray();
-    }
-
     public static AudioClip LoadOST(string name) => loadAudio($"Aptitude League OST/{name}");
 
     public static bool FlipCoin() => Random.Range(0, 2) == 0;

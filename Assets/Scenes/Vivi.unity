@@ -589,6 +589,8 @@ MonoBehaviour:
   dialogue:
     paragraphs: []
   viviUI: {fileID: 564622832}
+  canvasGroup: {fileID: 0}
+  standPosition: {x: 0, y: 0}
 --- !u!1001 &341877222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -855,6 +857,7 @@ MonoBehaviour:
   - {fileID: 1673702529}
   - {fileID: 238008839}
   - {fileID: 157975449}
+  round: {fileID: 984639043}
 --- !u!1 &695324965
 GameObject:
   m_ObjectHideFlags: 0

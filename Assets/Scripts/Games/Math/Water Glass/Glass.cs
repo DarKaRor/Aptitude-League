@@ -23,6 +23,8 @@ public class Glass : MonoBehaviour
     [SerializeField] public GameObject tube;
     [SerializeField] GameObject tubeLeft;
     [SerializeField] GameObject tubeRight;
+    [SerializeField] GameObject cornerLeft;
+    [SerializeField] GameObject cornerRight;
     [SerializeField] public GameObject corner;
     Range yTube = new Range(1.4f, -1.108f);
     Range xTube =  new Range(1.15f, 0.5f);
@@ -106,9 +108,9 @@ public class Glass : MonoBehaviour
 
         position+= (randomSide == Side.Left ? Vector2.left : Vector2.right) * (WaterGlass.instance.spacing * WaterGlass.instance.branching) / branchLevel;
 
-        SetTube(randomSide, randomHeight, isBlocked,glass);
         position += Vector2.down * WaterGlass.instance.spacing;
         child.transform.localPosition = position;
+        SetTube(randomSide, randomHeight, isBlocked,glass);
         glass.parentConnection = new Connection(randomHeight, this, isBlocked, randomSide);
         neighbors.Add(new Connection(randomHeight, glass, isBlocked, randomSide));
     }
@@ -126,26 +128,42 @@ public class Glass : MonoBehaviour
         GameObject childTube = child.tube;
 
         GameObject currentTube;
+        GameObject currentCorner;
         Range currentRange = xTube;
 
         if (side == Side.Left)
         {
             currentTube = tubeLeft;
+            currentCorner = cornerLeft;
             currentRange = new Range(-xTube.max,-xTube.min);
             child.corner.GetComponent<SpriteRenderer>().flipX = false;
         }
-        else currentTube = tubeRight;
+        else{
+            currentTube = tubeRight;
+            currentCorner = cornerRight;
+        }
 
-        currentTube.transform.localScale = new Vector2(currentTube.transform.localScale.x,(0.53f * WaterGlass.instance.branching) / branchLevel);
+        float difference = Mathf.Abs(currentRange.GetPercentage(height) - xTube.min);
+
+        //currentTube.transform.localScale = new Vector2(currentTube.transform.localScale.x,((0.53f * WaterGlass.instance.branching) / branchLevel) - difference * 0.53f);
+
         childTube.transform.localScale = new Vector2(childTube.transform.localScale.x, 0.54f * (height / 100));
         currentTube.SetActive(true);
         SpriteRenderer renderer = currentTube.GetComponent<SpriteRenderer>();
         SpriteRenderer tubeRenderer = child.tube.GetComponent<SpriteRenderer>();
         child.corner.transform.localPosition = (Vector2)childTube.transform.localPosition + Vector2.up * tubeRenderer.sprite.bounds.size.y * childTube.transform.localScale.y;
-        child.corner.SetActive(true);
+    
 
         if (isBlocked) renderer.sortingOrder = -1;
         currentTube.transform.localPosition = new Vector2(currentRange.GetPercentage(height), yTube.GetPercentage(height));
+
+        currentCorner.transform.position = new Vector2(child.tube.transform.position.x, currentTube.transform.position.y);
+        currentCorner.SetActive(true);
+
+        // Distance from currentTube to childTube
+        float distance = Mathf.Abs(currentTube.transform.position.x - childTube.transform.position.x);
+        // Scale the currentTube to fit the distance
+        currentTube.transform.localScale = new Vector2(currentTube.transform.localScale.x, distance / 5.1f);
     }
 
     public bool CanGetFilled()
@@ -154,6 +172,12 @@ public class Glass : MonoBehaviour
         List<Connection> nonBlocked = GetNonBlocked();
         if (nonBlocked.Count > 0) return false;
         return true;
+    }
+
+    private void OnMouseDown() {
+        if(WaterGlass.instance.clock.stop) return;
+        WaterGlass.instance.SetText(number.ToString());
+        WaterGlass.instance.StartFill();
     }
 
     public void MakeSet()

@@ -18,17 +18,18 @@ public class WaterGlass : MonoBehaviour
     Counter chances = new Counter(3);
     Counter maxPoints = new Counter(5);
     Counter difficulty = new Counter(1.5f, 0.1f);
-    [SerializeField] Clock clock;
+    [SerializeField] public Clock clock;
     [SerializeField] Typewritter typewritter;
     [SerializeField] public Transform glassParent;
     [SerializeField] TextMeshProUGUI number;
     [SerializeField] TextMeshProUGUI answer;
     [SerializeField] int lastToFill;
+    [SerializeField] SpriteRenderer background;
+    [SerializeField] LivesCounter livesCounter;
     Glass initialGlass;
     int maxGlasses = 2;
 
     public bool isWaiting = true;
-
 
     private void Awake() => instance = instance ? instance : this;
 
@@ -40,6 +41,8 @@ public class WaterGlass : MonoBehaviour
         typewritter.Start();
         typewritter.writtable.AddRange(Variables.numbers);
         CreateFirstGlass();
+        ResizeBackground();
+        livesCounter.SetLives((int)chances.max);
     }
 
     // Update is called once per frame
@@ -70,16 +73,24 @@ public class WaterGlass : MonoBehaviour
                 typewritter.Type();
                 break;
             case TypeWritterAction.Return:
-                clock.Stop();
-                initialGlass.isFilling = true;
+                StartFill();
                 break;
         }
+    }
+
+    public void SetText(string text){
+        number.text = text;
+    }
+
+    public void StartFill(){
+        clock.Stop();
+        initialGlass.isFilling = true;
     }
 
     void CreateFirstGlass()
     {
         isWaiting = false;
-        branching = UnityEngine.Random.Range(2, maxGlasses > 5 ? 5 : maxGlasses);
+        branching = maxGlasses > 4 ? 4 : maxGlasses;
         ResizeReposition();
         StopAllCoroutines();
         foreach (Transform child in glassParent) Destroy(child.gameObject);
@@ -92,7 +103,10 @@ public class WaterGlass : MonoBehaviour
     {
         isWaiting = true;
         bool equality = number.text == lastToFill.ToString();
-        if (!equality) GameManager.sharedInstance.MathGameFail(answer, chances, lastToFill.ToString());
+        if (!equality){
+            livesCounter.LoseLife();
+            GameManager.sharedInstance.MathGameFail(answer, chances, lastToFill.ToString());
+        }
         else
         {
             if (maxPoints.Raise())
@@ -141,6 +155,22 @@ public class WaterGlass : MonoBehaviour
         Camera.main.orthographicSize = 5;
         Camera.main.transform.position += Vector3.down * spacing * (branching) / 2;
         if (branching > 2) Camera.main.orthographicSize = 3.7f * branching;
+        ResizeBackground();
+    }
+
+    void ResizeBackground(){
+        var width = background.sprite.bounds.size.x;
+        var height = background.sprite.bounds.size.y;
+
+        
+        float worldScreenHeight = Camera.main.orthographicSize * 2.0f;
+        float worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
+        
+        float x = worldScreenWidth / width;
+        float y = worldScreenHeight / height;
+
+        background.transform.localScale = new Vector3(x, y, 1);
+        background.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
     }
 
 

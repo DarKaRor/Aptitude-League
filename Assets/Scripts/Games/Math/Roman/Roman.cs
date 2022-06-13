@@ -9,8 +9,10 @@ public class Roman : MonoBehaviour
     int gameId = 0;
     [SerializeField] TextMeshProUGUI num1;
     [SerializeField] TextMeshProUGUI num2;
-    [SerializeField] Button button;
+    //[SerializeField] Button button;
     [SerializeField] TextMeshProUGUI answer;
+    [SerializeField] Sprite[] drawings;
+    [SerializeField] Image[] drawingsImage;
     public bool leftRoman = false;
     int maxRange = 100;
     int range;
@@ -27,7 +29,7 @@ public class Roman : MonoBehaviour
     void Start()
     {
         Restart();
-        button.onClick.AddListener(() => CheckValues());
+        //button.onClick.AddListener(() => CheckValues());
         clockObject.timer.max = maxTimer + maxTimer * difficulty.current * 0.3f;
         SetDifficulty();
         GetRandomNumber();
@@ -69,7 +71,33 @@ public class Roman : MonoBehaviour
         }
     }
 
+    void SetDrawings(){
+        int quantity = Random.Range(5,drawingsImage.Length);
+        for (int i = 0; i < drawingsImage.Length ; i++)
+        {
+            Image img = drawingsImage[i];
+            if(i >= quantity){
+                img.gameObject.SetActive(false);
+                continue;
+            }
+            RectTransform rect = img.GetComponent<RectTransform>();
+            img.gameObject.SetActive(true);
+            img.sprite = drawings[Random.Range(0, drawings.Length)];
+            
+            SetInRandomPosition(rect);
+            SetRandomRotation(rect);
+        }
+    }
 
+    void SetInRandomPosition(RectTransform t){
+        RectTransform canvasRect = GameObject.Find("Canvas").GetComponent<RectTransform>();
+        Vector2 randomPosition = new Vector2(Random.Range(0, canvasRect.sizeDelta.x), Random.Range(0, canvasRect.sizeDelta.y));
+        t.anchoredPosition = randomPosition;
+    }
+
+    void SetRandomRotation(RectTransform t){
+        t.localRotation = Quaternion.Euler(0,0, Random.Range(0, 360));
+    }
 
     IEnumerator ActionAfterTime(float time, System.Action action)
     {
@@ -102,7 +130,7 @@ public class Roman : MonoBehaviour
         }
         else if (GameManager.sharedInstance.MathGameWin(ref maxPoints, ref difficulty, SetDifficulty)) return;
 
-        NextRound();
+        StartCoroutine(ActionAfterTime(1, () => NextRound()));
     }
 
     void Lose()
@@ -130,6 +158,7 @@ public class Roman : MonoBehaviour
     {
         num1.text = "?";
         num2.text = "?";
+        SetDrawings();
     }
 
     public void GetRandomNumber()

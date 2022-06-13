@@ -103,6 +103,7 @@ public class AnimalIdentify : MonoBehaviour
 
     void CheckValues()
     {
+        isWaiting = true;
         if (Methods.isAny(answer.text.ToLower(), current.names))
         {
             if (rounds.Raise())

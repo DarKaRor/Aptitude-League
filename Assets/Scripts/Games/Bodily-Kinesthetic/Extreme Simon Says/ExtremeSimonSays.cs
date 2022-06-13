@@ -194,6 +194,7 @@ public class ExtremeSimonSays : MonoBehaviour
     IEnumerator Lost(float waitTime = 2)
     {
         isPlaying = true;
+        
         ResetDisplay();
         lost = true;
         SetEnableButtons(false);

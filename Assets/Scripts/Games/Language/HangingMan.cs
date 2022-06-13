@@ -82,20 +82,34 @@ public class HangingMan : MonoBehaviour
         manImage.sprite = phases[0];
     }
 
+    IEnumerator ActionAfterTime(float time, System.Action action)
+    {
+        yield return new WaitForSeconds(time);
+        action();
+    }
+
     void CheckValues()
     {
+        if(Methods.isAny(typewritter.last2String(), usedCharacters.ToArray())){
+            GameManager.sharedInstance.PlayAudioHit();
+            return;
+        }
         if (Methods.isAny(typewritter.last2String(), characters))
         {
             char c = typewritter.lastChar;
             AddInput(c);
             if (output.text != separated) return;
-
             GameManager.sharedInstance.PlayAudioWin();
             if(GameManager.sharedInstance.CheckMaxPoints(maxPoints)){
                 isFilling = true;
                 return;
             }
-            Restart();
+            isFilling = true;
+           
+            StartCoroutine(ActionAfterTime(2, () => {
+                isFilling = false;
+                Restart();
+            }));
 
             return;
         }

@@ -22,6 +22,7 @@ public class GrammarGame : MonoBehaviour
     [SerializeField] TextMeshProUGUI question;
     [SerializeField] TextMeshProUGUI answer;
     [SerializeField] Button[] answers;
+    [SerializeField] LivesCounter livesCounter;
     Counter maxPoints = new Counter(10);
     Counter chances = new Counter(3);
     GrammarQuestion currentQuestion;
@@ -45,15 +46,13 @@ public class GrammarGame : MonoBehaviour
 
     void UpdateTimer()
     {
-        if(clock.Update() == 1){
-
-        }
+        if(clock.Update() == 1) Lose();
     }
 
     void GetRandomQuestion()
     {
         currentQuestion = Methods.GetRandomElement(Variables.grammarQuestions.Where(i => i.question!=currentQuestion.question).ToArray());
-        question.text = currentQuestion.question;
+        question.text = $"\"{currentQuestion.question}\"";
         foreach(Button a in answers) a.gameObject.SetActive(false);
         string[] shuffled = Methods.Shuffle(currentQuestion.answers.Clone() as string[]);
 
@@ -85,17 +84,19 @@ public class GrammarGame : MonoBehaviour
     }
 
     void Win(){
+        clock.Stop();
         if(maxPoints.Raise()){
-            clock.Stop();
             GameManager.sharedInstance.Win();
             return;
         }
         GameManager.sharedInstance.PlayAudioWin();
-        Reset();
+        StartCoroutine(ActionAfterTime(2, Reset));
     }
 
     void Lose(){
         clock.Stop();
+        livesCounter.LoseLife();
+        SetEnable(false);
         GameManager.sharedInstance.PlayAudioLose();
         GameManager.sharedInstance.FadeAnswer(answer, currentQuestion.answers[0]);
         if(chances.Raise()){
@@ -106,7 +107,7 @@ public class GrammarGame : MonoBehaviour
     }
 
     void SetEnable(bool enable){
-        foreach(Button a in answers) a.enabled = enable;
+        foreach(Button a in answers) a.interactable = enable;
     }
     public void Reset()
     {

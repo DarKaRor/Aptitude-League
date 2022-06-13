@@ -6,6 +6,7 @@ using TMPro;
 using DG.Tweening;
 using System;
 using System.Linq;
+using UnityEngine.UI;
 
 public enum Sound
 {
@@ -19,6 +20,8 @@ public enum Sound
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameMessage gameMessage;
+    [SerializeField] GameObject cursor;
+    [SerializeField] GameObject canvas;
     public static GameManager sharedInstance;
     public Dictionary<Sound, AudioClip> sounds = new Dictionary<Sound, AudioClip>();
     public AudioSource effects;
@@ -61,7 +64,14 @@ public class GameManager : MonoBehaviour
         sounds.Add(Sound.Score, Resources.Load<AudioClip>("Sound/point"));
         GameDataLog.CreateGameDatas();
 
+        Cursor.visible = false;
+
         Camera.main.aspect = 16f / 9f;
+    }
+
+    private void Update() {
+        // Cursor should follow the mouse
+        if(cursor!=null) cursor.transform.position = Input.mousePosition;
     }
 
     public void ResizeCamera()
@@ -113,7 +123,10 @@ public class GameManager : MonoBehaviour
     {
         if(isGameOver) RestoreScore();
         if (isFreePlay) LoadGame(currentGame);
-        else LoadRandomGame();
+        else{
+            if(score % 5 == 0 && score!=0) SceneManager.LoadScene("Vivi");
+            else LoadRandomGame();
+        }
     }
 
     public bool CheckChances(Counter chances)
@@ -167,23 +180,44 @@ public class GameManager : MonoBehaviour
     }
 
     public void RestoreScore(){
+        SaveScore();
         score = 0;
         isGameOver = false;
+    }
+
+    public void SaveScore(){
+        if(isFreePlay) return;
+        if(PlayerPrefs.HasKey("Score")){
+            if(score > PlayerPrefs.GetInt("Score")){
+                PlayerPrefs.SetInt("Score", score);
+            }
+        } 
+        else PlayerPrefs.SetInt("Score", score);
     }
 
     public void ToggleGameObject(GameObject gameObject) => gameObject.SetActive(!gameObject.activeSelf);
 
     public void LoadRandomGame()
     {
-        GameData randomGame = Methods.GetRandomElement(gameDatas.Where(i => i.Id != currentGame).ToArray());
+        GameData randomGame = GetRandomGame();
         LoadGameData(randomGame);
     }
 
+    public GameData GetRandomGame() => Methods.GetRandomElement(gameDatas.Where(i => i.Id != currentGame).ToArray());
+
     public void PlayEffect(AudioClip audio) => effects.PlayOneShot(audio);
+
+    public void SetCursor(bool active){
+        cursor.SetActive(active);
+        Cursor.visible = !active;
+    }
 
     public void BackToMenu()
     {
         inGame = false;
+        SetCursor(true);
+        RestoreScore();
+        StopAllCoroutines();
         if(gameMessage!=null) gameMessage.ResetMessage();
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
@@ -201,10 +235,20 @@ public class GameManager : MonoBehaviour
 
     public void LoadGameData(GameData scene)
     {
+        if(scene == null) return;
         inGame = true;
-        if (scene.message != null) gameMessage.PlayAnimation(scene.message);
+        if (scene.message != null && gameMessage != null) gameMessage.PlayAnimation(scene.message);
         if (scene.OSTName != null) PlayOST(Methods.LoadOST(scene.OSTName));
         else LowerVolume();
+
+        SetCursor(scene.cursor);
+
+        // If scene is the same scene, reload it
+        if (SceneManager.GetActiveScene().name == scene.sceneName)
+        {
+            SceneManager.LoadScene(scene.sceneName, LoadSceneMode.Single);
+            return;
+        }
         SceneManager.LoadScene(scene.sceneName, LoadSceneMode.Single);
     }
 
@@ -213,7 +257,6 @@ public class GameManager : MonoBehaviour
     {
         if (inTransition)
         {
-            Debug.Log("In transition");
             inTransition = false;
             ResetOST();
             music.DOKill();
@@ -262,5 +305,13 @@ public class GameManager : MonoBehaviour
             RaiseVolume();
             inTransition = false;
         });
+    }
+
+    public void Restart(){
+        RestoreScore();
+        StopAllCoroutines();
+        music.Stop();
+        effects.Stop();
+        LoadCurrentOrRandom();
     }
 }

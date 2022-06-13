@@ -46,4 +46,22 @@ public static class ViviSprites
     };
 
     public static UnityEngine.Sprite GetSprite(ViviSprite sprite) => viviSprites[sprite];
+
+    public static UnityEngine.Sprite Happy() => viviSprites[ViviSprite.Happy];
+    public static UnityEngine.Sprite Sad() => viviSprites[ViviSprite.Sad];
+    public static UnityEngine.Sprite Excited() => viviSprites[ViviSprite.Excited];
+    public static UnityEngine.Sprite Normal() => viviSprites[ViviSprite.Normal];
+    public static UnityEngine.Sprite Serious() => viviSprites[ViviSprite.Serious];
+    public static UnityEngine.Sprite Serious2() => viviSprites[ViviSprite.Serious2];
+    public static UnityEngine.Sprite Calm() => viviSprites[ViviSprite.Calm];
+    public static UnityEngine.Sprite Dizzy() => viviSprites[ViviSprite.Dizzy];
+    public static UnityEngine.Sprite Nervous() => viviSprites[ViviSprite.Nervous];
+    public static UnityEngine.Sprite Upset() => viviSprites[ViviSprite.Upset];
+    public static UnityEngine.Sprite Upset2() => viviSprites[ViviSprite.Upset2];
+    public static UnityEngine.Sprite Explain1() => viviSprites[ViviSprite.Explain1];
+    public static UnityEngine.Sprite Explain2() => viviSprites[ViviSprite.Explain2];
+    public static UnityEngine.Sprite Explain3() => viviSprites[ViviSprite.Explain3];
+    public static UnityEngine.Sprite Default() => viviSprites[ViviSprite.Default];
+
+
 }

@@ -17,16 +17,17 @@ public class Basket : MonoBehaviour
     [SerializeField] GameObject shadow;
     [SerializeField] SpriteRenderer stopRenderer;
     [SerializeField] GameObject basket;
+    [SerializeField] SpriteRenderer GFX;
     [SerializeField] BasketType type;
     [SerializeField] List<Collider2D> colliders;
     SpriteRenderer spriteRenderer;
     SpriteRenderer shadowRenderer;
     Range xRange = new Range(8, -8);
     Range yRange = new Range(-0.43f, 2.14f);
-    Range zRange = new Range(.6f, .2f);
+    Range zRange = new Range(.5f, .2f);
     void Start()
     {
-        spriteRenderer = basket.GetComponent<SpriteRenderer>();
+        spriteRenderer = GFX;
         shadowRenderer = shadow.GetComponent<SpriteRenderer>();
         SetColliders(false);
         GetRandomPosition();
@@ -60,7 +61,7 @@ public class Basket : MonoBehaviour
     void UseZValue()
     {
         transform.DOScale(1 - zAxis, 0);
-        spriteRenderer.sortingOrder = (int)(-zAxis / .05);
+        spriteRenderer.sortingOrder = (int)(-zAxis / .005);
         shadowRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
         stopRenderer.sortingOrder = shadowRenderer.sortingOrder;
     }

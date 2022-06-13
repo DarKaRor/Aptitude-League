@@ -10,6 +10,8 @@ public class MusicalMemory : MonoBehaviour
 
     [SerializeField] Image enemy;
     [SerializeField] Image you;
+    [SerializeField] Image background;
+    [SerializeField] Sprite[] backgrounds;
 
     int gameId = 7;
     public Dictionary<string, Note> NotesByCode;
@@ -39,13 +41,15 @@ public class MusicalMemory : MonoBehaviour
 
         codes = NotesByCode.Select(i => i.Key).ToArray();
 
+        SetRandomBackground();
         GenerateRandomPattern();
         StartCoroutine(Sing(2));
+        StartCoroutine(ChangeBackground());
     }
 
     void Update()
     {
-         CheckInput();
+        CheckInput();
     }
 
     void CheckInput()
@@ -107,6 +111,10 @@ public class MusicalMemory : MonoBehaviour
         }
     }
 
+    Sprite GetRandomBackground() => Methods.GetRandomElement(backgrounds);
+    void SetRandomBackground() => background.sprite = GetRandomBackground();
+    
+
     void GenerateRandomPattern()
     {
         if(pattern.Length <= 0)
@@ -134,6 +142,18 @@ public class MusicalMemory : MonoBehaviour
         }
         isPlaying = false;
         enemy.enabled = false;
+    }
+
+    IEnumerator ChangeBackground(float time = 15){
+        float transitionTime = 1f;
+        while(true){
+            yield return new WaitForSeconds(time);
+            Sprite newBG = GetRandomBackground();
+            background.DOFade(0, transitionTime).OnComplete(() => {
+                background.sprite = newBG;
+                background.DOFade(1, transitionTime);
+            });
+        }
     }
 
     Tween Animate(Image image,  KeyCode key)

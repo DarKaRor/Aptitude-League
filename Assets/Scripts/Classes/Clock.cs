@@ -34,7 +34,7 @@ public class Clock
         if (timer.Raise()) return 1;
 
         int current = GetRoundedTime();
-        outputText.text = current.ToString();
+        outputText.text = current.ToString()+"s";
 
         if (current < previous && previous == triggerSecond + 1)
         {

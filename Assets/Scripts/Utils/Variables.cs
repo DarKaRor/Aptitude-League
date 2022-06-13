@@ -170,6 +170,113 @@ public class Variables
             "Venía",
             "Vendré"
         }),
+        new GrammarQuestion("Realizó el pedido __ de su hermano.", new string[]{
+            "A través",
+            "Através",
+            "A traves"
+        }),
+        new GrammarQuestion("No pudo __ las paredes", new string[]{
+            "Atravesar",
+            "Atravezar",
+            "A travezar"
+        }),
+        new GrammarQuestion("Estás __ con tu cónyugue", new string[]{
+            "De acuerdo",
+            "Acuerdo",
+            "Deacuerdo"
+        }),
+        new GrammarQuestion("Es __ este trabajo que realizo.", new string[]{
+            "Desastroso",
+            "Dezastroso",
+            "Desastrozo"
+        }),
+        new GrammarQuestion("Yo __ una película.", new string[]{
+            "Dirijo",
+            "Dirigo",
+            "Dirigiendo"
+        }),
+        new GrammarQuestion("¿Qué hacer con tanta __ de conocimiento?", new string[]{
+            "Escasez",
+            "Escasés",
+            "Escases"
+        }),
+        new GrammarQuestion("Tiene mucha __ de obtener la beca", new string[]{
+            "Expectativa",
+            "Espectativa",
+            "Expectatiba",
+            "Espectativas"
+        }),
+        new GrammarQuestion("La __ de ser uno mismo no cuesta nada", new string[]{
+            "Esencia",
+            "Escencia",
+            "Esensia",
+        }),
+        new GrammarQuestion("Debemos __ con calma.", new string[]{
+            "Inhalar",
+            "Inalar",
+            "Inhibir",
+            "Halar"
+        }),
+        new GrammarQuestion("__ nos separen otra vez de nuestros padres", new string[]{
+            "Tal vez",
+            "Talvez",
+            "Tal ves",
+            "Talves"
+        }),
+        new GrammarQuestion("No tengas __ de participar en clases", new string[]{
+            "Vergüenza",
+            "Verguenza",
+            "Verguenzas",
+            "Vergüensa"
+        }),
+        new GrammarQuestion("Ella quiso casarse con él; __, lo amaba.", new string[]{
+            "O sea",
+            "Osea",
+            "Ósea",
+            "Sea"
+        }),
+        new GrammarQuestion("Es un __ distintivo del lenguaje", new string[]{
+            "Rasgo",
+            "Razgo",
+            "Rasjo",
+        }),
+        new GrammarQuestion("No hizo caso, por ello, le robaron el auto del __", new string[]{
+            "Garaje",
+            "Garage",
+            "Garag",
+        }),
+        new GrammarQuestion("__ su mirada hacia ti", new string[]{
+            "Dirige",
+            "Dirije",
+            "Dirigir",
+        }),
+        new GrammarQuestion("Su amor es una __. Es una especie de aflicción", new string[]{
+            "Obsesión",
+            "Obseción",
+            "Obsecion",
+            "Obcesión"
+        }),
+        new GrammarQuestion("__ la ley al cruzar con la luz en rojo.", new string[]{
+            "Infringió",
+            "Infligió",
+            "Infrigió",
+            "Inflingió"
+        }),
+        new GrammarQuestion("__ la beca al estudiante más aplicado.", new string[]{
+            "Otórguese",
+            "Otórgese",
+            "Otorgen",
+        }),
+        new GrammarQuestion("__ bien sus horarios y realise sus actividades de manera adecuada.", new string[]{
+            "Organice",
+            "Organise",
+            "Orgánice",
+        }),
+        new GrammarQuestion("Vivi suele comprar cinco __", new string[]{
+            "Manzanas",
+            "Mansanas",
+            "Mansanaz",
+        }),
     };
 
     public static string flutePath = "Notes/Flute/";
@@ -195,8 +302,9 @@ public class Variables
 
     public static Song[] songs = new Song[]
     {
-        new Song("Piano I","Piano I/", 1.6f),
-        new Song("Piano V","Piano V/", 1.2f)
+        new Song("Gourmet Race","Eb/G|D/F|C/Eb|Bb-/D|Bb-/F-|D-/G-|Ab-/C|Bb-/D|C/Eb|D/F|D/B-|C+|G|Eb|D|C|C|D|Eb|C|Bb-|C|G-|C+|G|Eb|D|C|C|D|Eb|F|D|Bb-|C|G-|C|Eb/G/C+|C/Eb/G|G-/C/Eb|F-/G-/D|Eb-/G-/C|F-/Ab-/C|F-/Ab-/D|F-/Ab-/Eb|F-/Ab-/C|Eb-/G-/Bb-|Eb-/G-/C|C-/Eb-/G-|Eb/G/C+|C/Eb/G|Ab-/C/Eb|Ab-/C/F|Ab-/C/G|F-/Ab-/C|G-/Bb-/D|G-/Bb-/F|G-/Bb-/D|D-/G-/Bb-|Eb-/G-/C",2),
+        new Song("Build Our Machine","D/F/A|D/F/A|D/F/A|D/F/A|A|A|A|A|D|D|A|F|E|D|A-|D|F|D|A-|D|F|D|D|F|Bb|A|G|F|A|D|F|Bb|A|G|A|Bb|A|G|F|A|G|F|G|A|D|D|D|F|D|D|F|D|D|A|G|F|E|D|F|A-|D|F|D|D|F|A|G|F|E|D|A-|D|F|D|A-|D|F|D|D|F|A|G|F|E|D|F|D|Bb|A|G|A|Bb|A|G|A|A|G|F|G|A|D|F|F|D|D|F|D|A|A|G|F|G|Db+|A|D+|F+|E+|C+|D+|A+|G+|F+|D+|D+|D+|D+|F+|D+|D+|F+|D+|A+|A+|G+|D+|F+|D+|A+|G+|G+|F+|F+|D+|C+|D+|C+|D+|F+|A+|G+|G+|F+|A+|G+|G+|F+|F+|D+",1.8f),
+        new Song("M.I.N.T","B-|B-|B-|D|E|Gb|B-|B-|B-|D|B-|Db|B-|B-|B-|B-|D|E|Gb|B-|B-|B-|D|B-|E|D|A-|B-|B-|B-|D|E|Gb|B-|B-|B-|D|B-|Db|B-|B-|B-|B-|D|E|Gb|B-|B-|B-|D|B-|E|D|A-|D|D|D|E|G|A|G|Gb|G|Gb|E|Gb|D|E|D|Db|D|E|G|Gb|E|D-|D-|D-|E-|G-|A-|G-|Gb-|G-|Gb-|E-|Gb-|D-|E-|D-|Db-|D-|E-|G-|Gb-|E-|A-|B-|Db|D|B-|Gb|Gb|E|D|Db|D|E|E|A-|A-|B-|Db|D|B-|Gb|Gb|A|G|Gb|E|D|Gb|E|D|Db|B-/B--|Db-|D-|B--|Gb-|Gb-|E-|D-|Db-|D-|E-|E-|A--|A--|B--|Db-|D-|B--|Gb-|Gb-|A-|G-|Gb-|E-|D-|Gb-|E-|D-|Db-",2.5f),
     };
 
     public static string SSPath = "ExtremeSS/";
@@ -295,7 +403,7 @@ public class Variables
                 {
                     "Héroe/Heroína",
                     "Traje negro",
-                    "Piel morena",
+                    //"Piel morena",
                     "Masculino",
                     "Adulto/a",
                     "Máscara"
@@ -311,7 +419,7 @@ public class Variables
                     "Traje blanco",
                     //"Masculino",
                     "Adulto/a",
-                    "Máscara"
+                    //"Máscara"
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(3)"),
@@ -321,7 +429,7 @@ public class Variables
                     "Espadachín/Espadachina",
                     //"Masculino",
                     "Adulto/a",
-                    "Arrugas",
+                    //"Arrugas",
                     "Héroe/Heroína",
                 }
         ),
@@ -438,8 +546,9 @@ public class Variables
                     //"Masculino",
                     "Héroe/Heroína",
                     "Traje rojo",
-                    "Piel blanca",
-                    "Cabello castaño"
+                    "Máscara",
+                    //"Piel blanca",
+                    //"Cabello castaño"
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(15)"),

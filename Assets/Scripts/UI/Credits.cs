@@ -31,6 +31,7 @@ public class Credits : MonoBehaviour
     {
         GameManager.sharedInstance.PlayOST(creditsMusic);
         creditsPos = creditsPanel.GetComponent<RectTransform>();
+        GameManager.sharedInstance.SetCursor(false);
     }
 
     void Update()

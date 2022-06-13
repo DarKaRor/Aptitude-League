@@ -20,7 +20,7 @@ public class DialogueBubble : MonoBehaviour
     [SerializeField] GameObject viviUI;
     RectTransform viviTransform;
     Image viviImage;
-    CanvasGroup canvasGroup;
+    public CanvasGroup canvasGroup;
     RectTransform rectTransform;
 
     Vector2 bubbleStartPos;
