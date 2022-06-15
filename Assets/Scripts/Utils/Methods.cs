@@ -123,6 +123,21 @@ public static class Methods
         return audioClips.ToArray();
     }
 
+    public static Sprite[] LoadIdentifyImages(string path, string name)
+    {
+        List<Sprite> sprites = new List<Sprite>();
+        bool wasEmpty = false;
+        int i = 1;
+        while (!wasEmpty)
+        {
+            Sprite current = loadSprite($"{path}{name} ({i})");
+            i++;
+            wasEmpty = current == null;
+            if (!wasEmpty) sprites.Add(current);
+        }
+        return sprites.ToArray();
+    }
+
     public static string Capitalize(string str) => char.ToUpper(str[0]) + str.Substring(1);
 
 }

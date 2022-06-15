@@ -13,6 +13,7 @@ public class Roman : MonoBehaviour
     [SerializeField] TextMeshProUGUI answer;
     [SerializeField] Sprite[] drawings;
     [SerializeField] Image[] drawingsImage;
+    [SerializeField] LivesCounter livesCounter;
     public bool leftRoman = false;
     int maxRange = 100;
     int range;
@@ -29,7 +30,6 @@ public class Roman : MonoBehaviour
     void Start()
     {
         Restart();
-        //button.onClick.AddListener(() => CheckValues());
         clockObject.timer.max = maxTimer + maxTimer * difficulty.current * 0.3f;
         SetDifficulty();
         GetRandomNumber();
@@ -136,6 +136,7 @@ public class Roman : MonoBehaviour
     void Lose()
     {
         isWaiting = true;
+        livesCounter.LoseLife();
         GameManager.sharedInstance.MathGameFail(answer, chances, GetAnswer());
         StartCoroutine(ActionAfterTime(2, () =>
         {

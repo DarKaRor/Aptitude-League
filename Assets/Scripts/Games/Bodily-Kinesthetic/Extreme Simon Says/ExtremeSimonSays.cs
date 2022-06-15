@@ -16,6 +16,8 @@ public class ExtremeSimonSays : MonoBehaviour
     [SerializeField] Image TVImage;
     [SerializeField] Image TVDisplay;
     [SerializeField] TextMeshProUGUI TVtext;
+    [SerializeField] Sprite[] backgrounds;
+    [SerializeField] Image background;
     string copy = "";
     string pattern = "";
     float speed = .75f;
@@ -37,6 +39,7 @@ public class ExtremeSimonSays : MonoBehaviour
         Invoke("ForceLowVolume", 1f);
         clock.Start();
         clock.outputText.text = clock.timer.max.ToString();
+        SetRandomBackground();
 
         foreach (string name in new string[] { "Rojo", "Azul", "Verde", "Amarillo" })
         {
@@ -70,6 +73,8 @@ public class ExtremeSimonSays : MonoBehaviour
     {
         GameManager.sharedInstance.music.volume = 0.2f;
     }
+
+    void SetRandomBackground() => background.sprite = Methods.GetRandomElement(backgrounds);
 
     public void PressButton(SimonItem item)
     {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameOver : MonoBehaviour
@@ -7,10 +8,18 @@ public class GameOver : MonoBehaviour
     [SerializeField] TextMeshProUGUI score;
     [SerializeField] GameObject gameOver;
     [SerializeField] TextMeshProUGUI record;
+    [SerializeField] Image background;
+    [SerializeField] Image vivi;
+    [SerializeField] Sprite newRecordImage;
+    [SerializeField] Sprite newRecordVivi;
+    [SerializeField] TextMeshProUGUI title;
+    [SerializeField] AudioClip newRecordSound;
+    [SerializeField] AudioClip gameOverSound;
+    string newRecordText = "¡Nuevo Récord!";
+    
 
     private void Start(){
         GameManager.sharedInstance.LowerVolume();
-        record.gameObject.SetActive(!GameManager.sharedInstance.isFreePlay);
         GameManager.sharedInstance.SaveScore();
         SetScore();
     }
@@ -30,8 +39,22 @@ public class GameOver : MonoBehaviour
     public void BackToMenu() => GameManager.sharedInstance.BackToMenu();
 
     public void SetScore(){
+        AudioClip clip = gameOverSound;
         score.text = $"PUNTAJE: <color=blue>{GameManager.sharedInstance.score}</color>";
-        record.text = $"RECORD: <color=blue>{PlayerPrefs.GetInt("Score")}</color>";
+        if(!GameManager.sharedInstance.isFreePlay){
+            record.gameObject.SetActive(true);
+            record.text = $"RECORD: <color=blue>{PlayerPrefs.GetInt("Score")}</color>";
+            if(GameManager.sharedInstance.score > 0 && GameManager.sharedInstance.score > PlayerPrefs.GetInt("Score")){
+                clip = newRecordSound;
+                title.text = newRecordText;
+                background.sprite = newRecordImage;
+                vivi.sprite = newRecordVivi;
+                record.text = record.text.Replace("<color=blue>", "<color=red>");
+                score.text = score.text.Replace("<color=blue>", "<color=red>");
+            }
+        }
+
+        GameManager.sharedInstance.PlayOST(clip);
     }
 
 }

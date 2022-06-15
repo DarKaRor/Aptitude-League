@@ -18,7 +18,7 @@ public class DialogueBubble : MonoBehaviour
     [SerializeField] TextMeshProUGUI anyKey;
     [SerializeField] public Dialogue dialogue;
     [SerializeField] GameObject viviUI;
-    RectTransform viviTransform;
+    [HideInInspector] public RectTransform viviTransform;
     Image viviImage;
     public CanvasGroup canvasGroup;
     RectTransform rectTransform;

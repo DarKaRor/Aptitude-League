@@ -6,7 +6,6 @@ public class Row : MonoBehaviour
 {
     [SerializeField] public Tile[] tiles;
     public int number = 0;
-    public bool stop = false;
     public bool touched = false;
     void Start()
     {
@@ -15,7 +14,7 @@ public class Row : MonoBehaviour
 
     void Update()
     {
-        if (stop) return;
+        if (Pianist.instance.stop) return;
         transform.Translate(Vector2.down * Pianist.instance.scrollSpeed * Time.deltaTime);
     }
 

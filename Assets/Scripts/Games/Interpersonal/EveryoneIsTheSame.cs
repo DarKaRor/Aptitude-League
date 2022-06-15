@@ -26,6 +26,7 @@ public class EveryoneIsTheSame : MonoBehaviour
     [SerializeField] Image image1;
     [SerializeField] Image image2;
     [SerializeField] Button[] buttons;
+    [SerializeField] LivesCounter livesCounter;
     Persona persona1;
     Persona persona2;
     Counter chances = new Counter(3);
@@ -107,7 +108,7 @@ public class EveryoneIsTheSame : MonoBehaviour
         image2.sprite = persona2.sprite;
 
         string[] characteristics = GetRandomCharacteristics(persona1, persona2, amount);
-        DisabelAll();
+        DisableAll();
         for (int i = 0; i < characteristics.Length; i++)
         {
             Button btn = buttons[i];
@@ -127,6 +128,7 @@ public class EveryoneIsTheSame : MonoBehaviour
         {
             if (rounds.Raise())
             {
+                DisableAll();
                 GameManager.sharedInstance.Win();
                 return;
             }
@@ -136,6 +138,7 @@ public class EveryoneIsTheSame : MonoBehaviour
             return;
         }
 
+        livesCounter.LoseLife();
         StartCoroutine(LoseCoroutine());
     }
 
@@ -169,7 +172,7 @@ public class EveryoneIsTheSame : MonoBehaviour
         StartRound();
     }
 
-    void DisabelAll()
+    void DisableAll()
     {
         foreach (Button btn in buttons) btn.gameObject.SetActive(false);
     }

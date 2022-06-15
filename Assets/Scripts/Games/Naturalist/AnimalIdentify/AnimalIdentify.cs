@@ -17,6 +17,8 @@ public class AnimalIdentify : MonoBehaviour
     [SerializeField] Button playButton;
     [SerializeField] GameObject questionGroup;
     [SerializeField] Image image;
+    [SerializeField] CanvasGroup canvasGroup;
+    [SerializeField] LivesCounter livesCounter;
 
     Counter chances = new Counter(3);
     Counter rounds = new Counter(6);
@@ -33,6 +35,8 @@ public class AnimalIdentify : MonoBehaviour
         GetRandomAnimal();
 
         playButton.onClick.AddListener(PlayCurrentAudio);
+
+        livesCounter.SetLives((int)chances.max);
     }
 
 
@@ -118,6 +122,7 @@ public class AnimalIdentify : MonoBehaviour
         }
 
         GameManager.sharedInstance.PlayAudioLose();
+        livesCounter.LoseLife();
         answer.text = Methods.Capitalize(current.names[0]);
         if (chances.Raise())
         {
@@ -129,13 +134,12 @@ public class AnimalIdentify : MonoBehaviour
 
     void ToggleQuestion()
     {
-        if (current.image == null) return;
-        image.sprite = current.image;
-        if (Methods.isAny("gato", current.names) && Methods.Roll(5)) image.sprite = Methods.loadSprite("Identify/cat2");
+        if (current.images == null) return;
+        image.sprite = Methods.GetRandomElement(current.images);
         questionGroup.SetActive(!questionGroup.activeSelf);
-        image.DOFade(0, 0);
+        canvasGroup.DOFade(0, 0);
         image.enabled = !image.enabled;
-        if (image.enabled) image.DOFade(1, 2);
+        if (image.enabled) canvasGroup.DOFade(1, 2);
     }
 
     void Restart()

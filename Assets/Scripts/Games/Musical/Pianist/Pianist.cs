@@ -33,7 +33,7 @@ public class Pianist : MonoBehaviour
     public bool lost = false;
     int lastColumn = -1;
     int lastCount = 0;
-
+    [HideInInspector] public bool stop = true;
 
     private void Awake() => instance = instance ? instance : this;
 
@@ -70,12 +70,7 @@ public class Pianist : MonoBehaviour
     {
         GameManager.sharedInstance.currentGame = gameId;
         Piano.SetClips();
-        GetRandomSong();
         GetRandomBackground();
-        if(!GameManager.sharedInstance.isFreePlay) GetRandomNote();
-        else maxPoints = notes.Count;
-        StartCoroutine(SpawnRows());
-
         sprites = new Dictionary<TileType, Sprite>
         {
             {TileType.White, white },
@@ -83,8 +78,19 @@ public class Pianist : MonoBehaviour
             { TileType.Gray, gray }
         };
 
+        StartCoroutine(ActionAfterTime(SetRandomSong));
+
+
         // Testing purposes
         //maxPoints = 1000;
+    }
+
+    void SetRandomSong(){
+        GetRandomSong();
+        if(!GameManager.sharedInstance.isFreePlay) GetRandomNote();
+        else maxPoints = notes.Count;
+        StartCoroutine(SpawnRows());
+        stop = false;
     }
 
     void GetRandomBackground(){
@@ -100,6 +106,7 @@ public class Pianist : MonoBehaviour
 
     void Update()
     {
+        if(stop) return;
         if (Input.GetKeyDown(KeyCode.D)) PressColumn(0);
         if (Input.GetKeyDown(KeyCode.F)) PressColumn(1);
         if (Input.GetKeyDown(KeyCode.J)) PressColumn(2);
@@ -164,7 +171,7 @@ public class Pianist : MonoBehaviour
 
     public void StopAll()
     {
-        foreach (Row row in rows) row.stop = true;
+        stop = true;
         StopAllCoroutines();
         StartCoroutine(Lose());
     }
@@ -183,7 +190,7 @@ public class Pianist : MonoBehaviour
     void Win()
     {
         lost = true;
-        foreach (Row row in rows) row.stop = true;
+        stop = true;
         GameManager.sharedInstance.Win();
     }
 
@@ -206,5 +213,9 @@ public class Pianist : MonoBehaviour
         return lastCount < 2 || !equal;
     }
 
+    IEnumerator ActionAfterTime(System.Action action, float time = 2){
+        yield return new WaitForSeconds(time);
+        action();
+    }
 
 }

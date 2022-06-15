@@ -15,6 +15,7 @@ public class MathKing : MonoBehaviour
     [SerializeField] TextMeshProUGUI answer;
     [SerializeField] Sprite[] drawings;
     [SerializeField] Image[] drawingsImage;
+    [SerializeField] LivesCounter livesCounter;
     //[SerializeField] Button button;
     int maxRange = 100;
     int range;
@@ -138,6 +139,7 @@ public class MathKing : MonoBehaviour
     void Lose()
     {
         isWaiting = true;
+        livesCounter.LoseLife();
         GameManager.sharedInstance.MathGameFail(answer, chances, currentOperation.Solve());
         StartCoroutine(ActionAfterTime(2, () =>
         {

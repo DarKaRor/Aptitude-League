@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1983246991972154664}
   - component: {fileID: 7371834806148476411}
+  - component: {fileID: 2770584738919205557}
   m_Layer: 5
   m_Name: DialogueBubble
   m_TagString: Untagged
@@ -54,11 +55,125 @@ MonoBehaviour:
   container: {fileID: 2770584740698220716}
   bubble: {fileID: 2770584738879825128}
   bubbleText: {fileID: 2770584740730731003}
-  mainMenu: {fileID: 0}
   voice: {fileID: 8300000, guid: 2bdde987979001644afe350c1a4901ec, type: 3}
   anyKey: {fileID: 2770584739055649164}
-  dialogue: []
+  dialogue:
+    paragraphs:
+    - message: "Bienvenido/a a la versi\xF3n de prueba de Aptitude League"
+      sprite: {fileID: 21300000, guid: e5c0956428ba9884ca99ff607a8b5526, type: 3}
+    - message: "Mi nombre es Vivi, ser\xE9 tu gu\xEDa"
+      sprite: {fileID: 21300000, guid: 90cdfbb2eaacae24a87a721c06963f45, type: 3}
+    - message: "Esta versi\xF3n no tiene todos los detalles que estar\xE1n presentes
+        en la versi\xF3n completa"
+      sprite: {fileID: 21300000, guid: 302cc228c90d6014dbaf673a15da58f9, type: 3}
+    - message: "Pero adem\xE1s de esos detalles pueden haber otros de los cuales
+        los desarrolladores no est\xE1n al tanto"
+      sprite: {fileID: 21300000, guid: 1fd5012c78bbb6443b21f36db73482e7, type: 3}
+    - message: "Tu trabajo ser\xE1 conseguir cualquier detalle con respecto a la
+        jugabilidad, dificultad, m\xFAsica, arte, presentaci\xF3n, sonido, y cualquier
+        otra cosa que notes"
+      sprite: {fileID: 21300000, guid: 90cdfbb2eaacae24a87a721c06963f45, type: 3}
+    - message: Mucha suerte, y espero que te diviertas
+      sprite: {fileID: 21300000, guid: e5c0956428ba9884ca99ff607a8b5526, type: 3}
   viviUI: {fileID: 2770584738737996735}
+  canvasGroup: {fileID: 0}
+  standPosition: {x: 0, y: 0}
+--- !u!82 &2770584738919205557
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696566935424385289}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &4600970049095479528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66,30 +181,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1983246991972154664}
     m_Modifications:
-    - target: {fileID: 1849560825825806610, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560825825806610, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560825825806610, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560825825806610, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560825825806610, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560825825806610, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1849560825860413508, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
       propertyPath: m_Name
       value: DialogueContainer
@@ -124,11 +215,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849560825860413509, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 997.0417
+      value: 997.042
       objectReference: {fileID: 0}
     - target: {fileID: 1849560825860413509, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 576.365
+      value: 554.711
       objectReference: {fileID: 0}
     - target: {fileID: 1849560825860413509, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
       propertyPath: m_LocalPosition.x
@@ -160,11 +251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849560825860413509, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 18.4792
+      value: -179
       objectReference: {fileID: 0}
     - target: {fileID: 1849560825860413509, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -831
+      value: -841.8269
       objectReference: {fileID: 0}
     - target: {fileID: 1849560825860413509, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -176,38 +267,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849560825860413509, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560827222028647, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560827222028647, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560827222028647, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560827222028647, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560827665896449, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560827665896449, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560827665896449, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849560827665896449, guid: 3ff1f7ac78dde004abe029e2778c0a89, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

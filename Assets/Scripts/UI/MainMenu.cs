@@ -28,15 +28,20 @@ public class MainMenu : MonoBehaviour
 
     public void CheckFirstTime()
     {
+        if(!PlayerPrefs.HasKey("DELETED")){
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetInt("DELETED", 1);
+        }
        
-        if (PlayerPrefs.HasKey("hasPlayedBeta"))
-            hasPlayed = PlayerPrefs.GetInt("hasPlayedBeta") == 1;
+        if (PlayerPrefs.HasKey("hasPlayed"))
+             hasPlayed = PlayerPrefs.GetInt("hasPlayed") == 1;
 
         if (!hasPlayed)
         {
+            
             DialogueBubble.SpawnVivi(onEnd: () => {
                 GameManager.sharedInstance.hasPlayed = true;
-                PlayerPrefs.SetInt("hasPlayedBeta", 1);
+                PlayerPrefs.SetInt("hasPlayed", 1);
                 ToggleMenu();
             });
         }

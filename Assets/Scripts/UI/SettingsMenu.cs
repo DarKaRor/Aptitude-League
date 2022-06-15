@@ -39,7 +39,7 @@ public class SettingsMenu : MonoBehaviour
         GameManager.sharedInstance.music.volume = volume;
         GameManager.sharedInstance.maxVolume = volume;
     }
-    public void SetEffects(float volume) =>   GameManager.sharedInstance.effects.volume = volume;
+    public void SetEffects(float volume) => GameManager.sharedInstance.effects.volume = volume;
     public void SetGeneral(float volume) => AudioListener.volume = volume; 
 
     public void SetQuality(int qualityIndex){

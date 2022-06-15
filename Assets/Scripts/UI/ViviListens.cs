@@ -177,7 +177,7 @@ public class ViviListens : MonoBehaviour
         conversation.dialogues[5].dialogue.paragraphs = helpCurrent.ToArray();
 
         dialogueBubble.dialogue = conversation.dialogues[currentIndex].dialogue;
-        dialogueBubble.standPosition = Vector2.zero;
+        dialogueBubble.standPosition = dialogueBubble.viviTransform.anchoredPosition;
 
         StartSpeak();
     }

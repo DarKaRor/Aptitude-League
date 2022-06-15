@@ -11,9 +11,9 @@ public class TargetShoot : MonoBehaviour
     [SerializeField] GameObject targetPrefab;
     [SerializeField] TextMeshProUGUI lives;
     [SerializeField] public Points pointText;
-    Counter score = new Counter(2000);
+    Counter score = new Counter(1000);
     public Counter difficulty = new Counter(5, 1, 1);
-    public Counter chances = new Counter(999);
+    Counter chances = new Counter(10);
     public int round = 0;
     Dart dart;
     public bool isWaiting = false;

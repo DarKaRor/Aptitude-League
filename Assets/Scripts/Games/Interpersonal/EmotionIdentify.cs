@@ -13,6 +13,8 @@ public class EmotionIdentify : MonoBehaviour
     [SerializeField] Clock clock;
     [SerializeField] Typewritter typewritter;
     [SerializeField] TextMeshProUGUI answer;
+    [SerializeField] CanvasGroup canvasGroup;
+    [SerializeField] LivesCounter livesCounter;
     [SerializeField] Image image;
 
     Counter chances = new Counter(3);
@@ -28,7 +30,8 @@ public class EmotionIdentify : MonoBehaviour
         typewritter.writtable.AddRange(Variables.letters);
 
         GetRandomEmotion();
-        image.sprite = current.image;
+        image.sprite = Methods.GetRandomElement(current.images);
+        livesCounter.SetLives((int)chances.max);
     }
 
 
@@ -79,10 +82,10 @@ public class EmotionIdentify : MonoBehaviour
     IEnumerator WaitUntilLoad()
     {
         isWaiting = true;
-        image.DOFade(0, 1).OnComplete(() => {
+        canvasGroup.DOFade(0, 1).OnComplete(() => {
             GetRandomEmotion();
-            image.sprite = current.image;
-            image.DOFade(1, 1);
+            image.sprite = Methods.GetRandomElement(current.images);
+            canvasGroup.DOFade(1, 1);
         });
         yield return new WaitForSeconds(2);
         answer.text = "?";
@@ -115,6 +118,7 @@ public class EmotionIdentify : MonoBehaviour
         }
 
         GameManager.sharedInstance.PlayAudioLose();
+        livesCounter.LoseLife();
         answer.text = Methods.Capitalize(current.names[0]);
         if (chances.Raise())
         {
