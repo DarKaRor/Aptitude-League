@@ -134,11 +134,25 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Descubrir la palabra se te hará más fácil si identificas las vocales",null)
+                    new Paragraph("El mejor consejo es que primero eligas las vocales (A, E, I, O, U), puesto a que no hay palabra en el Castellano que no esté compuesta sin al menos una de ellas.", ViviSprites.Happy())
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("En la esquina superior derecha se te dará un tópico con el que esté relacionada la palabra.", ViviSprites.Explain1())
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Una vez hayas usado las vocales, te recomiendo que escogas letras comunes como R, S, T o P.", ViviSprites.Default())
                 }
             )
         },
-        "Adivina",
+        "¡Adivina!",
         "6. El Ahoracado"
         );
         new GameData(
@@ -146,34 +160,36 @@ public class GameDataLog
         Intelligence.Language,
          "15",
         "Corrección de Errores",
-        "Identifica todos los errores que est�n en la frase y corrigelos",
+        "Identifica todos los errores que estén en la frase y corrígelos.",
         "Grammar Game",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Recuerda que los acentos son muy importantes al momento de diferenciar ciertas palabras",null),
-                    new Paragraph("Por ende, recuerda siempre colocarlos adecuadamente",ViviSprites.GetSprite(ViviSprite.Happy)),
+                    new Paragraph("El mejor consejo que te puedo dar es que leas la oración en voz alta si se te dificulta detectar el error gramatical.", ViviSprites.Happy())
                 }
             ),
+
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Ten en cuenta la diferencia de hay, ay y ahí!",null),
-                    new Paragraph("Muchas veces nos podemos equivocar con estas opciones",null)
+                    new Paragraph("El uso de ha, ah y a suele causar confusión.", ViviSprites.Explain1()),
+                    new Paragraph("`Ha` es la forma de tercera persona del singular del presente de haber, usada en formas compuestas (ha amado), en perífrasis (ha de hacer)...", ViviSprites.Explain2()),
+                    new Paragraph("Por otro lado, `A` es una preposición: Voy a casa; Te atreves a aseverar; ¿Qué vamos a hacer?; mientras que `Ah` es interjección: Ah, ya entiendo; Ah, ¿sí?", ViviSprites.Explain3())
                 }
             ),
+
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Procura abrir y cerrar los signos de exclamación y los signos de interrogación!", null),
-                    new Paragraph("Lo notaste?",null),
-                    new Paragraph("Que pena...",null)
+                    new Paragraph("`Hay` Es una forma impersonal del verbo haber y se usa para expresar que existe una cosa o que tenemos algo.", ViviSprites.Default()),
+                    new Paragraph("`Ahí` es un adverbio de lugar y como su nombre indica, señala una posición o lugar.", ViviSprites.Default()),
+                    new Paragraph("Por último, `Ay` es una interjección, es decir es una palabra que expresa un estado de ánimo o que llama la atención de alguien. Normalmente expresa dolor o pena.", ViviSprites.Default())
                 }
             )
         },
-        "Corrige",
+        "¡Corrige!",
         "7. Corrección de errores",
         true
         );
@@ -182,7 +198,7 @@ public class GameDataLog
         Intelligence.Spatial,
         "6",
         "Encestalo",
-        "Logra obtener la puntuación deseada antes de que te quedes sin balones!",
+        "Logra obtener la puntuación deseada antes de que te quedes sin balones.",
         "Dunk It",
         new Dialogue[]
         {
@@ -196,24 +212,24 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Recuerda que mientras más lejos esté el aro, más puntos te puede dar",null),
-                    new Paragraph("Aunque claro, eso puede llegar a ser más arriesgado",null),
+                    new Paragraph("Sí enceestas en aros que estén más lejos, más puntos obtendrás.", ViviSprites.Happy()),
+                    new Paragraph("Aunque claro, eso puede llegar a ser más arriesgado", ViviSprites.Nervous()),
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Evita golpear por los costados los aros que tengas muy cerca",null),
+                    new Paragraph("Evita golpear por los costados los aros que tengas muy cerca. ", ViviSprites.Dizzy()),
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Puedes mover el balón hacia los lados si lo rebotas en esa dirección.",null),
+                    new Paragraph("Puedes mover el balón hacia los lados sí la rebotas en esa dirección.", ViviSprites.Explain1()),
                 }
             ),
         },
-        "Encesta",
+        "¡Encesta!",
         "8. Encéstalo"
         );
         new GameData(
@@ -221,24 +237,24 @@ public class GameDataLog
         Intelligence.Spatial,
         "7",
         "Tiro Al Blanco",
-        "Logra obtener la cantidad de puntos deseada antes de que te quedes sin dardos",
+        "Logra obtener la cantidad de puntos deseada antes de que te quedes sin dardos.",
         "Target Shoot",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Mientras más lejos esté el blanco, su puntaje podrá llegar a doblarse e incluso triplicarse",null)
+                    new Paragraph("¡Pegarle al punto amarillo te asegura 100 puntos!", ViviSprites.Happy())
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Si no te quieres arriesgar mucho, lanza el dardo a los blancos más cercanos",null),
+                    new Paragraph("Ve por lo seguro: sí se te dificulta mucho tirar el dardo, intenta pegarle en los extremos azules, sí bien son menos puntos, al menos no pierdes el dardo.", ViviSprites.Explain1()),
                 }
             ),
         },
-        "Lanza",
+        "¡Lanza!",
         "9. Tiro Al Blanco"
         );
         new GameData(
@@ -246,43 +262,56 @@ public class GameDataLog
         Intelligence.Musical,
         "8",
         "Memoria Musical",
-        "Trata de repetir el patrón musical sin equivocarte",
+        "Trata de repetir el patrón musical sin equivocarte.",
         "MusicalMemory",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Puedes darte el tiempo que necesites para elegir la nota",null)
+                    new Paragraph("Cuando aciertes 4 veces seguidas, el patrón cambiará.", ViviSprites.Explain3())
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Presta más atención a la última nota del patrón, ya que las demás no cambian a menos que sea un nuevo patrón.",null),
+                    new Paragraph("Intenta memorizar el sonido más que fijarte en las teclas que tocas.", ViviSprites.Explain2()),
                 }
             ),
         },
-        "Repite"
+        "¡Repite!"
         );
         new GameData(
         GameType.Lives,
         Intelligence.Musical,
         "9",
         "Pianista Profesional",
-        "Toca cada una de las teclas negras hasta completar la ronda",
+        "Toca cada una de las teclas negras hasta completar la ronda.",
         "Pianist",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Trata de no mantenerte en la parte más baja del tablero",null),
-                    new Paragraph("Si lo haces, tendrás menos tiempo para reaccionar",null)
+                    new Paragraph("Procura no dejar que los cuadros negros lleguen muy abajo para que de esa manera te de tiempo de reaccionar.", ViviSprites.Dizzy()),
                 }
             ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Sí se te complica usar el teclado, en ese caso puedes usar el mouse.", ViviSprites.Default()),
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Coloca un dedo en cada tecla (D, F, J y K) para que así puedas tocar el cuadro más rápidamente.", ViviSprites.Explain2()),
+                }
+            )
         },
-        "Toca",
+        "¡Toca!",
         null,
         true
         );
@@ -291,19 +320,33 @@ public class GameDataLog
         Intelligence.CorporalKinesthetic,
         "10",
         "Simon Dice Extremo",
-        "Consigue seguir el patrón antes de que el tiempo acabe!",
+        "¡Consigue seguir el patrón antes de que el tiempo acabe!",
         "ExtremeSS",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Recuerda que no tienes que seguir ningún ritmo",null),
-                    new Paragraph("Puedes presionar los botones lo más rápido que puedas",ViviSprites.GetSprite(ViviSprite.Happy))
+                    new Paragraph("Recuerda que no tienes que seguir ningún ritmo.", ViviSprites.Default()),
+                    new Paragraph("Así que intenta no ir muy rápido, porque puedes equivocarte.", ViviSprites.Happy())
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Sí se te dificulta recordar las ordenes por la pantalla, entonces intenta hacerlo por la voz.", ViviSprites.Calm()),
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("A medida de que vayas pasando rondas, aparecerán nuevos colores y símbolos. Pueden llegar a aparecer hasta dos por ronda.", ViviSprites.Explain1()),
                 }
             ),
         },
-        "Repite",
+        "¡Repite!",
         "10. Simon Dice Extremo",
          true
         );
@@ -312,24 +355,32 @@ public class GameDataLog
         Intelligence.CorporalKinesthetic,
         "11",
         "Sigue las Ordenes",
-        "Debes de hacer la reaccionar a tiempo y copiar la pose del Hombre Pose",
+        "Debes de hacer la reacción que Pose Man te indique en un tiempo límite.",
         "DoThePose",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("No debes de confiarte de los patrones de la m�sica",null),
+                    new Paragraph("Cuando la música suene rápido, debes estar más pendiente porque significa que las próximas ordenes irán siendo más rápidas.", ViviSprites.Explain3()),
                 }
             ),
+
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Algunas veces el hombre pose puede realizar una pose sinque la música suene, ten cuidado",ViviSprites.GetSprite(ViviSprite.Dizzy)),
+                    new Paragraph("Hay una probabilidad de que Pose Man te indique hacer dos posiciones seguidas. Esto usualmente ocurre cuando la música suena rápido.", ViviSprites.Dizzy()),
                 }
             ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Ten cuidado en confundirte con posiciones que se parezcan.", ViviSprites.Default()),
+                }
+            )
         },
-        "Reacciona",
+        "¡Reacciona!",
         null,
         true
         );
@@ -338,31 +389,31 @@ public class GameDataLog
         Intelligence.Naturalist,
         "12",
         "Limpia el laberinto",
-        "Tienes que limpiar toda la basura que se encuentra en el laberinto antes de que se acabe el tiempo, en el camino puede que te encuentres objetos que te ayuden en tu tarea",
+        "Tienes que limpiar toda la basura que se encuentra en el laberinto antes de que se acabe el tiempo, en el camino puede que te encuentres objetos que te ayuden en tu tarea.",
         "TrashCleaner",
         new Dialogue[]
         {
                     new Dialogue(
                         new Paragraph[]
                         {
-                            new Paragraph("Tienes que recoger todas las bolsas de basura antes de que acabe el tiempo",null),
-                            new Paragraph("Si logras recoger algunas bolsas de basura, el tiempo aumtentará permitiendote recoger más.",ViviSprites.GetSprite(ViviSprite.Happy)),
+                            new Paragraph("Tienes que recoger todas las bolsas de basura antes de que acabe el tiempo,", ViviSprites.Default()),
+                            new Paragraph("...sí logras recoger algunas bolsas de basura, ¡el tiempo aumtentará permitiéndote recoger más!", ViviSprites.GetSprite(ViviSprite.Happy)),
                         }
                     ),
                     new Dialogue(
                         new Paragraph[]
                         {
-                           new Paragraph("La ventaja que hayas obtenido por algún objeto terminará aproximadamente en 10 segundos", ViviSprites.GetSprite(ViviSprite.Explain1))
+                           new Paragraph("La ventaja que hayas obtenido por algún objeto terminará aproximadamente en 10 segundos.", ViviSprites.GetSprite(ViviSprite.Explain1))
                         }
                     ),
                     new Dialogue(
                         new Paragraph[]
                         {
-                           new Paragraph("Si ya tienes un objeto, procura no utilizar otro del mismo tipo hasta que se te acabe el actual, de esa manera no lo desperdiciarás.", ViviSprites.GetSprite(ViviSprite.Explain1))
+                           new Paragraph("Sí ya tienes un objeto, procura no utilizar otro del mismo tipo hasta que se te acabe el actual, de esa manera no lo desperdiciarás.", ViviSprites.GetSprite(ViviSprite.Explain1))
                         }
                     ),
         },
-        "Limpia",
+        "¡Limpia!",
         "11. Limpia El Laberinto"
         );
         new GameData(
@@ -370,26 +421,26 @@ public class GameDataLog
         Intelligence.Naturalist,
         "13",
         "Identifica El Animal",
-        "Debes de escuchar atentamente al sonido que se te presente y escribir el nombre del animal correspondiente",
+        "Debes de escuchar atentamente al sonido que se te presente y escribir el nombre del animal correspondiente.",
         "AnimalIdentify",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Puedes presionar el botón verde para volver a escuchar el audio",null),
-                    new Paragraph("También puede que tenga otro sonido que no hayas escuchado",null)
+                    new Paragraph("Puedes presionar el botón verde para volver a escuchar el audio,", ViviSprites.Default()),
+                    new Paragraph("...además de que también puede que tenga otro sonido que no hayas escuchado.", ViviSprites.Happy())
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
                     new Paragraph("Nuestro idioma es muy grande, por lo que hay varias maneras de nombrar un animal.", ViviSprites.GetSprite(ViviSprite.Explain1)),
-                    new Paragraph("Trata de nombrarlo de la manera más común, puede que no todas funcionen",null)
+                    new Paragraph("Trata de nombrarlo de la manera más común, aunque puede que no todas funcionen.", ViviSprites.GetSprite(ViviSprite.Explain2))
                 }
             ),
         },
-        "Identifica",
+        "¡Identifica!",
         "12. Identifica El Animal"
         );
         new GameData(
@@ -404,12 +455,19 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Al momento de describir la imagen, no describas la acción que se observa.",null),
-                    new Paragraph("Debes describir la emoción, o el sentimiento.",null),
+                    new Paragraph("Al momento de describir la imagen, no describas la acción que se observa.", ViviSprites.Default()),
+                    new Paragraph("Debes describir la emoción, o el sentimiento.", ViviSprites.Happy()),
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Recuerda que existen otras emociones aparte de Felicidad, Tristeza, Enojo y Miedo.", ViviSprites.Explain2()),
                 }
             ),
         },
-        "Identifica",
+        "¡Identifica!",
         "13. Identifica La Emoción"
         );
         new GameData(
@@ -424,19 +482,19 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Para algunos personajes puede que necesites conocer un poco de transfondo para saber cosas que no se muestran",null),
-                    new Paragraph("Esto es generalmente para los héroes",null)
+                    new Paragraph("Para algunos personajes, puede que necesites conocer un poco de transfondo para saber cosas que no se muestran", ViviSprites.Default()),
+                    new Paragraph("Esto es generalmente para los héroes.", ViviSprites.Happy())
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Mantente atento con detalles mínusculos. Una persona puede tener el cabello oculto, pero no sus cejas",null),
-                    new Paragraph("Entonces se sabría el color de pelo",null)
+                    new Paragraph("Mantente atento con detalles mínusculos. Una persona puede tener el cabello oculto, pero no sus cejas...", ViviSprites.Explain1()),
+                    new Paragraph("¡Entonces se sabría el color de pelo!", ViviSprites.Explain2())
                 }
             ),
         },
-        "Compara",
+        "¡Compara!",
         "15. Todos Somos Iguales",
         true
         );
