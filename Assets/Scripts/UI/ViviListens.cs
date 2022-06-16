@@ -92,6 +92,7 @@ public class ViviListens : MonoBehaviour
 
     void Start()
     {
+        GameManager.sharedInstance.PlayOST(Methods.LoadOST("16. Vivi"));
         gameData = GameManager.sharedInstance.gameDatas.Find(i => i.Id == GameManager.sharedInstance.currentGame);
         round.text = "Ronda " + GameManager.sharedInstance.score;
         SetEnable(false);

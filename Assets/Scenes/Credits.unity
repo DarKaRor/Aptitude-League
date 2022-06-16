@@ -552,7 +552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 910, y: -2521}
+  m_AnchoredPosition: {x: 910, y: -2651}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &331010784
@@ -590,7 +590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 910, y: -3831.0002}
+  m_AnchoredPosition: {x: 910, y: -3961}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &360913363
@@ -850,8 +850,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Mar\xEDa Verde\n\nGian Rivas\n\nAndr\xE9s Gonz\xE1lez\n\nArmando Acosta\n\nJos\xE9
-    Oropeza\n\nMaribel Ordo\xF1ez\n\nLuis Quintero\n\nJorge Mitri\n\n\n\n\xA1Muchas
+  m_text: "Mar\xEDa Verde\n\nSof\xEDa Guill\xE9n\n\nGian Rivas\n\nAndr\xE9s Gonz\xE1lez\n\nArmando
+    Acosta\n\nJos\xE9 Oropeza\n\nMaribel Ordo\xF1ez\n\nLuis Quintero\n\nJorge Mitri\n\n\n\n\xA1Muchas
     gracias a ti, jugador, por probar Aptitude League!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 73c762770f86eff4382d00bed37b4142, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7a26265c59891347b93e59208d85a93, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2525,7 +2525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -5985}
+  m_AnchoredPosition: {x: 0, y: -6115}
   m_SizeDelta: {x: 1920, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1218763344
@@ -2903,7 +2903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 910, y: -1421}
+  m_AnchoredPosition: {x: 910, y: -1677}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1374306929
@@ -3774,7 +3774,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Johandry L\xF3pez"
+  m_text: "Johandry L\xF3pez\n\nAlejandro Salas"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
   m_sharedMaterial: {fileID: 8654948135802853953, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
@@ -3962,7 +3962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 910, y: -1103}
+  m_AnchoredPosition: {x: 910, y: -1234}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1662374228
@@ -4158,7 +4158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alejandro Salas
+  m_text: "Alejandro Salas\n\nJohandry L\xF3pez"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
   m_sharedMaterial: {fileID: 8654948135802853953, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
@@ -4294,7 +4294,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Carlos Guti\xE9rrez\n\nSergio Delgado\n\nEnrique Hidalgo\n\nFernando Orfila\n\nJorge
-    Mitri\n\nAntonio Mora\n\nSam Rodr\xEDguez"
+    Mitri\n\nAntonio Mora"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
   m_sharedMaterial: {fileID: 8654948135802853953, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
@@ -4463,7 +4463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 910, y: -4408}
+  m_AnchoredPosition: {x: 910, y: -4538}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1855685261
