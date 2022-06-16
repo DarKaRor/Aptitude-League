@@ -7,18 +7,42 @@ public class GameDataLog
         Intelligence.Math,
         "2",
         "Cuenta en Romanos",
-        "Tienes que transformar números de romans a arábigos y viceversa",
+        "Tienes que transformar los números de romanos a arábigos y viceversa.",
         "Roman",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Recuerda que 4 se escribe como IV",null)
+                    new Paragraph("Leer un número en romano no es complicado.", ViviSprites.Explain1()),
+                    new Paragraph("Pero debes tener en cuenta que a veces deberás transformar de romanos a arábigos y viceversa.", ViviSprites.Explain2()),
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("El número 4 siempre se lee como IV,", ViviSprites.Explain1()),
+                    new Paragraph("es decir, el número cinco con un número uno en la parte delantera como si lo estuviese restando.", ViviSprites.Explain2()),
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("El número 9 se lee como IX, que es igual a 10 menos 1, ya que 10 se representa como X.", ViviSprites.Explain3()),
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("En caso que la letra X se coloque a la derecha de las letras L o C,", ViviSprites.Explain2()),
+                    new Paragraph("entonces se suman a las cifras que estas letras representan. Como 60 que es LX u 80 que es LXXX.", ViviSprites.Explain1())
                 }
             )
         },
-        "Transforma!",
+        "¡Transforma!",
         "3. Cuenta en romano"
      );
         new GameData(
@@ -26,7 +50,7 @@ public class GameDataLog
             Intelligence.Math,
             "3",
             "Rey de las matemáticas",
-            "Resuelve todas las operaciones en un límite de tiempo!",
+            "¡Resuelve todas las operaciones en un límite de tiempo!",
             "Math King",
             new Dialogue[]
             {

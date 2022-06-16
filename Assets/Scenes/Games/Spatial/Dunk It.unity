@@ -885,6 +885,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMessage: {fileID: 0}
+  cursor: {fileID: 0}
+  canvas: {fileID: 0}
   effects: {fileID: 0}
   music: {fileID: 0}
   currentGame: 0
@@ -1428,12 +1430,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3d2cf5a0776bf5c43b2fefcba6cb9e72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 894c8d0c4dca7664a9e63383bee4dcc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 2.4953847, y: 2.366154}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
