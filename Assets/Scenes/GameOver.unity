@@ -2038,6 +2038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueBubble
       objectReference: {fileID: 0}
+    - target: {fileID: 1696566935424385289, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1983246991972154664, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
