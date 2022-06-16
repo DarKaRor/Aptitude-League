@@ -146,24 +146,25 @@ public class GameDataLog
         Intelligence.Language,
          "15",
         "Corrección de Errores",
-        "Identifica todos los errores que est�n en la frase y corrigelos",
+        "Identifica todos los errores que estén en la frase y corrígelos.",
         "Grammar Game",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Recuerda que los acentos son muy importantes al momento de diferenciar ciertas palabras",null),
-                    new Paragraph("Por ende, recuerda siempre colocarlos adecuadamente",ViviSprites.GetSprite(ViviSprite.Happy)),
+                    new Paragraph("El mejor consejo que te puedo dar es que leas la oración en voz alta si se te dificulta detectar el error gramatical.", ViviSprites.happy())
                 }
             ),
+
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Ten en cuenta la diferencia de hay, ay y ahí!",null),
+                    new Paragraph("El uso de ha, ah y a suele causar confusión.", ViviSprites.),
                     new Paragraph("Muchas veces nos podemos equivocar con estas opciones",null)
                 }
             ),
+
             new Dialogue(
                 new Paragraph[]
                 {
@@ -173,7 +174,7 @@ public class GameDataLog
                 }
             )
         },
-        "Corrige",
+        "¡Corrige!",
         "7. Corrección de errores",
         true
         );
