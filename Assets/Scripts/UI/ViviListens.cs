@@ -118,8 +118,8 @@ public class ViviListens : MonoBehaviour
                     },
                     new Dialogue(
                         new Paragraph[]{
-                            new Paragraph("Eso es genial!", ViviSprites.Happy()),
-                            new Paragraph("Qué tan bien crees que lo hiciste?", ViviSprites.Default()),
+                            new Paragraph("¡Me alegra mucho!", ViviSprites.Happy()),
+                            new Paragraph("Cuéntame, ¿qué tan bien crees que lo hiciste?", ViviSprites.Default()),
                         }
                     )
                 ),
@@ -127,8 +127,8 @@ public class ViviListens : MonoBehaviour
                     null,
                     new Dialogue(
                         new Paragraph[]{
-                            new Paragraph("No te preocupes, siempre puedes volver a intentarlo", ViviSprites.Default()),
-                            new Paragraph("Trata de relajarte y divertirte", ViviSprites.Default()),
+                            new Paragraph("No te preocupes, ¡siempre puedes volver a intentarlo!", ViviSprites.Default()),
+                            new Paragraph("Trata de relajarte y divertirte un rato, ¿sí? Mereces distraerte un poco.", ViviSprites.Default()),
                         }
                     )
                 ),
@@ -137,7 +137,7 @@ public class ViviListens : MonoBehaviour
                     new Dialogue(
                         new Paragraph[]{
                             new Paragraph("Entiendo, entonces dejaré que continúes jugando.", ViviSprites.Happy()),
-                            new Paragraph("Nos vemos.", ViviSprites.Default()),
+                            new Paragraph("Sabes que siempre estaré aquí para ti.", ViviSprites.Happy()),
                         }
                     )
                 ),
@@ -157,7 +157,7 @@ public class ViviListens : MonoBehaviour
                         new Paragraph[]{
                             new Paragraph("Descuida, ya has llegado hasta este punto", ViviSprites.Happy()),
                             new Paragraph("Puede que el último juego no se te dé muy bien", ViviSprites.Explain1()),
-                            new Paragraph("Pero no te preocupes, siempre puedes volver a intentarlo", ViviSprites.Default()),
+                            new Paragraph("Pero no te preocupes, ¡siempre puedes volver a intentarlo!", ViviSprites.Happy()),
                         }
                     )
                 )

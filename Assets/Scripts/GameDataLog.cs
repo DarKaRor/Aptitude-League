@@ -134,11 +134,25 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Descubrir la palabra se te hará más fácil si identificas las vocales",null)
+                    new Paragraph("El mejor consejo que te puedo dar es que leas la oración en voz alta si se te dificulta detectar el error gramatical.", ViviSprites.Happy())
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("En la esquina superior derecha se te dará un tópico con el que esté relacionada la palabra.", ViviSprites.Explain1())
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Una vez hayas usado las vocales, te recomiendo que escogas letras comunes como R, S, T o P.", ViviSprites.Default())
                 }
             )
         },
-        "Adivina",
+        "¡Adivina!",
         "6. El Ahoracado"
         );
         new GameData(
@@ -153,24 +167,25 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("El mejor consejo que te puedo dar es que leas la oración en voz alta si se te dificulta detectar el error gramatical.", ViviSprites.happy())
+                    new Paragraph("El mejor consejo que te puedo dar es que leas la oración en voz alta si se te dificulta detectar el error gramatical.", ViviSprites.Happy())
                 }
             ),
 
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("El uso de ha, ah y a suele causar confusión.", ViviSprites.),
-                    new Paragraph("Muchas veces nos podemos equivocar con estas opciones",null)
+                    new Paragraph("El uso de ha, ah y a suele causar confusión.", ViviSprites.Explain1()),
+                    new Paragraph("`Ha` es la forma de tercera persona del singular del presente de haber, usada en formas compuestas (ha amado), en perífrasis (ha de hacer)...", ViviSprites.Explain2()),
+                    new Paragraph("Por otro lado, `A` es una preposición: Voy a casa; Te atreves a aseverar; ¿Qué vamos a hacer?; mientras que `Ah` es interjección: Ah, ya entiendo; Ah, ¿sí?", ViviSprites.Explain3())
                 }
             ),
 
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Procura abrir y cerrar los signos de exclamación y los signos de interrogación!", null),
-                    new Paragraph("Lo notaste?",null),
-                    new Paragraph("Que pena...",null)
+                    new Paragraph("`Hay` Es una forma impersonal del verbo haber y se usa para expresar que existe una cosa o que tenemos algo.", ViviSprites.Default()),
+                    new Paragraph("`Ahí` es un adverbio de lugar y como su nombre indica, señala una posición o lugar.", ViviSprites.Default()),
+                    new Paragraph("Por último, `Ay` es una interjección, es decir es una palabra que expresa un estado de ánimo o que llama la atención de alguien. Normalmente expresa dolor o pena.", ViviSprites.Default())
                 }
             )
         },
@@ -183,7 +198,7 @@ public class GameDataLog
         Intelligence.Spatial,
         "6",
         "Encestalo",
-        "Logra obtener la puntuación deseada antes de que te quedes sin balones!",
+        "Logra obtener la puntuación deseada antes de que te quedes sin balones.",
         "Dunk It",
         new Dialogue[]
         {
@@ -197,20 +212,20 @@ public class GameDataLog
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Recuerda que mientras más lejos esté el aro, más puntos te puede dar",null),
-                    new Paragraph("Aunque claro, eso puede llegar a ser más arriesgado",null),
+                    new Paragraph("Sí enceestas en aros que estén más lejos, más puntos obtendrás.", ViviSprites.Happy()),
+                    new Paragraph("Aunque claro, eso puede llegar a ser más arriesgado", ViviSprites.Nervous()),
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Evita golpear por los costados los aros que tengas muy cerca",null),
+                    new Paragraph("Evita golpear por los costados los aros que tengas muy cerca. ", ViviSprites.Dizzy()),
                 }
             ),
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Puedes mover el balón hacia los lados si lo rebotas en esa dirección.",null),
+                    new Paragraph("Puedes mover el balón hacia los lados sí la rebotas en esa dirección.", ViviSprites.Explain1()),
                 }
             ),
         },
