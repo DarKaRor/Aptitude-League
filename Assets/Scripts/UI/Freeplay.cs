@@ -8,6 +8,11 @@ public class Freeplay : MonoBehaviour
 {
     [SerializeField] GameObject gamesPanel;
     [SerializeField] GameObject GridButton;
+    [SerializeField] Button startBtn;
+    [SerializeField] TextMeshProUGUI descriptionText;
+    [SerializeField] Image gameImage;
+    [SerializeField] TextMeshProUGUI gameNameText;
+    [SerializeField] GameObject showcase;
     void Start()
     {
         
@@ -27,8 +32,21 @@ public class Freeplay : MonoBehaviour
     {
         GameObject buttonObj = Instantiate(GridButton,gamesPanel.transform);
         Button button = buttonObj.GetComponent<Button>();
-        TextMeshProUGUI text = button.GetComponentInChildren<TextMeshProUGUI>();
-        text.text = game.name;
-        button.onClick.AddListener(() => LoadGame(game.Id));
+        // TextMeshProUGUI text = button.GetComponentInChildren<TextMeshProUGUI>();
+        // text.text = game.name;
+        FreeplayBtn freeplayBtn = buttonObj.GetComponent<FreeplayBtn>();
+        freeplayBtn.image.sprite = game.image;
+
+        button.onClick.AddListener(() => SelectGame(game));
+    }
+
+    public void SelectGame(GameData game)
+    {
+        gameNameText.text = game.name;
+        descriptionText.text = game.description;
+        gameImage.sprite = game.image;
+        startBtn.interactable = true;
+        startBtn.onClick.RemoveAllListeners();
+        startBtn.onClick.AddListener(() => LoadGame(game.Id));
     }
 }

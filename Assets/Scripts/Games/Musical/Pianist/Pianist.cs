@@ -122,7 +122,7 @@ public class Pianist : MonoBehaviour
     public void GetRandomSong()
     {
         Song songObj = Methods.GetRandomElement(Variables.songs);
-        //songObj = Variables.songs[2];
+        //songObj = Variables.songs[3];
         song = songObj.sheet;
         pianoKey = songObj.key;
         notes = GetSongByKey(pianoKey, song);

@@ -12,6 +12,7 @@ public class MusicalMemory : MonoBehaviour
     [SerializeField] Image you;
     [SerializeField] Image background;
     [SerializeField] Sprite[] backgrounds;
+    [SerializeField] LivesCounter livesCounter;
 
     int gameId = 7;
     public Dictionary<string, Note> NotesByCode;
@@ -56,6 +57,7 @@ public class MusicalMemory : MonoBehaviour
     {
         if (PauseMenu.instance.paused) return;
         if (isPlaying) return;
+
         foreach (KeyValuePair<KeyCode, Note> pair in NoteByKey)
         {
             if (Input.GetKeyDown(pair.Key))
@@ -67,6 +69,7 @@ public class MusicalMemory : MonoBehaviour
                 AddKeyCopy(pair.Value.code);
                 Animate(you, pair.Key).OnComplete(() => you.enabled = false);
                 CheckValues();
+                break;
             }
         }
     }
@@ -80,7 +83,7 @@ public class MusicalMemory : MonoBehaviour
         {
             if(copyEach[i] != patternEach[i])
             {
-
+                livesCounter.LoseLife();
                 GameManager.sharedInstance.PlayAudioLose();
                 if (chances.Raise()) GameManager.sharedInstance.GameOver();
                 Reset();
@@ -102,6 +105,7 @@ public class MusicalMemory : MonoBehaviour
         {
             if (songs.Raise())
             {
+                isPlaying = true;
                 GameManager.sharedInstance.Win();
                 return;
             }

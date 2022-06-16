@@ -19,9 +19,8 @@ public class GameOver : MonoBehaviour
     
 
     private void Start(){
-        GameManager.sharedInstance.LowerVolume();
-        GameManager.sharedInstance.SaveScore();
         SetScore();
+        GameManager.sharedInstance.SaveScore();
     }
     public void Help()
     {
@@ -54,7 +53,7 @@ public class GameOver : MonoBehaviour
             }
         }
 
-        GameManager.sharedInstance.PlayOST(clip);
+        GameManager.sharedInstance.ForcePlayOST(clip);
     }
 
 }

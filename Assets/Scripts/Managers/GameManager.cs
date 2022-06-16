@@ -271,10 +271,12 @@ public class GameManager : MonoBehaviour
         ForcePlayOST(audio);
     }
 
-    void ForcePlayOST(AudioClip audio)
+    public void ForcePlayOST(AudioClip audio)
     {
+        StopAllCoroutines();
         music.clip = audio;
         music.Play();
+        music.volume = maxVolume;
     }
 
     public void LowerVolume(float time = .6f, Action onComplete = null)

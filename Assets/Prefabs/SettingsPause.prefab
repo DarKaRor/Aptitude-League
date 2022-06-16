@@ -542,7 +542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SETTINGS
+  m_text: OPCIONES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
   m_sharedMaterial: {fileID: 8654948135802853953, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
@@ -1498,7 +1498,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MUSIC
+  m_text: "M\xDASICA"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
   m_sharedMaterial: {fileID: 8654948135802853953, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
@@ -1922,7 +1922,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUALITY
+  m_text: CALIDAD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
   m_sharedMaterial: {fileID: 8654948135802853953, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
@@ -2246,7 +2246,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EFFECTS
+  m_text: SONIDO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}
   m_sharedMaterial: {fileID: 8654948135802853953, guid: ce34c6da4f5423b4dba0de0aa0ef8f35, type: 2}

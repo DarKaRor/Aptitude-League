@@ -31,11 +31,12 @@ public class GameData
     public string sceneName;
     public string message;
     public string OSTName;
+    public Sprite image;
     public bool cursor = false;
     int id;
     public int Id { get => id; }
 
-    public GameData(GameType type, Intelligence intelligence, string name, string description, string sceneName, Dialogue[] viviHelp, string message = null, string OSTName = null, bool cursor = false)
+    public GameData(GameType type, Intelligence intelligence, string image, string name, string description, string sceneName, Dialogue[] viviHelp, string message = null, string OSTName = null, bool cursor = false)
     {
         this.type = type;
         this.intelligence = intelligence;
@@ -46,6 +47,7 @@ public class GameData
         this.OSTName = OSTName;
         this.message = message;
         this.cursor = cursor;
+        this.image = Methods.LoadGameImage(image);
 
         List<GameData> gameDatas = GameManager.sharedInstance.gameDatas;
         int maxId = -1;

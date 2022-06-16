@@ -138,6 +138,8 @@ public static class Methods
         return sprites.ToArray();
     }
 
+    public static Sprite LoadGameImage(string name) => Methods.loadSprite($"FreePlay/MiniGame ({name})");
+
     public static string Capitalize(string str) => char.ToUpper(str[0]) + str.Substring(1);
 
 }
