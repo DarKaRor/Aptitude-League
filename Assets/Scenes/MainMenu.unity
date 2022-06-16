@@ -3883,6 +3883,70 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: dialogue.paragraphs.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: dialogue.paragraphs.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 90cdfbb2eaacae24a87a721c06963f45, type: 3}
+    - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: dialogue.paragraphs.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 896d68385aed4774d98aa8a37dba9445, type: 3}
+    - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: dialogue.paragraphs.Array.data[4].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: df67a6cccf4bc3d4da4945a1e9107811, type: 3}
+    - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: dialogue.paragraphs.Array.data[6].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5cefa6dd78b166146b298162177c8e2d, type: 3}
+    - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: dialogue.paragraphs.Array.data[0].message
+      value: "\xA1Te doy la bienvenida a Aptitude League! Mi nombre es Vivi, \xA1es
+        un placer conocerte!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: dialogue.paragraphs.Array.data[1].message
+      value: "Aptitude League es un videojuego creado con la intenci\xF3n de potenciar
+        las distintas inteligencias m\xFAltiples; es por ello que yo ser\xE9 tu gu\xEDa
+        en esta traves\xEDa."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: dialogue.paragraphs.Array.data[2].message
+      value: "\xBFY qu\xE9 son las inteligencias m\xFAltiples, te preguntas? Son
+        una serie de destrezas (o \"inteligencias\", s\xED deseas verlo de esa manera)
+        que todo ser humano posee, y existen un total de 8 de ellas. Cada persona
+        tiene algunas inteligencias m\xE1s desarrolladas que otras. Interesante,
+        \xBFno?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: dialogue.paragraphs.Array.data[3].message
+      value: "Las inteligencias m\xFAltiples son definiciones propuestas por psic\xF3logo,
+        investigador y profesor de Harvard Horward Gardner. En lo personal, fue mi
+        inspiraci\xF3n para volverme profesora porque el tema de las capacidades
+        cognitivas me resultan interesantes."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: dialogue.paragraphs.Array.data[4].message
+      value: "Estas 8 inteligencias son: L\xF3gico-Matem\xE1tica, Ling\xFC\xEDstica,
+        Espacial, Musical, Corporal y Cinest\xE9sica, Interpersonal, Intrapersonal
+        y Naturalista."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: dialogue.paragraphs.Array.data[5].message
+      value: "Aptitude League te pondr\xE1 a prueba con el Modo Arcade en donde podr\xE1s
+        jugar a una serie de minijuegos puestos de forma aleatoria para que logres
+        batir tus propios r\xE9cords. Por otro lado, tambi\xE9n est\xE1 el Modo Libre
+        en donde podr\xE1s jugar el minijuego que desees."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
+      propertyPath: dialogue.paragraphs.Array.data[6].message
+      value: "Y sin m\xE1s que acotar, \xA1disfruta del juego! Estar\xE9 aqu\xED
+        para darte apoyo cuando lo necesites."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
 --- !u!224 &2770584738919205555 stripped

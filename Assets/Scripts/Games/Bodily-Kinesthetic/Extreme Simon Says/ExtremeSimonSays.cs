@@ -22,7 +22,7 @@ public class ExtremeSimonSays : MonoBehaviour
     string pattern = "";
     float speed = .75f;
     Counter items = new Counter(4);
-    Counter rounds = new Counter(6);
+    Counter rounds = new Counter(4);
     List<SimonItem> currentItems = new List<SimonItem>();
     List<string> currentNames = new List<string>();
     public bool isPlaying = false;

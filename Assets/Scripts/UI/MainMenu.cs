@@ -28,9 +28,9 @@ public class MainMenu : MonoBehaviour
 
     public void CheckFirstTime()
     {
-        if(!PlayerPrefs.HasKey("DELETED2")){
+        if(!PlayerPrefs.HasKey("DELETED1")){
             PlayerPrefs.DeleteAll();
-            PlayerPrefs.SetInt("DELETED2", 1);
+            PlayerPrefs.SetInt("DELETED1", 1);
         }
        
         if (PlayerPrefs.HasKey("hasPlayed"))

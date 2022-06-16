@@ -57,11 +57,34 @@ public class GameDataLog
                 new Dialogue(
                     new Paragraph[]
                     {
-                        new Paragraph("Recuerda que todas las divisiones resultan en números enteros!",null)
+                        new Paragraph("Ten muy en cuenta que las divisiones que se te presenten siempre darán como resultados números enteros.", ViviSprites.Default())
+                    }
+                ),
+
+                new Dialogue(
+                    new Paragraph[]
+                    {
+                        new Paragraph("Debes recordar que en las restas, sí el número más grande es el negativo, entonces el resultado también es negativo.", ViviSprites.Explain3())
+                    }
+                ),
+
+                new Dialogue(
+                    new Paragraph[]
+                    {
+                        new Paragraph("Para saber el resultado de un número multiplicado por 11,", ViviSprites.Explain2()),
+                        new Paragraph("debes realizar la suma de las dos cifras del primer número y ponemos el resultado en medio de las dos cifras. El número resultante es el valor del producto.", ViviSprites.Happy())
+                    }
+                ),
+
+                new Dialogue(
+                    new Paragraph[]
+                    {
+                        new Paragraph("A veces para calcular multiplicaciones de más de dos cifras nos puede servir multiplicarlos por un número más grande y luego dividir.", ViviSprites.Explain1()),
+                        new Paragraph("Por ejemplo, 87 x 5 te puede resultar más fácil primero multiplicarlo por 10 y luego dividirlo entre 2.", ViviSprites.Explain3())
                     }
                 )
             },
-            "Resuelve",
+            "¡Resuelve!",
             "4. El Rey de las Matemáticas"
          );
         new GameData(
@@ -69,18 +92,33 @@ public class GameDataLog
         Intelligence.Math,
         "4",
         "Escoge el vaso",
-        "Identifica cual vaso se llenará de agua primero!",
+        "Identifica cuál vaso se llenará de agua primero.",
         "Water Glass",
         new Dialogue[]
         {
             new Dialogue(
                 new Paragraph[]
                 {
-                    new Paragraph("Mantente atento con las tuberías que están bloqueadas!",null)
+                    new Paragraph("El vaso que se llena primero, por lo general es el que se encuentra más abajo de los demás.", ViviSprites.Explain1())
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Debes tener cuidado a la hora de elegir, hay algunas tuberías que están tapadas.", ViviSprites.Explain2()),
+                    new Paragraph("Así que tómate tu tiempo en elegir.", ViviSprites.Happy())
+                }
+            ),
+
+            new Dialogue(
+                new Paragraph[]
+                {
+                    new Paragraph("Muy rara vez el vaso que se llena primero es el 1, pero puede suceder.", ViviSprites.Explain1()),
                 }
             )
         },
-        "Escoge",
+        "¡Escoge!",
         "5. Escoge el vaso",
         true
         );
@@ -89,7 +127,7 @@ public class GameDataLog
         Intelligence.Language,
         "5",
         "El ahorcado",
-        "Trata de adivinar la palabra antes de que el dibujo se complete!",
+        "Trata de adivinar la palabra antes de que el dibujo se complete. Se te dará un tópico por cada palabra.",
         "HangingMan",
         new Dialogue[]
         {
