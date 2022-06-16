@@ -128,7 +128,7 @@ public class ViviListens : MonoBehaviour
                     new Dialogue(
                         new Paragraph[]{
                             new Paragraph("No te preocupes, ¡siempre puedes volver a intentarlo!", ViviSprites.Default()),
-                            new Paragraph("Trata de relajarte y divertirte un rato, ¿sí? Mereces distraerte un poco.", ViviSprites.Default()),
+                            new Paragraph("Trata de relajarte y divertirte un rato, ¿sí? Mereces distraerte un poco.", ViviSprites.Calm()),
                         }
                     )
                 ),
@@ -137,7 +137,7 @@ public class ViviListens : MonoBehaviour
                     new Dialogue(
                         new Paragraph[]{
                             new Paragraph("Entiendo, entonces dejaré que continúes jugando.", ViviSprites.Happy()),
-                            new Paragraph("Sabes que siempre estaré aquí para ti.", ViviSprites.Happy()),
+                            new Paragraph("Sabes que siempre estaré aquí para ti.", ViviSprites.Calm()),
                         }
                     )
                 ),
@@ -156,8 +156,8 @@ public class ViviListens : MonoBehaviour
                     new Dialogue(
                         new Paragraph[]{
                             new Paragraph("Descuida, ya has llegado hasta este punto", ViviSprites.Happy()),
-                            new Paragraph("Puede que el último juego no se te dé muy bien", ViviSprites.Explain1()),
-                            new Paragraph("Pero no te preocupes, ¡siempre puedes volver a intentarlo!", ViviSprites.Happy()),
+                            new Paragraph("Puede que el último juego no se te dé muy bien...", ViviSprites.Explain1()),
+                            new Paragraph("Pero no te preocupes, ¡siempre puedes volver a intentarlo! Yo siempre te apoyaré.", ViviSprites.Happy()),
                         }
                     )
                 )
@@ -184,9 +184,9 @@ public class ViviListens : MonoBehaviour
 
     string GetRandomGreeting(){
         string[] grettings = new string[]{
-            "Hola, parece que has llegado a la ronda [%], cómo te va?",
-            "Enhorabuena, has llegado a la ronda [%], cómo te sientes?",
-            "Ahora estás en la ronda [%], qué tal estás?",
+            "Hola, parece que has llegado a la ronda [%], ¿cómo te va?",
+            "Enhorabuena, has llegado a la ronda [%], ¿cómo te sientes?",
+            "Ahora estás en la ronda [%], ¿qué tal estás?",
         };
 
         return Methods.GetRandomElement(grettings).Replace("[%]", GameManager.sharedInstance.score.ToString());
@@ -252,10 +252,10 @@ public class ViviListens : MonoBehaviour
         List<Paragraph> paragraphs = new List<Paragraph>();
         GameData randomGame = GameManager.sharedInstance.GetRandomGame();
         paragraphs.Add(new Paragraph("Ahora vas a jugar a " + randomGame.name, ViviSprites.Default()));
-        paragraphs.Add(new Paragraph("Te daré un pequeño consejo", ViviSprites.Happy()));
+        paragraphs.Add(new Paragraph("Te daré un pequeño consejo...", ViviSprites.Happy()));
         Dialogue randomDialogue = Methods.GetRandomElement(randomGame.viviHelp);
         paragraphs.AddRange(randomDialogue.paragraphs);
-        paragraphs.Add(new Paragraph("Eso es todo, espero verte pronto", ViviSprites.Happy()));
+        paragraphs.Add(new Paragraph("Eso es todo, ¡espero verte pronto!", ViviSprites.Happy()));
         nextGame = randomGame.Id;
         return paragraphs.ToArray();
     }
@@ -263,11 +263,11 @@ public class ViviListens : MonoBehaviour
     public Paragraph[] GetCurrentGame(){
         List<Paragraph> paragraphs = new List<Paragraph>();
         GameData currentGame = GameManager.sharedInstance.gameDatas.Find(i => i.Id == GameManager.sharedInstance.currentGame);
-        paragraphs.Add(new Paragraph($"Acabas de jugar {currentGame.name}, no es así?", ViviSprites.Default()));
-        paragraphs.Add(new Paragraph("Te daré un pequeño consejo", ViviSprites.Happy()));
+        paragraphs.Add(new Paragraph($"Acabas de jugar {currentGame.name}, ¿no es así?", ViviSprites.Default()));
+        paragraphs.Add(new Paragraph("Te daré un pequeño consejo...", ViviSprites.Happy()));
         Dialogue dialogue = Methods.GetRandomElement(currentGame.viviHelp);
         paragraphs.AddRange(dialogue.paragraphs);
-        paragraphs.Add(new Paragraph("Eso es todo, espero verte pronto", ViviSprites.Happy()));
+        paragraphs.Add(new Paragraph("Eso es todo, ¡espero verte pronto!", ViviSprites.Happy()));
         return paragraphs.ToArray();
     }
 }
