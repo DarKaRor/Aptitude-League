@@ -63,6 +63,7 @@ public class DialogueBubble : MonoBehaviour
 
     void ResetBubble()
     {
+        viviTransform.DOKill();
         bubbleText.text = string.Empty;
         rectTransform.anchoredPosition = bubbleStartPos;
         viviTransform.anchoredPosition = viviStartPos;
