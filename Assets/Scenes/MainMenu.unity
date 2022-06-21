@@ -3905,8 +3905,8 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 5cefa6dd78b166146b298162177c8e2d, type: 3}
     - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
       propertyPath: dialogue.paragraphs.Array.data[0].message
-      value: "\xA1Te doy la bienvenida a Aptitude League! Mi nombre es Vivi, \xA1es
-        un placer conocerte!"
+      value: "\xA1Te doy la bienvenida a Aptitude League! Mi nombre es Vivi, es un
+        placer conocerte."
       objectReference: {fileID: 0}
     - target: {fileID: 7371834806148476411, guid: 3a542d63e972fb5499c6d48b5444e806, type: 3}
       propertyPath: dialogue.paragraphs.Array.data[1].message

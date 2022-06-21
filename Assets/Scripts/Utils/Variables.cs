@@ -365,8 +365,53 @@ public class Variables
                 "cotorra",
                 "perico"
             },
-            "loro",null
+            "loro","Trua trua"
         ),
+        new Identify(
+            new string[]
+            {
+                "elefante",
+            },
+            "Elefante","Bruuuuuu!"
+        ),
+        new Identify(
+            new string[]{
+                "caballo",
+                "corcel",
+                "potro",
+            },
+            "Caballo","Hiii!"
+        ),
+        new Identify(
+            new string[]{
+                "cerdo",
+                "cochino",
+                "puerco",
+            },
+            "Cerdo","Oink, oink"
+        ),
+        new Identify(
+            new string[]{
+                "mono",
+                "primate",
+                "simio",
+                "macaco"
+            },
+            "Mono","Ua Ua"
+        ),
+        new Identify(
+            new string[]{
+                "serpiente",
+                "culebra"
+            },
+            "Serpiente","Ssssssssss"
+        ),
+        new Identify(
+            new string[]{
+                "tigre",
+            },
+            "Tigre","Grrrrrr"
+        )
     };
 
 
@@ -392,7 +437,114 @@ public class Variables
                 "pesadumbre"
             },
             "triste"
-        )
+        ),
+        new Identify(
+            new string[]
+            {
+                "aburrido",
+                "aburrimiento",
+            },
+            "Aburrido"
+        ),
+        new Identify(
+            new string[]
+            {
+                "amor",
+                "cariño",
+            },
+            "Amor"
+        ),
+        new Identify(
+            new string[]
+            {
+                "asco",
+                "repugnancia",
+                "repulsion",
+                "grima",
+                "desagrado"
+            },
+            "Asco"
+        ),
+        new Identify(
+            new string[]
+            {
+                "asombro",
+                "sorpresa",
+                "fascinacion",
+                "pasmo",
+                "maravilla"
+            },
+            "Asombro"
+        ),
+        new Identify(
+            new string[]
+            {
+                "calma",
+                "relajo",
+                "paz",
+                "quietud",
+                "tranquilidad",
+                "calmado"
+            },
+            "Calma"
+        ),
+        new Identify(
+            new string[]
+            {
+                "dolor",
+                "mal",
+                "daño",
+                "adolorido"
+            },
+            "Dolor"
+        ),
+        new Identify(
+            new string[]
+            {
+                "enojo",
+                "rabia",
+                "furia",
+                "enojado",
+                "furioso"
+            },
+            "Enojo"
+        ),
+        new Identify(
+            new string[]
+            {
+                "envidia",
+                "celos",
+            },
+            "Envidia"
+        ),
+        new Identify(
+            new string[]
+            {
+                "flojera",
+                "cansancio",
+                "flojo",
+            },
+            "Flojera"
+        ),
+        new Identify(
+            new string[]
+            {
+                "hambre",
+                "hambriento",
+                "apetito",
+            },
+            "Hambre"
+        ),
+        new Identify(
+            new string[]
+            {
+                "miedo",
+                "temor",
+                "pavor",
+                "espanto",
+            },
+            "Miedo"
+        ),
     };
 
     static string personaPath = "Avatares/Persona ";
@@ -402,10 +554,8 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(1)"),
                 new string[]
                 {
-                    "Héroe/Heroína",
+                    "Héroe / Heroína",
                     "Traje negro",
-                    //"Piel morena",
-                    "Masculino",
                     "Adulto/a",
                     "Máscara"
                 }
@@ -415,23 +565,20 @@ public class Variables
                 {
                     "Piel blanca",
                     "Cabello rojo",
-                    "Cara pintada",
+                    "Maquillaje",
                     "Cabello largo",
                     "Traje blanco",
-                    //"Masculino",
                     "Adulto/a",
-                    //"Máscara"
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(3)"),
                 new string[]
                 {
                     "Traje rojo",
-                    "Espadachín/Espadachina",
-                    //"Masculino",
+                    "Espadachín / Espadachina",
                     "Adulto/a",
-                    //"Arrugas",
-                    "Héroe/Heroína",
+                    "Héroe / Heroína",
+                    "Máscara"
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(4)"),
@@ -441,8 +588,8 @@ public class Variables
                     "Piel blanca",
                     "Calvo/a",
                     "Arrugas",
-                    //"Masculino",
-                    "Cabello blanco"
+                    "Cabello blanco",
+                    "Traje a cuadros"
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(5)"),
@@ -454,7 +601,7 @@ public class Variables
                     "Arrugas",
                     "Lentes",
                     "Pelo recogido",
-                    //"Femenino"
+                    "Traje azul"
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(6)"),
@@ -464,8 +611,9 @@ public class Variables
                     "Piel morena",
                     "Bigote",
                     "Cabello blanco",
-                    //"Masculino",
                     "Adulto/a",
+                    "Gorro",
+                    "Traje azul"
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(7)"),
@@ -475,7 +623,7 @@ public class Variables
                     "Piel blanca",
                     "Cabello castaño",
                     "Jóven",
-                    //"Masculino"
+                    "Traje negro"
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(8)"),
@@ -484,13 +632,12 @@ public class Variables
                     "Jóven",
                     "Piel morena",
                     "Cabello negro",
-                    //"Femenino",
+                    "Traje azul"
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(9)"),
                 new string[]
                 {
-                    "Femenino",
                     "Cabello blanco",
                     "Adulto/a",
                     "Traje negro",
@@ -502,8 +649,7 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(10)"),
                 new string[]
                 {
-                    //"Masculino",
-                    "Espadachín/Espadachina",
+                    "Espadachín / Espadachina",
                     "Máscara",
                     "Traje negro",
                     "Piel blanca"
@@ -512,7 +658,6 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(11)"),
                 new string[]
                 {
-                    //"Masculino",
                     "Piel morena",
                     "Traje azul",
                     "Gorro",
@@ -523,7 +668,6 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(12)"),
                 new string[]
                 {
-                    //"Masculino",
                     "Lentes",
                     "Máscara",
                     "Traje negro",
@@ -533,8 +677,9 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(13)"),
                 new string[]
                 {
-                    //"Masculino",
                     "Barba",
+                    "Bigote",
+                    "Colas",
                     "Joyería",
                     "Traje negro",
                     "Piel morena",
@@ -544,18 +689,15 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(14)"),
                 new string[]
                 {
-                    //"Masculino",
                     "Héroe/Heroína",
                     "Traje rojo",
                     "Máscara",
-                    //"Piel blanca",
-                    //"Cabello castaño"
+                    "Jóven"
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(15)"),
                 new string[]
                 {
-                    //"Masculino",
                     "Anciano/a",
                     "Bigote",
                     "Pelo largo",
@@ -567,7 +709,6 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(16)"),
                 new string[]
                 {
-                    //"Masculino",
                     "Adulto/a",
                     "Máscara",
                     "Piel blanca",
@@ -578,9 +719,8 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(17)"),
                 new string[]
                 {
-                    //"Masculino",
                     "Adulto/a",
-                    "Traje verde",
+                    "Traje marrón",
                     "Piel blanca",
                     "Cabello castaño",
                 }
@@ -588,7 +728,6 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(19)"),
                 new string[]
                 {
-                    //"Masculino",
                     "Adulto/a",
                     "Traje azul",
                     "Piel blanca",
@@ -599,7 +738,6 @@ public class Variables
         new Persona(Methods.loadSprite($"{personaPath}(20)"),
                 new string[]
                 {
-                    //"Masculino",
                     "Adulto/a",
                     "Traje verde",
                     "Piel blanca",
@@ -608,7 +746,256 @@ public class Variables
                     "Gorro"
                 }
         ),
+        new Persona(Methods.loadSprite($"{personaPath}(21)"),
+                new string[]
+                {
+                    "Adulto/a",
+                    "Barba",
+                    "Bigote",
+                    "Gorro",
+                    "Piel morena",
+                    "Joyería",
+                    "Cabello corto",
+                    "Traje azul",
+                    "Cabello negro"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(22)"),
+                new string[]
+                {
+                    "Adulto/a",
+                    "Barba",
+                    "Bigote",
+                    "Piel morena",
+                    "Traje azul",
+                    "Traje a cuadros",
+                    "Cabello negro"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(23)"),
+                new string[]
+                {
+                    "Adulto/a",
+                    "Barba",
+                    "Bigote",
+                    "Piel blanca",
+                    "Traje azul",
+                    "Traje a cuadros",
+                    "Cabello negro"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(24)"),
+                new string[]
+                {
+                    "Adulto/a",
+                    "Piel blanca",
+                    "Traje azul",
+                    "Cabello verde",
+                    "Cabello largo",
+                    "Lentes",
+                    "Traje rojo"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(25)"),
+                new string[]
+                {
+                    "Jóven",
+                    "Piel blanca",
+                    "Cabello negro",
+                    "Cabello corto",
+                    "Joyería",
+                    "Cara pintada",
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(26)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Cabello negro",
+                    "Cabello recogido",
+                    "Traje marrón",
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(27)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Cabello negro",
+                    "Cabello corto",
+                    "Lentes",
+                    "Traje negro",
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(28)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Cabello negro",
+                    "Cabello corto",
+                    "Lentes",
+                    "Traje negro",
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(29)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Cabello negro",
+                    "Gorro",
+                    "Traje blanco",
+                    "Barba",
+                    "Bigote",
+                    "Adulto/a"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(30)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Gorro",
+                    "Traje verde",
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(31)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Gorro",
+                    "Traje blanco",
+                    "Adulto/a"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(32)"),
+                new string[]
+                {
+                    "Piel morena",
+                    "Gorro",
+                    "Máscara",
+                    "Traje verde",
+                    "Cabello negro",
+                    "Adulto/a"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(33)"),
+                new string[]
+                {
+                    "Piel morena",
+                    "Traje azul",
+                    "Cabello corto",
+                    "Cabello negro",
+                    "Presidente",
+                    "Adulto/a"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(34)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Traje gris",
+                    "Máscara",
+                    "Héroe / Heroína",
+                    "Adulto/a"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(35)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Futbolista",
+                    "Traje rojo",
+                    "Cabello corto",
+                    "Cabello negro",
+                    "Adulto/a"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(36)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Futbolista",
+                    "Traje azul",
+                    "Cabello corto",
+                    "Cabello negro",
+                    "Adulto/a"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(37)"),
+                new string[]
+                {
+                    "Piel morena",
+                    "Futbolista",
+                    "Bigote",
+                    "Traje verde",
+                    "Cabello corto",
+                    "Cabello negro",
+                    "Adulto/a"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(38)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Bigote",
+                    "Traje negro",
+                    "Cabello corto",
+                    "Cabello negro",
+                    "Adulto/a"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(39)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Bigote",
+                    "Traje verde",
+                    "Cabello corto",
+                    "Adulto/a"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(40)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Lentes",
+                    "Bigote",
+                    "Barba",
+                    "Traje negro",
+                    "Cabello corto",
+                    "Adulto/a"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(41)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Presidente",
+                    "Cabello rubio",
+                    "Traje azul",
+                    "Adulto/a"
+                }
+        ),
+        new Persona(Methods.loadSprite($"{personaPath}(42)"),
+                new string[]
+                {
+                    "Piel blanca",
+                    "Cabello largo",
+                    "Cabello rojo",
+                    "Traje azul",
+                    "Adulto/a"
+                }
+        ),
+
     };
 
+    public static Dictionary<Intelligence,Sprite> IntelligenceSprites = new Dictionary<Intelligence, Sprite>(){
+        {Intelligence.Math, Methods.loadSprite("1")},
+        {Intelligence.Intrapersonal, Methods.loadSprite("2")},
+        {Intelligence.Interpersonal, Methods.loadSprite("3")},
+        {Intelligence.Naturalist, Methods.loadSprite("4")},
+        {Intelligence.Spatial, Methods.loadSprite("5")},
+        {Intelligence.Musical, Methods.loadSprite("6")},
+        {Intelligence.CorporalKinesthetic, Methods.loadSprite("7")},
+        {Intelligence.Language, Methods.loadSprite("8")},
+    };
 
 }

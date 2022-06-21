@@ -13,6 +13,7 @@ public class Freeplay : MonoBehaviour
     [SerializeField] Image gameImage;
     [SerializeField] TextMeshProUGUI gameNameText;
     [SerializeField] GameObject showcase;
+    [SerializeField] Image icon;
     void Start()
     {
         
@@ -45,6 +46,8 @@ public class Freeplay : MonoBehaviour
         gameNameText.text = game.name;
         descriptionText.text = game.description;
         gameImage.sprite = game.image;
+        icon.gameObject.SetActive(true);
+        icon.sprite = Variables.IntelligenceSprites[game.intelligence];
         startBtn.interactable = true;
         startBtn.onClick.RemoveAllListeners();
         startBtn.onClick.AddListener(() => LoadGame(game.Id));
