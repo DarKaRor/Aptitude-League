@@ -411,6 +411,72 @@ public class Variables
                 "tigre",
             },
             "Tigre","Grrrrrr"
+        ),
+        new Identify(
+            new string[]{
+                "abeja",
+                "avispa",
+                "abejorro",
+                "zangano"
+            },
+            "Abeja","Bzzzzz"
+        ),
+        new Identify(
+            new string[]{
+                "buho",
+                "lechuza",
+                "tecolote",
+                "mochuelo"
+            },
+            "Búho", "Huu huu"
+        ),
+        new Identify(
+            new string[]{
+                "burro",
+                "asno",
+            },
+            "Burro","Hiia, Hiia"
+        ),
+        new Identify(
+            new string[]{
+                "pajaro carpintero",
+            },
+            "Carpintero",null
+        ),
+        new Identify(
+            new string[]{
+                "grillo",
+                "saltamontes",
+                "criquet",
+                "cigarra",
+                "chicharra"
+            },
+            "Grillo", "Cri, Cri"
+        ),
+        new Identify(
+            new string[]{
+                "lobo",
+                "lobezno"
+            },
+            "Lobo","Auuuu"
+        ),
+        new Identify(
+            new string[]{
+                "oveja",
+                "cordero",
+                "borrego",
+                "carnero",
+                "rebaño"
+            },
+            "Oveja", "Meeeeeh"
+        ),
+        new Identify(
+            new string[]{
+                "vaca",
+                "buey",
+                "toro"
+            },
+            "Vaca", "Muuuuuu"
         )
     };
 
