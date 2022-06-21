@@ -802,9 +802,9 @@ public class Variables
                     "Jóven",
                     "Piel blanca",
                     "Cabello negro",
-                    "Cabello corto",
+                    "Cabello largo",
                     "Joyería",
-                    "Cara pintada",
+                    "Maquillaje",
                 }
         ),
         new Persona(Methods.loadSprite($"{personaPath}(26)"),
@@ -979,8 +979,8 @@ public class Variables
                 {
                     "Piel blanca",
                     "Cabello largo",
-                    "Cabello rojo",
-                    "Traje azul",
+                    "Cabello castaño",
+                    "Traje rosado",
                     "Adulto/a"
                 }
         ),
